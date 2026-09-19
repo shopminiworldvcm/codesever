@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+	<meta name="google-site-verification" content="71JIBOnazE9-qCPSzT0-1AnV2mh_M8y8vqvOpNsfd_g" />
+    <meta property="og:title" content="Công cụ tự động Mini World - vcminh" />
+    <meta property="og:description" content="Trang web quản lý và tự động hóa game Mini World chuyên nghiệp." />
+    <meta property="og:image" content="https://raw.githubusercontent.com/vcminh1804/Tool/refs/heads/main/quangcao.png" />
+    <meta property="og:url" content="https://home-vcm.pages.dev/" />
+    <meta property="og:video" content="https://r2.zyo.lol/background_b5c2eef492e8.mp4" />
+    <meta property="og:video:secure_url" content="https://r2.zyo.lol/background_b5c2eef492e8.mp4" />
+    <meta property="og:video:type" content="video/mp4" />
+    <meta property="og:video:width" content="1280" />
+    <meta property="og:video:height" content="720" />
+    <meta property="og:type" content="website" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buff Fan,Medal,Season Mini World - vcminh,Mini World: CREATA</title>
+	<meta name="description" content="Trang chính thức cung cấp công cụ Tăng Tương Tác Mini World của vcminh.">
+    <link rel="icon" type="image/png" href="https://static.miniworldgame.com/developer/pc/lib/icon/logo-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="https://static.miniworldgame.com/developer/pc/lib/icon/logo-64x64.png" sizes="64x64">
+    <link rel="icon" type="image/png" href="https://static.miniworldgame.com/developer/pc/lib/icon/logo-128x128.png" sizes="128x128">
+    <style>
+        body { font-family: Arial, sans-serif; margin: 0; min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; background: #121212; color: #fff; }
+        .bg-video { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; object-fit: cover; z-index: -1; }
+        .flashing-title { 
+            font-size: 42px; 
+            font-weight: bold; 
+            margin-bottom: 25px; 
+            text-align: center;
+            background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);
+            background-size: 400%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 4px 20px rgba(0,0,0,0.8);
+            animation: rainbow 6s linear infinite; 
+        }
+        @keyframes rainbow { 
+            0% { background-position: 0% 50%; } 
+            50% { background-position: 100% 50%; } 
+            100% { background-position: 0% 50%; } 
+        }
+        .accordion { width: 100%; max-width: 400px; margin-bottom: 12px; }
+        .accordion-header { 
+            background: rgba(10, 10, 10, 0.85); padding: 16px; border-radius: 10px; 
+            cursor: pointer; text-align: center; border: 1.5px solid rgba(255, 255, 255, 0.3);
+            font-weight: bold; font-size: 16px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.6);
+            transition: 0.3s;
+        }
+        .accordion-header:hover { background: rgba(30, 30, 30, 0.95); border-color: rgba(255, 255, 255, 0.6); }
+        .accordion-content { 
+            display: none; background: rgba(15, 15, 15, 0.9); padding: 18px; 
+            border-radius: 0 0 10px 10px; border: 1.5px solid rgba(255, 255, 255, 0.2);
+            border-top: none;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.6);
+        }
+        .accordion-content.active { display: block; }
+        .contact-links { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; margin-top: 12px; }
+        .contact-links a { color: #00d2ff; text-decoration: none; padding: 6px 14px; background: rgba(0, 0, 0, 0.7); border-radius: 15px; font-size: 13px; border: 1px solid rgba(255,255,255,0.2); font-weight: bold; }
+        .contact-links a:hover { background: rgba(0, 210, 255, 0.3); }
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; width: 100vw; height: 100vh;
+            background: rgba(0, 0, 0, 0.75);
+            z-index: 999;
+            justify-content: center;
+            align-items: center;
+            padding: 15px;
+            box-sizing: border-box;
+        }
+        .modal-content {
+            background: rgba(20, 20, 20, 0.95);
+            border: 1.5px solid rgba(255, 255, 255, 0.3);
+            border-radius: 12px;
+            width: 100%;
+            max-width: 420px;
+            max-height: 90vh;
+            overflow-y: auto;
+            padding: 20px;
+            box-sizing: border-box;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.8);
+            position: relative;
+            text-align: left;
+        }
+        .close-btn {
+            position: absolute;
+            top: 12px; right: 15px;
+            background: none; border: none;
+            color: #ff6b6b; font-size: 22px; font-weight: bold;
+            cursor: pointer;
+        }
+        .form-group { margin-bottom: 15px; }
+        label { display: block; margin-bottom: 5px; font-weight: bold; color: #fff; text-shadow: 0 1px 2px rgba(0,0,0,0.8); }
+        input { 
+            width: 100%; 
+            padding: 10px; 
+            box-sizing: border-box; 
+            border: 1px solid rgba(255, 255, 255, 0.4); 
+            border-radius: 5px; 
+            background: rgba(255, 255, 255, 0.15);
+            color: #fff;
+        }
+        input::placeholder { color: rgba(255, 255, 255, 0.6); }
+        button.btn-main { 
+            width: 100%; 
+            padding: 10px; 
+            background: #007bff; 
+            color: white; 
+            border: none; 
+            border-radius: 5px; 
+            font-size: 16px; 
+            cursor: pointer; 
+        }
+        button.btn-main:hover { background: #0056b3; }
+        #payment-box { 
+            margin-top: 20px; 
+            text-align: center; 
+            display: none; 
+            border-top: 2px dashed rgba(255, 255, 255, 0.3); 
+            padding-top: 15px; 
+        }
+        #qr-image { 
+            width: 180px; 
+            height: 180px; 
+            margin-top: 10px; 
+            border-radius: 5px; 
+            border: 1px solid rgba(255, 255, 255, 0.2); 
+        }
+        .highlight { color: #ff6b6b; font-weight: bold; }
+        .warning-text {
+            margin-top: 10px;
+            font-size: 12px;
+            color: #ffeb3b;
+            font-style: italic;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<video class="bg-video" autoplay muted loop playsinline>
+    <source src="https://r2.zyo.lol/background_b5c2eef492e8.mp4" type="video/mp4">
+</video>
+<div class="flashing-title">vcminh</div>
+<div class="accordion">
+    <div class="accordion-header" onclick="toggleAccordion('info')">👤 Thông tin Admin</div>
+    <div id="info" class="accordion-content">
+        <p style="margin: 0 0 10px 0;">Liên Hệ Admin:</p>
+        <div class="contact-links">
+            <a href="https://zalo.me/0399754608" target="_blank">📱 Zalo</a>
+            <a href="https://facebook.com/vcminh.vn" target="_blank">🌐 Facebook</a>
+			<!--
+            <a href="https://facebook.com/vcminh.dichvubuffminiworld" target="_blank">🌐 Page</a>
+			-->
+            <a href="https://t.me/vcminh1804" target="_blank">📱 Tele</a>
+            <a href="https://discord.gg/JQpebxfvVJ" target="_blank">🌐 Discord</a>
+        </div>
+    </div>
+</div>
+<div class="accordion">
+    <div class="accordion-header" onclick="toggleAccordion('tool')">🛠 Công Cụ</div>
+    <div id="tool" class="accordion-content">
+        <p style="margin: 0 0 10px 0; font-size: 13px; color: #ffeb3b;">Lưu ý: Các Công Cụ Đểu Có Thể Hoạt Động,Nếu Xảy Ra Lổi Hãy Liên Lạc ADMIN.</p>
+        <p style="margin: 0 0 10px 0;">Truy cập công cụ tại đây:</p>
+        <p style="margin: 0 0 5px 0; font-weight: bold;">Tăng Tương Tác Người Theo Dõi</p>
+        <a href="https://fan.vcm-buffminiworld.workers.dev/" target="_blank" style="color: #ffeb3b; font-weight: bold; text-decoration: underline; display: block; margin-bottom: 10px;">Sever 1 (Trang chính)</a>
+        <a href="javascript:void(0);" onclick="openModal('follow')" style="color: #00d2ff; font-weight: bold; text-decoration: underline; display: block;">Server 2 (Trang Phụ)</a>
+        <p style="margin: 0 0 10px 0;"></p>
+		<p style="margin: 0 0 5px 0; font-weight: bold;">Thông Tin Người Chơi</p>
+        <a href="https://profile-acc.event-miniworld.workers.dev/" target="_blank" style="color: #ffeb3b; font-weight: bold; text-decoration: underline; display: block; margin-bottom: 10px;">Sever 1 (Trang chính)</a>
+		<p style="margin: 0 0 5px 0; font-weight: bold;">Nâng Cấp Thành Tựu</p>
+        <a href="javascript:void(0);" onclick="openMedalModal()" style="color: #ffeb3b; font-weight: bold; text-decoration: underline; display: block; margin-bottom: 10px;">Sever 1 (Trang chính)</a>
+		<a href="https://medal.buffminiworld.workers.dev/" target="_blank" style="color: #ffeb3b; font-weight: bold; text-decoration: underline; display: block; margin-bottom: 10px;">Sever Admin</a>
+		<!--
+		<p style="margin: 0 0 5px 0; font-weight: bold;">Mở Phòng Đám Mây</p>
+        <a href="javascript:void(0);" onclick="openCloudModal()" style="color: #ffeb3b; font-weight: bold; text-decoration: underline; display: block; margin-bottom: 10px;">Sever 1 (Trang chính)</a>
+		<a href="https://roomcloud.buffminiworld.workers.dev/" target="_blank" style="color: #00d2ff; font-weight: bold; text-decoration: underline; display: block; margin-bottom: 10px;">Sever Free</a>
+		<!--
+		<p style="margin: 0 0 5px 0; font-weight: bold;">Mời Người Chơi Đi Tắm Biển</p>
+        <a href="javascript:void(0);" onclick="openBanModal()" style="color: #ffeb3b; font-weight: bold; text-decoration: underline; display: block; margin-bottom: 10px;">Sever 1 (Trang chính)</a>
+		-->
+		<p style="margin: 0 0 5px 0; font-weight: bold;">Tăng Cấp Tối Đa Nhiệm Vụ Tháng</p>
+        <a href="javascript:void(0);" onclick="openSeasonModal()" style="color: #ffeb3b; font-weight: bold; text-decoration: underline; display: block; margin-bottom: 10px;">Sever 1 (Trang chính)</a>
+    </div>
+</div>
+<div id="server2-modal" class="modal-overlay">
+    <div class="modal-content">
+        <button class="close-btn" onclick="closeAllModal()">&times;</button>
+        <h4 style="color: #ffeb3b; margin: 0 0 15px 0; text-align: center;">Tăng Tương Tác Người Theo Dõi - Server 2</h4>
+        <div class="form-group">
+            <label>Nhập UID:</label>
+            <input type="text" id="uid" placeholder="Nhập UID..." oninput="validateuid(this)">
+        </div>
+        <div class="form-group">
+            <label>Số lượng Follow:</label>
+            <input type="number" id="amount" placeholder="Ví dụ: 100" oninput="validateuid(this);calculatePrice()">
+        </div>
+        <div class="form-group">
+            <label>Thành tiền:</label>
+            <input type="text" id="price-text" readonly value="0vnđ" style="background: rgba(255, 255, 255, 0.1); font-weight: bold;">
+        </div>
+        <button class="btn-main" onclick="createPayment()">Tạo QR Thanh Toán</button>
+        <div id="payment-box">
+            <p style="font-size: 12px; color: #ffeb3b; margin-bottom: 8px;">Mua Lớn Hơn 1000 Follow Để Được Tặng Thêm 50-120%</p>
+            <h3 style="margin: 5px 0; font-size: 16px;">Quét mã để thanh toán</h3>
+            <p style="margin: 4px 0; font-size: 12px;">Tài Khoản: <b>19999998765432</b> - Ngân Hàng: <b>MBBank</b></p>
+            <p style="margin: 6px 0 2px 0; font-size: 12px;">Nội dung chuyển khoản bắt buộc:</p>
+            <p class="highlight" id="content-text" style="font-size: 15px; background: rgba(0,0,0,0.4); padding: 5px; border-radius: 4px; margin: 0;"></p>
+            <p style="margin: 6px 0;">Số tiền: <span class="highlight" id="amount-text"></span></p>
+            <img id="qr-image" src="" alt="Mã QR Thanh Toán">
+            <p style="font-size: 11px; color: #ccc; margin-top: 6px;">Hệ Thống Sẽ Tự Động Kích Hoạt Theo Lịch Trình Cách 3 Phút</p>
+        </div>
+        <div class="warning-text">⏳ Đang chờ hệ thống... Nếu quá 1 ngày không tăng follow hãy liên hệ admin!</div>
+    </div>
+</div>
+<div id="server2-medal-modal" class="modal-overlay">
+    <div class="modal-content">
+        <button class="close-btn" onclick="closeAllModal()">&times;</button>
+        <h4 style="color: #ffeb3b; margin: 0 0 15px 0; text-align: center;">Nâng Cấp Thành Tựu</h4>
+        <div class="form-group">
+            <label>Nhập UID :</label>
+            <input type="text" id="medal-uid" placeholder="Nhập UID..." oninput="validateuid(this)">
+        </div>
+        <div class="form-group">
+            <label>Mã Ghi Chú Đơn Hàng (Chỉ chữ và số):</label>
+            <input type="text" id="medal-orcode" placeholder="Không chứa ký tự đặc biệt..." oninput="validateAuthword(this)">
+        </div>
+        <div class="form-group">
+            <label>Chọn Thành Tích:</label>
+            <select id="medal-select" onchange="calculateMedalPrice()" style="width: 100%; padding: 10px; box-sizing: border-box; border: 1px solid rgba(255, 255, 255, 0.4); border-radius: 5px; background: rgba(255, 255, 255, 0.15); color: #fff;">
+                <option value="1001" style="background: #121212; color: #fff;">Thợ Săn Boss</option>
+                <option value="1002" style="background: #121212; color: #fff;">Thợ Săn Kho Báu</option>
+                <option value="1003" style="background: #121212; color: #fff;">Bậc Thầy Sinh Tồn</option>
+                <option value="1004" style="background: #121212; color: #fff;">Siêu Chiến Binh</option>
+                <option value="1005" style="background: #121212; color: #fff;">Kẻ May Mắn</option>
+                <option value="1006" style="background: #121212; color: #fff;">Bậc Thầy Kiến Trúc</option>
+                <option value="1008" style="background: #121212; color: #fff;">Người Bạn Tốt</option>
+                <option value="1010" style="background: #121212; color: #fff;">Được Yêu Thích</option>
+                <option value="1011" style="background: #121212; color: #fff;">Nhà Làm Vườn</option>
+                <option value="1012" style="background: #121212; color: #fff;">Thánh Bắt Sâu</option>
+                <option value="1014" style="background: #121212; color: #fff;">Nông Dân Ưu Tú</option>
+                <option value="1015" style="background: #121212; color: #fff;">Bàn Tay Vàng</option>
+                <option value="1016" style="background: #121212; color: #fff;">Nhà Sưu Tập</option>
+                <option value="1017" style="background: #121212; color: #fff;">Siêu Nhân</option>
+                <option value="1018" style="background: #121212; color: #fff;">Thánh Hóa Trang</option>
+                <option value="1019" style="background: #121212; color: #fff;">Bậc Thầy Thuần Hóa</option>
+                <option value="1020" style="background: #121212; color: #fff;">Fashionista</option>
+				<option value="1013" style="background: #821212; color: #fff;">Bậc Thầy Thu Thập</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label>Thành tiền:</label>
+            <input type="text" id="medal-price-text" readonly value="0vnđ" style="background: rgba(255, 255, 255, 0.1); font-weight: bold;">
+        </div>
+        <button class="btn-main" onclick="createMedalPayment()">Tạo QR Thanh Toán</button>
+        <div id="medal-payment-box" style="margin-top: 20px; text-align: center; display: none; border-top: 2px dashed rgba(255, 255, 255, 0.3); padding-top: 15px;">
+            <h3 style="margin: 5px 0; font-size: 16px;">Quét mã để thanh toán</h3>
+            <p style="margin: 4px 0; font-size: 12px;">Tài Khoản: <b>19999998765432</b> - Ngân Hàng: <b>MBBank</b></p>
+            <p style="margin: 6px 0 2px 0; font-size: 12px;">Nội dung chuyển khoản bắt buộc:</p>
+            <p class="highlight" id="medal-content-text" style="font-size: 15px; background: rgba(0,0,0,0.4); padding: 5px; border-radius: 4px; margin: 0;"></p>
+            <p style="margin: 6px 0;">Số tiền: <span class="highlight" id="medal-amount-text"></span></p>
+            <img id="medal-qr-image" src="" alt="Mã QR Thanh Toán" style="width: 180px; height: 180px; margin-top: 10px; border-radius: 5px; border: 1px solid rgba(255, 255, 255, 0.2);">
+        </div>
+        <div class="warning-text">⏳ Đang chờ hệ thống... Nếu quá 15 phút thành tích không tăng hãy liên hệ admin!</div>
+    </div>
+</div>
+<div id="server-cloud-modal" class="modal-overlay">
+    <div class="modal-content">
+        <button class="close-btn" onclick="closeAllModal()">&times;</button>
+        <h4 style="color: #ffeb3b; margin: 0 0 15px 0; text-align: center;">Mở Phòng Đám Mây</h4>
+        <div class="form-group">
+            <label>Nhập WID Map :</label>
+            <input type="text" id="cloud-wid" placeholder="Nhớ Nhập Đúng WID Map Khi Tra Ở Profile Account" oninput="validateuid(this)">
+        </div>
+		<div class="form-group">
+            <label>Nhập Số Ngày :</label>
+            <input type="text" id="cloud-day" placeholder="Ví dụ:100" oninput="validateuid(this);calculateCloudPrice()">
+        </div>
+        <div class="form-group">
+            <label>Thành tiền:</label>
+            <input type="text" id="cloud-price-text" readonly value="0vnđ" style="background: rgba(255, 255, 255, 0.1); font-weight: bold;">
+        </div>
+        <button class="btn-main" onclick="createCloudPayment()">Tạo QR Thanh Toán</button>
+        <div id="cloud-payment-box" style="margin-top: 20px; text-align: center; display: none; border-top: 2px dashed rgba(255, 255, 255, 0.3); padding-top: 15px;">
+            <h3 style="margin: 5px 0; font-size: 16px;">Quét mã để thanh toán</h3>
+            <p style="margin: 4px 0; font-size: 12px;">Tài Khoản: <b>19999998765432</b> - Ngân Hàng: <b>MBBank</b></p>
+            <p style="margin: 6px 0 2px 0; font-size: 12px;">Nội dung chuyển khoản bắt buộc:</p>
+            <p class="highlight" id="cloud-content-text" style="font-size: 15px; background: rgba(0,0,0,0.4); padding: 5px; border-radius: 4px; margin: 0;"></p>
+            <p style="margin: 6px 0;">Số tiền: <span class="highlight" id="cloud-amount-text"></span></p>
+            <img id="cloud-qr-image" src="" alt="Mã QR Thanh Toán" style="width: 180px; height: 180px; margin-top: 10px; border-radius: 5px; border: 1px solid rgba(255, 255, 255, 0.2);">
+        </div>
+        <div class="warning-text">⏳ Hệ Thống Sẻ Tự Động Mở Phòng Cloud Theo Thời Gian Cài Đặt!</div>
+    </div>
+</div>
+<div id="server-ban-modal" class="modal-overlay">
+    <div class="modal-content">
+        <button class="close-btn" onclick="closeAllModal()">&times;</button>
+        <h4 style="color: #ffeb3b; margin: 0 0 15px 0; text-align: center;">Mời Người Chơi Đi Tắm Biển</h4>
+        <div class="form-group">
+            <label>Nhập UID:</label>
+            <input type="text" id="ban-uid" placeholder="Nhập UID" oninput="validateuid(this)">
+        </div>
+		<div class="form-group">
+            <label>Nhập Số Ngày :</label>
+            <input type="text" id="ban-day" placeholder="Ví dụ:100" oninput="validateuid(this);calculateBanPrice()">
+        </div>
+        <div class="form-group">
+            <label>Thành tiền:</label>
+            <input type="text" id="ban-price-text" readonly value="0vnđ" style="background: rgba(255, 255, 255, 0.1); font-weight: bold;">
+        </div>
+        <button class="btn-main" onclick="createBanPayment()">Tạo QR Thanh Toán</button>
+        <div id="ban-payment-box" style="margin-top: 20px; text-align: center; display: none; border-top: 2px dashed rgba(255, 255, 255, 0.3); padding-top: 15px;">
+            <h3 style="margin: 5px 0; font-size: 16px;">Quét mã để thanh toán</h3>
+            <p style="margin: 4px 0; font-size: 12px;">Tài Khoản: <b>19999998765432</b> - Ngân Hàng: <b>MBBank</b></p>
+            <p style="margin: 6px 0 2px 0; font-size: 12px;">Nội dung chuyển khoản bắt buộc:</p>
+            <p class="highlight" id="ban-content-text" style="font-size: 15px; background: rgba(0,0,0,0.4); padding: 5px; border-radius: 4px; margin: 0;"></p>
+            <p style="margin: 6px 0;">Số tiền: <span class="highlight" id="ban-amount-text"></span></p>
+            <img id="ban-qr-image" src="" alt="Mã QR Thanh Toán" style="width: 180px; height: 180px; margin-top: 10px; border-radius: 5px; border: 1px solid rgba(255, 255, 255, 0.2);">
+        </div>
+        <div class="warning-text">⏳ Hệ Thống Sẻ Tự Động Mời Người Chơi Đi Tắm Biển Theo Thời Gian Cài Đặt!</div>
+    </div>
+</div>
+<div id="server-season-modal" class="modal-overlay">
+    <div class="modal-content">
+        <button class="close-btn" onclick="closeAllModal()">&times;</button>
+        <h4 style="color: #ffeb3b; margin: 0 0 15px 0; text-align: center;">Tăng Cấp Tối Đa Nhiệm Vụ Tháng</h4>
+        <div class="form-group">
+            <label>Nhập UID :</label>
+            <input type="text" id="season-uid" placeholder="Nhập UID..." oninput="validateuid(this)">
+        </div>
+        <div class="form-group">
+            <label>Mã Ghi Chú Đơn Hàng (Chỉ chữ và số):</label>
+            <input type="text" id="season-orcode" placeholder="Không chứa ký tự đặc biệt..." oninput="validateAuthword(this)">
+        </div>
+		<div class="warning-text">Lưu Ý: Nên Sử Dụng Khi Toàn Bộ Nhiệm Vụ Đã Mở!</div>
+        <div class="form-group">
+            <label>Thành tiền:</label>
+            <input type="text" id="season-price-text" readonly value="30.000vnđ" style="background: rgba(255, 255, 255, 0.1); font-weight: bold;">
+        </div>
+        <button class="btn-main" onclick="createSeasonPayment()">Tạo QR Thanh Toán</button>
+        <div id="season-payment-box" style="margin-top: 20px; text-align: center; display: none; border-top: 2px dashed rgba(255, 255, 255, 0.3); padding-top: 15px;">
+		    <p style="margin: 0 0 10px 0; font-size: 13px; color: #ffeb3b;">Lưu ý: Nên Sử Dụng Nó Khi Đã Mở Nhiệm Vụ Cuối Cùng.</p>
+            <h3 style="margin: 5px 0; font-size: 16px;">Quét mã để thanh toán</h3>
+            <p style="margin: 4px 0; font-size: 12px;">Tài Khoản: <b>19999998765432</b> - Ngân Hàng: <b>MBBank</b></p>
+            <p style="margin: 6px 0 2px 0; font-size: 12px;">Nội dung chuyển khoản bắt buộc:</p>
+            <p class="highlight" id="season-content-text" style="font-size: 15px; background: rgba(0,0,0,0.4); padding: 5px; border-radius: 4px; margin: 0;"></p>
+            <p style="margin: 6px 0;">Số tiền: <span class="highlight" id="season-amount-text"></span></p>
+            <img id="season-qr-image" src="" alt="Mã QR Thanh Toán" style="width: 180px; height: 180px; margin-top: 10px; border-radius: 5px; border: 1px solid rgba(255, 255, 255, 0.2);">
+        </div>
+        <div class="warning-text">⏳ Đang chờ hệ thống... Nếu quá 15 phút thành tích không tăng hãy liên hệ admin!</div>
+    </div>
+</div>
+<script>
+    function toggleAccordion(id) {
+        const content = document.getElementById(id);
+        content.classList.toggle('active');
+    }
+	//
+	function closeAllModal() {
+        document.getElementById("server2-modal").style.display = "none";
+		document.getElementById("server2-medal-modal").style.display = "none";
+		document.getElementById("server-cloud-modal").style.display = "none";
+		document.getElementById("server-ban-modal").style.display = "none";
+		document.getElementById("server-season-modal").style.display = "none";
+    }
+	/// open ui
+    function openModal() {
+        document.getElementById("server2-modal").style.display = "flex";
+		document.getElementById("payment-box").style.display = "none";
+		calculateMedalPrice();
+    }
+	function openMedalModal() {
+        document.getElementById("server2-medal-modal").style.display = "flex";
+        document.getElementById("medal-payment-box").style.display = "none";
+        calculateMedalPrice();
+    }
+    function openCloudModal() {
+        document.getElementById("server-cloud-modal").style.display = "flex";
+        document.getElementById("cloud-payment-box").style.display = "none";
+        calculateCloudPrice();
+    }
+	function openBanModal() {
+        document.getElementById("server-ban-modal").style.display = "flex";
+        document.getElementById("ban-payment-box").style.display = "none";
+        calculateMedalPrice();
+    }
+	function openSeasonModal() {
+        document.getElementById("server-season-modal").style.display = "flex";
+        document.getElementById("season-payment-box").style.display = "none";
+    }
+	/// config
+    const BANK_CONFIG = {
+        stk: "19999998765432",
+        bank: "MBBank"
+    };
+	function validateAuthword(input) {
+        input.value = input.value.replace(/[^a-zA-Z0-9]/g, '');
+    }
+	function validateuid(input) {
+        input.value = input.value.replace(/[^0-9]/g, '');
+    }
+    function calculatePrice() {
+        const qty = document.getElementById("amount").value;
+        const price = qty * 150;
+        document.getElementById("price-text").value = price.toLocaleString() + "đ";
+    }
+	function calculateCloudPrice() {
+        const qty = document.getElementById("cloud-day").value;
+        const price = qty * 2000;
+        document.getElementById("cloud-price-text").value = price.toLocaleString() + "đ";
+    }
+    function calculateMedalPrice() {
+        const selectedId = parseInt(document.getElementById("medal-select").value) || 1001;
+        const price = selectedId * 5;
+        document.getElementById("medal-price-text").value = price.toLocaleString() + "đ";
+    }
+	function calculateBanPrice() {
+        const qty = document.getElementById("ban-day").value;
+        const price = qty * 3500;
+        document.getElementById("ban-price-text").value = price.toLocaleString() + "đ";
+    }
+	///payment
+    function createPayment() {
+        const uidInput = document.getElementById("uid").value.trim();
+        const qty = document.getElementById("amount").value.trim();
+        if (!uidInput || !qty || qty <= 0) {
+            alert("Vui lòng nhập đầy đủ UID và số lượng hợp lệ!");
+            return;
+        }
+        const rawUid = parseInt(uidInput) || 0;
+        if (rawUid <= 0 || rawUid > 1000000000) {
+            alert("UID không hợp lệ! UID phải lớn hơn 0 và nhỏ hơn hoặc bằng 1.000.000.000.");
+            return;
+        }
+        const price = qty * 150;
+        const paddedUid = rawUid + 1000000000;
+        const orderCode = `DH${paddedUid}`;
+        document.getElementById("payment-box").style.display = "block";
+        document.getElementById("content-text").innerText = orderCode;
+        document.getElementById("amount-text").innerText = price.toLocaleString() + "đ";
+        const qrUrl = `https://qr.sepay.vn/img?acc=${BANK_CONFIG.stk}&bank=${BANK_CONFIG.bank}&amount=${price}&des=${orderCode}`;
+        document.getElementById("qr-image").src = qrUrl;
+        alert("Vui lòng Chụp Lại Bill Chuyển Khoản Nếu Sau 1 Ngày Follow Không Tăng Thì Liên Hệ ADM!");
+    }
+    function createMedalPayment() {
+        const uidInput = document.getElementById("medal-uid").value.trim();
+        const authInput = document.getElementById("medal-orcode").value.trim();
+        const selectedId = document.getElementById("medal-select").value;
+        if (!uidInput || !authInput) {
+            alert("Vui lòng nhập đầy đủ UID và Mã Ghi Chú Đơn Hàng!");
+            return;
+        }
+        const rawUid = parseInt(uidInput) || 0;
+        if (rawUid <= 0 || rawUid > 1000000000) {
+            alert("UID không hợp lệ! UID phải lớn hơn 0 và nhỏ hơn hoặc bằng 1.000.000.000.");
+            return;
+        }
+        const price = parseInt(selectedId) * 5;
+		const paddedUid = rawUid + 1000000000;
+        const orderCode = `HH${paddedUid}PS${authInput}`;
+        document.getElementById("medal-payment-box").style.display = "block";
+        document.getElementById("medal-content-text").innerText = orderCode;
+        document.getElementById("medal-amount-text").innerText = price.toLocaleString() + "đ";
+        document.getElementById("medal-qr-image").src = `https://qr.sepay.vn/img?acc=${BANK_CONFIG.stk}&bank=${BANK_CONFIG.bank}&amount=${price}&des=${orderCode}`;
+        alert("Vui lòng Chụp Lại Bill Chuyển Khoản Nếu Sau 15 Phút Thành Tích Không Tăng Thì Liên Hệ ADM!");
+    }
+	function createCloudPayment() {
+        const widInput = document.getElementById("cloud-wid").value.trim();
+        const dayInput = document.getElementById("cloud-day").value.trim();
+        if (!widInput || !dayInput) {
+            alert("Vui lòng nhập đầy đủ ƯID và Số Ngày!");
+            return;
+        }
+        const price = parseInt(dayInput) * 2000;
+        const orderCode = `CL${widInput}`;
+        document.getElementById("cloud-payment-box").style.display = "block";
+        document.getElementById("cloud-content-text").innerText = orderCode;
+        document.getElementById("cloud-amount-text").innerText = price.toLocaleString() + "đ";
+        document.getElementById("cloud-qr-image").src = `https://qr.sepay.vn/img?acc=${BANK_CONFIG.stk}&bank=${BANK_CONFIG.bank}&amount=${price}&des=${orderCode}`;
+        alert("Vui lòng Chụp Lại Bill Chuyển Khoản Nếu Xảy Ra Lổi Thì Liên Hệ ADM!");
+    }
+	function createBanPayment() {
+        const uidInput = document.getElementById("ban-uid").value.trim();
+        const dayInput = document.getElementById("ban-day").value.trim();
+        if (!uidInput || !dayInput) {
+            alert("Vui lòng nhập đầy đủ ƯID và Số Ngày!");
+            return;
+        }
+		const rawUid = parseInt(uidInput) || 0;
+        if (rawUid <= 0 || rawUid > 1000000000) {
+            alert("UID không hợp lệ! UID phải lớn hơn 0 và nhỏ hơn hoặc bằng 1.000.000.000.");
+            return;
+        }
+		const paddedUid = rawUid + 1000000000;
+        const price = parseInt(dayInput) * 3500;
+        const orderCode = `BAN${paddedUid}`;
+        document.getElementById("ban-payment-box").style.display = "block";
+        document.getElementById("ban-content-text").innerText = orderCode;
+        document.getElementById("ban-amount-text").innerText = price.toLocaleString() + "đ";
+        document.getElementById("ban-qr-image").src = `https://qr.sepay.vn/img?acc=${BANK_CONFIG.stk}&bank=${BANK_CONFIG.bank}&amount=${price}&des=${orderCode}`;
+        alert("Vui lòng Chụp Lại Bill Chuyển Khoản Nếu Xảy Ra Lổi Thì Liên Hệ ADM!");
+    }
+	function createSeasonPayment() {
+        const uidInput = document.getElementById("season-uid").value.trim();
+        const authInput = document.getElementById("season-orcode").value.trim();
+        if (!uidInput || !authInput) {
+            alert("Vui lòng nhập đầy đủ UID và Mã Ghi Chú Đơn Hàng!");
+            return;
+        }
+        const rawUid = parseInt(uidInput) || 0;
+        if (rawUid <= 0 || rawUid > 1000000000) {
+            alert("UID không hợp lệ! UID phải lớn hơn 0 và nhỏ hơn hoặc bằng 1.000.000.000.");
+            return;
+        }
+        const price = 30000;
+		const paddedUid = rawUid + 1000000000;
+        const orderCode = `SS${paddedUid}PS${authInput}`;
+        document.getElementById("season-payment-box").style.display = "block";
+        document.getElementById("season-content-text").innerText = orderCode;
+        document.getElementById("season-amount-text").innerText = price.toLocaleString() + "đ";
+        document.getElementById("season-qr-image").src = `https://qr.sepay.vn/img?acc=${BANK_CONFIG.stk}&bank=${BANK_CONFIG.bank}&amount=${price}&des=${orderCode}`;
+        alert("Vui lòng Chụp Lại Bill Chuyển Khoản Nếu Sau 15 Phút Thành Tích Không Tăng Thì Liên Hệ ADM!");
+    }
+    window.onclick = function(event) {
+        const modalFollow = document.getElementById("server2-modal");
+        const modalMedal = document.getElementById("server2-medal-modal");
+		const modalCloud = document.getElementById("server-cloud-modal");
+		const modalBan = document.getElementById("server-ban-modal");
+		const modalSeason = document.getElementById("server-season-modal");
+        if (event.target === modalFollow) {
+            modalFollow.style.display = "none";
+        }
+        if (event.target === modalMedal) {
+            modalMedal.style.display = "none";
+        }
+		if (event.target === modalCloud) {
+            modalCloud.style.display = "none";
+        }
+		if (event.target === modalBan) {
+            modalBan.style.display = "none";
+        }
+		if (event.target === modalSeason) {
+            modalBan.style.display = "none";
+        }
+    }
+</script>
+<script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "7e8c33d87e0b41d0babfa938e84b9334"}'></script>
+</body>
+</html>
