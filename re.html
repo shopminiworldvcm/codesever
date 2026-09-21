@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chuyển hướng - Mini World Style</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: url('https://static.miniworldgame.com/developer/pc/img/login_bac.83bed1e1.png') no-repeat center center fixed;
+            background-size: cover;
+        }
+        .glass-card {
+            background: rgba(15, 23, 42, 0.75);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+        }
+        @keyframes pulseGlow {
+            0%, 100% { box-shadow: 0 0 15px rgba(56, 189, 248, 0.5); }
+            50% { box-shadow: 0 0 30px rgba(56, 189, 248, 0.9); }
+        }
+        .gamer-glow {
+            animation: pulseGlow 2s infinite;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex items-center justify-center p-4 relative overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-900/40 to-transparent pointer-events-none"></div>
+    <div class="relative z-10 w-full max-w-md glass-card rounded-3xl p-8 text-white text-center transform transition-all duration-500 scale-100 hover:scale-[1.01]">
+        <div class="mx-auto w-24 h-24 mb-6 flex items-center justify-center gamer-glow rounded-2xl bg-slate-900/50 p-2 border border-slate-700/50">
+            <img src="https://static.miniworldgame.com/developer/pc/img/icon_logo.43358b18.png" alt="Mini World Logo" class="w-full h-full object-contain drop-shadow-md" onerror="this.src='https://placehold.co/96x96/1e293b/38bdf8?text=Logo'">
+        </div>
+        <h1 class="text-2xl md:text-3xl font-extrabold tracking-wide mb-2 bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">
+            Đang Chuyển Hướng
+        </h1>
+        <p class="text-slate-300 text-sm mb-6">
+            Hệ thống đang đưa bạn đến trang đích một cách an toàn...
+        </p>
+        <div class="my-6 relative flex items-center justify-center">
+            <div class="w-28 h-28 rounded-full border-4 border-slate-700 flex items-center justify-center relative overflow-hidden">
+                <svg class="absolute inset-0 w-full h-full transform -rotate-90">
+                    <circle id="progressCircle" cx="56" cy="56" r="50" stroke="currentColor" stroke-width="6" fill="transparent" class="text-cyan-400 transition-all duration-1000 linear" stroke-dasharray="314" stroke-dashoffset="0"></circle>
+                </svg>
+                <span id="countdownNumber" class="text-4xl font-extrabold text-cyan-300">3</span>
+            </div>
+        </div>
+        <div class="bg-slate-900/60 border border-slate-700/60 rounded-xl p-3 mb-6 text-left">
+            <div class="flex items-center justify-between mb-1">
+                <span class="text-xs text-slate-400 font-semibold uppercase tracking-wider">Trang đích:</span>
+                <span class="text-xs text-emerald-400 flex items-center gap-1 font-medium">
+                    <i class="fa-solid fa-shield-halved"></i> Đã xác thực
+                </span>
+            </div>
+            <div id="linkDisplay" class="text-xs text-cyan-200 truncate font-mono">https://www.miniworldgame.com1</div>
+        </div>
+        <div class="flex flex-col gap-3">
+            <button onclick="redirectNow()" class="w-full py-3 px-6 bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-slate-950 font-bold rounded-xl shadow-lg shadow-cyan-500/25 transition-all transform active:scale-95 flex items-center justify-center gap-2">
+                <span>Chuyển hướng ngay</span>
+                <i class="fa-solid fa-arrow-right"></i>
+            </button>
+        </div>
+        <div class="mt-6 text-slate-500 text-xs">
+            Mini World Redirection System &bull; Secured
+        </div>
+    </div>
+    <script>
+        let defaultTarget = "https://fb.com/vcminh.vn";
+        const urlParams = new URLSearchParams(window.location.search);
+        const targetUrl = urlParams.get('url') || defaultTarget;
+        document.getElementById('linkDisplay').innerText = targetUrl;
+        let timeLeft = 3;
+        const totalTime = 3;
+        let countdownInterval = null;
+        const countdownEl = document.getElementById('countdownNumber');
+        const progressCircle = document.getElementById('progressCircle');
+        const circumference = 2 * Math.PI * 50; // r = 50
+        progressCircle.style.strokeDasharray = circumference;
+        function updateProgress(current, total) {
+            const offset = circumference - (current / total) * circumference;
+            progressCircle.style.strokeDashoffset = offset;
+        }
+        function startCountdown() {
+            updateProgress(timeLeft, totalTime);
+            countdownInterval = setInterval(() => {
+                timeLeft--;
+                countdownEl.innerText = timeLeft;
+                updateProgress(timeLeft, totalTime);
+                if (timeLeft <= 0) {
+                    clearInterval(countdownInterval);
+                    executeRedirect();
+                }
+            }, 1000);
+        }
+        function executeRedirect() {
+            let finalUrl = targetUrl;
+            if (!finalUrl.startsWith('http://') && !finalUrl.startsWith('https://')) {
+                finalUrl = 'https://' + finalUrl;
+            }
+            window.location.href = finalUrl;
+        }
+        function redirectNow() {
+            clearInterval(countdownInterval);
+            executeRedirect();
+        }
+        window.onload = function() {
+            startCountdown();
+        };
+    </script>
+</body>
+</html>
