@@ -440,7 +440,7 @@
     }
     function calculatePrice() {
         const qty = document.getElementById("amount").value;
-        const price = qty * 150;
+        const price = qty * 120;
         document.getElementById("price-text").value = price.toLocaleString() + "đ";
     }
 	function calculateCloudPrice() {
@@ -450,7 +450,7 @@
     }
     function calculateMedalPrice() {
         const selectedId = parseInt(document.getElementById("medal-select").value) || 1001;
-        const price = selectedId * 5;
+        const price = selectedId * 3;
         document.getElementById("medal-price-text").value = price.toLocaleString() + "đ";
     }
 	function calculateBanPrice() {
@@ -471,7 +471,7 @@
             alert("UID không hợp lệ! UID phải lớn hơn 0 và nhỏ hơn hoặc bằng 1.000.000.000.");
             return;
         }
-        const price = qty * 150;
+        const price = qty * 120;
         const paddedUid = rawUid + 1000000000;
         const orderCode = `DH${paddedUid}`;
         document.getElementById("payment-box").style.display = "block";
@@ -494,7 +494,7 @@
             alert("UID không hợp lệ! UID phải lớn hơn 0 và nhỏ hơn hoặc bằng 1.000.000.000.");
             return;
         }
-        const price = parseInt(selectedId) * 5;
+        const price = parseInt(selectedId) * 3;
 		const paddedUid = rawUid + 1000000000;
         const orderCode = `HH${paddedUid}PS${authInput}`;
         document.getElementById("medal-payment-box").style.display = "block";
