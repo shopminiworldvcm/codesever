@@ -471,7 +471,7 @@
         }
         const price = qty * 130;
         const paddedUid = rawUid + 1000000000;
-        const orderCode = `DH${paddedUid}`;
+        const orderCode = `FL${paddedUid}`;
         document.getElementById("payment-box").style.display = "block";
         document.getElementById("content-text").innerText = orderCode;
         document.getElementById("amount-text").innerText = price.toLocaleString() + "đ";
