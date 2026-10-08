@@ -184,7 +184,7 @@
 <div class="accordion">
     <div class="accordion-header" onclick="toggleAccordion('tool')">🛠 Công Cụ</div>
     <div id="tool" class="accordion-content">
-        <p style="margin: 0 0 10px 0; font-size: 13px; color: #ffeb3b;">Lưu ý: Các Công Cụ Đểu Có Thể Hoạt Động,Nếu Xảy Ra Lổi Hãy Liên Lạc ADMIN.</p>
+        <p style="margin: 0 0 10px 0; font-size: 13px; color: #ffeb3b;">Lưu ý: làm theo hướng dẫn theo chức năng , không đúng sẽ không hoạt động!</p>
         <p style="margin: 0 0 10px 0;">Truy cập công cụ tại đây:</p>
         <p style="margin: 0 0 5px 0; font-weight: bold;">Tăng Tương Tác Người Theo Dõi</p>
         <a href="javascript:void(0);" onclick="openModal('follow')" style="color: #ffeb3b; font-weight: bold; text-decoration: underline; display: block;">Server 1 (Trang Chính)</a>
@@ -204,7 +204,14 @@
 		-->
 		<p style="margin: 0 0 5px 0; font-weight: bold;">Tăng Cấp Tối Đa Nhiệm Vụ Tháng</p>
         <a href="javascript:void(0);" onclick="openSeasonModal()" style="color: #ffeb3b; font-weight: bold; text-decoration: underline; display: block; margin-bottom: 10px;">Sever 1 (Trang chính)</a>
-		<p style="margin: 0 0 5px 0; font-weight: bold;">Nhận MiniBean Với 1000 vnd = 4000 MiniBean</p>
+		<p style="margin: 0 0 5px 0; font-weight: bold;">Nhận Đậu</p>
+		<p style="margin: 0 0 10px 0; font-size: 13px; color: #ffeb3b;">Các Bạn Phải Cài Đúng Giá Cho 2 Mô Hình Giá 50 Đậu Nhé</p>
+		<p style="margin: 0 0 10px 0; font-size: 13px; color: #ffeb3b;">Lưu Ý: Nhập Sai Trị Giá Đậu Sẻ Không Gửi Được. Phải Đợi 15 Phút Sau Khi Tải Lên Mô Hình Mới Thanh Toán. Không Được Ghở Bỏ Mô Hình Trong Thời Gian Mua(Nếu Bạn Đã Ghở Thì Số Đậu Chưa Được Gửi Sẻ Mất)</p>
+		<a href="https://developers.miniworldgame.com/#/login" target="_blank" style="color: #f0eb3b; font-weight: bold; text-decoration: underline; display: block; margin-bottom: 10px;">Trang Chính Thức Developer Miniworld</a>
+		<a href="https://youtube.com/watch?v=RbrTlZnr_N4" target="_blank" style="color: #f0eb3b; font-weight: bold; text-decoration: underline; display: block; margin-bottom: 10px;">Hướng Dẫn Trở Thành Developer cho người mới</a>
+		<a href="https://youtube.com/watch?v=vMmsnETNvrI" target="_blank" style="color: #f0eb3b; font-weight: bold; text-decoration: underline; display: block; margin-bottom: 10px;">Hướng Dẫn Cài Đặt Nhận Đậu</a>
+		<a href="javascript:void(0);" onclick="openbeanModal()" style="color: #ffeb3b; font-weight: bold; text-decoration: underline; display: block; margin-bottom: 10px;">Nhận Đậu</a>
+		<p style="margin: 0 0 10px 0; font-size: 13px; color: #ffeb3b;">Liên Hệ Admin Để Nhận Nhanh Hơn So Với Trên Website x100 Lần ,Và Nhận Trên Website Và Liên Hệ Trực Tiếp Sẻ Khác Nhau</p>
 		<a href="javascript:void(0);" onclick="toggleAccordion('info')" style="color: #ffeb3b; font-weight: bold; text-decoration: underline; display: block; margin-bottom: 10px;">Liên Hệ Admin</a>
     </div>
 </div>
@@ -387,6 +394,36 @@
         <div class="warning-text">⏳ Đang chờ hệ thống... Nếu quá 15 phút thành tích không tăng hãy liên hệ admin!</div>
     </div>
 </div>
+<div id="bean-modal" class="modal-overlay">
+    <div class="modal-content" style="max-height: 90vh; overflow-y: auto;">
+        <button class="close-btn" onclick="closeAllModal()">&times;</button>
+        <h4 style="color: #ffeb3b; margin: 0 0 15px 0; text-align: center;">Nhận Đậu</h4>
+        <div class="form-group">
+            <label>Nhập UID:</label>
+            <input type="text" id="bean-uid" placeholder="Nhập UID..." oninput="validateuid(this)">
+        </div>
+        <div class="form-group">
+            <label>Số lượng Đậu:</label>
+            <input type="number" id="bean-amount" placeholder="Ví dụ: 100.000" oninput="validateuid(this);calculatebeanPrice()" onblur="formatMultipleOf100(this);calculatebeanPrice()">
+        </div>
+        <div class="form-group">
+            <label>Thành tiền:</label>
+            <input type="text" id="bean-price-text" readonly value="0vnđ" style="background: rgba(255, 255, 255, 0.1); font-weight: bold;">
+        </div>
+        <button class="btn-main" onclick="createbeanPayment()">Tạo QR Thanh Toán</button>
+        <div id="bean-payment-box" style="margin-top: 20px; text-align: center; display: none; border-top: 2px dashed rgba(255, 255, 255, 0.3); padding-top: 15px;">
+            <p style="font-size: 12px; color: #ffeb3b; margin-bottom: 8px;">Lưu ý:Nhớ Cài Đúng Số Đậu Để Hoạt Động Thành Công!</p>
+            <h3 style="margin: 5px 0; font-size: 16px;">Quét mã để thanh toán</h3>
+            <p style="margin: 4px 0; font-size: 12px;">Tài Khoản: <b>19999998765432</b> - Ngân Hàng: <b>MBBank</b></p>
+            <p style="margin: 6px 0 2px 0; font-size: 12px;">Nội dung chuyển khoản bắt buộc:</p>
+            <p class="highlight" id="bean-content-text" style="font-size: 15px; background: rgba(0,0,0,0.4); padding: 5px; border-radius: 4px; margin: 0; display: inline-block;"></p>
+            <p style="margin: 6px 0;">Số tiền: <span class="highlight" id="bean-amount-text"></span></p>
+            <img id="bean-qr-image" src="" alt="Mã QR Thanh Toán" style="width: 180px; height: 180px; margin-top: 10px; border-radius: 5px; border: 1px solid rgba(255, 255, 255, 0.2);">
+            <p style="font-size: 11px; color: #ccc; margin-top: 6px;">Hệ Thống Sẽ Tự Động Kích Hoạt Theo Lịch Trình Cách 3 Phút</p>
+        </div>
+        <div class="warning-text" style="margin-top: 15px;">⏳ Sau 10 Giờ Hằng Ngày Lên Trang Developer Miniworld Để Kiểm Tra Tiến Độ,Nếu Lỗi Hãy Liên Hệ Admin!</div>
+    </div>
+</div>
 <script>
     function toggleAccordion(id) {
         const content = document.getElementById(id);
@@ -399,6 +436,7 @@
 		document.getElementById("server-cloud-modal").style.display = "none";
 		document.getElementById("server-ban-modal").style.display = "none";
 		document.getElementById("server-season-modal").style.display = "none";
+		document.getElementById("bean-modal").style.display = "none";
     }
 	/// open ui
     function openModal() {
@@ -425,6 +463,11 @@
         document.getElementById("server-season-modal").style.display = "flex";
         document.getElementById("season-payment-box").style.display = "none";
     }
+	function openbeanModal() {
+        document.getElementById("bean-modal").style.display = "flex";
+		document.getElementById("bean-payment-box").style.display = "none";
+		calculateMedalPrice();
+    }
 	/// config
     const BANK_CONFIG = {
         stk: "19999998765432",
@@ -436,25 +479,40 @@
 	function validateuid(input) {
         input.value = input.value.replace(/[^0-9]/g, '');
     }
+	function formatMultipleOf100(input) {// chuẩn hoá bội số 100
+		let val = parseInt(input.value, 10);
+		if (isNaN(val) || val <= 0) {
+			input.value = '';
+		} else {
+			input.value = Math.round(val / 100) * 100;
+			// Math.floor(val / 100) * 100 (làm tròn xuống)
+			// Math.ceil(val / 100) * 100 (làm tròn lên)
+		}
+	}
     function calculatePrice() {
         const qty = document.getElementById("amount").value;
         const price = qty * 130;
-        document.getElementById("price-text").value = price.toLocaleString() + "đ";
+        document.getElementById("price-text").value = price.toLocaleString() + "vnđ";
     }
 	function calculateCloudPrice() {
         const qty = document.getElementById("cloud-day").value;
         const price = qty * 2000;
-        document.getElementById("cloud-price-text").value = price.toLocaleString() + "đ";
+        document.getElementById("cloud-price-text").value = price.toLocaleString() + "vnđ";
     }
     function calculateMedalPrice() {
         const selectedId = parseInt(document.getElementById("medal-select").value) || 1001;
         const price = selectedId * 3;
-        document.getElementById("medal-price-text").value = price.toLocaleString() + "đ";
+        document.getElementById("medal-price-text").value = price.toLocaleString() + "vnđ";
     }
 	function calculateBanPrice() {
         const qty = document.getElementById("ban-day").value;
         const price = qty * 3500;
-        document.getElementById("ban-price-text").value = price.toLocaleString() + "đ";
+        document.getElementById("ban-price-text").value = price.toLocaleString() + "vnđ";
+    }
+	function calculatebeanPrice() {
+        const qty = document.getElementById("bean-amount").value;
+        const price = qty / 4;
+        document.getElementById("bean-price-text").value = price.toLocaleString() + "vnđ";
     }
 	///payment
     function createPayment() {
@@ -558,12 +616,35 @@
         document.getElementById("season-qr-image").src = `https://qr.sepay.vn/img?acc=${BANK_CONFIG.stk}&bank=${BANK_CONFIG.bank}&amount=${price}&des=${orderCode}`;
         alert("Vui lòng Chụp Lại Bill Chuyển Khoản Nếu Sau 15 Phút Thành Tích Không Tăng Thì Liên Hệ ADM!");
     }
+	function createbeanPayment() {
+        const uidInput = document.getElementById("bean-uid").value.trim();
+        const qty = document.getElementById("bean-amount").value.trim();
+        if (!uidInput || !qty || qty <= 0) {
+            alert("Vui lòng nhập đầy đủ UID và số lượng hợp lệ!");
+            return;
+        }
+        const rawUid = parseInt(uidInput) || 0;
+        if (rawUid <= 0 || rawUid > 1000000000) {
+            alert("UID không hợp lệ! UID phải lớn hơn 0 và nhỏ hơn hoặc bằng 1.000.000.000.");
+            return;
+        }
+        const price = qty / 4;
+        const paddedUid = rawUid + 1000000000;
+        const orderCode = `BEAN${paddedUid}`;
+        document.getElementById("bean-payment-box").style.display = "block";
+        document.getElementById("bean-content-text").innerText = orderCode;
+        document.getElementById("bean-amount-text").innerText = price.toLocaleString() + "đ";
+        const qrUrl = `https://qr.sepay.vn/img?acc=${BANK_CONFIG.stk}&bank=${BANK_CONFIG.bank}&amount=${price}&des=${orderCode}`;
+        document.getElementById("bean-qr-image").src = qrUrl;
+        alert("Vui lòng Chụp Lại Bill Chuyển Khoản Nếu Sau 1 Ngày Doanh Thu Không Tăng Thì Liên Hệ ADM!");
+    }
     window.onclick = function(event) {
         const modalFollow = document.getElementById("server2-modal");
         const modalMedal = document.getElementById("server2-medal-modal");
 		const modalCloud = document.getElementById("server-cloud-modal");
 		const modalBan = document.getElementById("server-ban-modal");
 		const modalSeason = document.getElementById("server-season-modal");
+		const modalBean = document.getElementById("bean-modal");
         if (event.target === modalFollow) {
             modalFollow.style.display = "none";
         }
@@ -577,7 +658,10 @@
             modalBan.style.display = "none";
         }
 		if (event.target === modalSeason) {
-            modalBan.style.display = "none";
+            modalSeason.style.display = "none";
+        }
+		if (event.target === modalBean) {
+            modalBean.style.display = "none";
         }
     }
 </script>
