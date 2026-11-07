@@ -1,152 +1,1208 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-	<meta name="google-adsense-account" content="ca-pub-9403069400678523">
-	<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9403069400678523" crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <title>Shop Mini World: CREATA</title>
+    <meta name="description" content="Trang chính thức cung cấp công cụ của vcminh.">
+    <meta name="google-adsense-account" content="ca-pub-9403069400678523">
+    <meta name="google-site-verification" content="71JIBOnazE9-qCPSzT0-1AnV2mh_M8y8vqvOpNsfd_g" />
     <meta property="og:title" content="Công cụ tự động Mini World - vcminh" />
     <meta property="og:description" content="Trang web quản lý và tự động hóa game Mini World chuyên nghiệp." />
     <meta property="og:image" content="https://shop-miniworld.pages.dev/quangcao.png" />
     <meta property="og:url" content="https://shop-miniworld.pages.dev/" />
+    <meta property="og:type" content="website" />
     <meta property="og:video" content="https://shop-miniworld.pages.dev/ui.mp4" />
     <meta property="og:video:secure_url" content="https://shop-miniworld.pages.dev/ui.mp4" />
     <meta property="og:video:type" content="video/mp4" />
     <meta property="og:video:width" content="1280" />
     <meta property="og:video:height" content="720" />
-    <meta property="og:type" content="website" />
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shop Mini World: CREATA</title>
-	<meta name="description" content="Trang chính thức cung cấp công cụ của vcminh.">
     <link rel="icon" type="image/png" href="https://static.miniworldgame.com/developer/pc/lib/icon/logo-32x32.png" sizes="32x32">
     <link rel="icon" type="image/png" href="https://static.miniworldgame.com/developer/pc/lib/icon/logo-64x64.png" sizes="64x64">
     <link rel="icon" type="image/png" href="https://static.miniworldgame.com/developer/pc/lib/icon/logo-128x128.png" sizes="128x128">
-	<meta name="google-site-verification" content="71JIBOnazE9-qCPSzT0-1AnV2mh_M8y8vqvOpNsfd_g" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9403069400678523" crossorigin="anonymous"></script>
     <style>
-        body { 
-		    font-family: Arial, sans-serif; 
-		    margin: 0; 
-		    min-height: 100vh; 
-		    display: flex; 
-		    flex-direction: column; 
-		    align-items: center; 
-		    justify-content: flex-start;
-		    padding: 20px 0;
-		    background: #121212; 
-		    color: #fff; 
-		}
-        .bg-video { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; object-fit: cover; z-index: -1; }
-        .flashing-title { 
-            font-size: 42px; 
-            font-weight: bold; 
-            margin-bottom: 25px; 
+        :root {
+            --font: 'Inter', system-ui, -apple-system, sans-serif;
+
+            --bg-body: #0a0a0f;
+            --bg-glass: rgba(255, 255, 255, 0.04);
+            --bg-glass-hover: rgba(255, 255, 255, 0.08);
+            --bg-glass-strong: rgba(255, 255, 255, 0.06);
+            --bg-input: rgba(255, 255, 255, 0.07);
+            --bg-input-focus: rgba(255, 255, 255, 0.12);
+            --bg-overlay: rgba(0, 0, 0, 0.7);
+            --bg-code: rgba(0, 0, 0, 0.35);
+
+            --color-white: #ffffff;
+            --color-text: #e4e4e7;
+            --color-text-muted: #a1a1aa;
+            --color-text-dim: #71717a;
+            --color-accent: #38bdf8;
+            --color-accent-glow: rgba(56, 189, 248, 0.15);
+            --color-yellow: #facc15;
+            --color-yellow-glow: rgba(250, 204, 21, 0.12);
+            --color-red: #f87171;
+            --color-green: #4ade80;
+            --color-purple: #a78bfa;
+
+            --gradient-primary: linear-gradient(135deg, #6366f1, #8b5cf6, #a855f7);
+            --gradient-accent: linear-gradient(135deg, #0ea5e9, #38bdf8);
+            --gradient-warm: linear-gradient(135deg, #f59e0b, #facc15);
+            --gradient-btn: linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #a855f7 100%);
+            --gradient-btn-hover: linear-gradient(135deg, #4f46e5 0%, #7c3aed 50%, #9333ea 100%);
+
+            --border-glass: rgba(255, 255, 255, 0.08);
+            --border-hover: rgba(255, 255, 255, 0.18);
+            --border-input: rgba(255, 255, 255, 0.12);
+            --border-input-focus: rgba(139, 92, 246, 0.5);
+            --border-dashed: rgba(255, 255, 255, 0.12);
+
+            --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.3);
+            --shadow-md: 0 8px 32px rgba(0, 0, 0, 0.4);
+            --shadow-lg: 0 16px 48px rgba(0, 0, 0, 0.5);
+            --shadow-glow: 0 0 40px rgba(139, 92, 246, 0.15);
+            --shadow-btn: 0 4px 20px rgba(99, 102, 241, 0.35);
+
+            --radius-sm: 8px;
+            --radius-md: 12px;
+            --radius-lg: 16px;
+            --radius-xl: 20px;
+            --radius-pill: 50px;
+
+            --max-width: 440px;
+            --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: var(--font);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            padding: 24px 16px;
+            background: var(--bg-body);
+            color: var(--color-text);
+            line-height: 1.5;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .bg-video {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100vw; height: 100vh;
+            object-fit: cover;
+            z-index: -2;
+            opacity: 0.35;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: linear-gradient(180deg, rgba(10,10,15,0.5) 0%, rgba(10,10,15,0.85) 60%, rgba(10,10,15,0.98) 100%);
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        .site-title {
+            font-size: 48px;
+            font-weight: 800;
+            margin-bottom: 8px;
             text-align: center;
-            background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);
-            background-size: 400%;
+            letter-spacing: -1px;
+            background: linear-gradient(135deg, #818cf8, #c084fc, #f472b6, #fb923c, #facc15, #4ade80, #38bdf8, #818cf8);
+            background-size: 300% 300%;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            text-shadow: 0 4px 20px rgba(0,0,0,0.8);
-            animation: rainbow 6s linear infinite; 
+            background-clip: text;
+            animation: titleShift 8s ease infinite;
+            filter: drop-shadow(0 2px 12px rgba(139, 92, 246, 0.3));
         }
-        @keyframes rainbow { 
-            0% { background-position: 0% 50%; } 
-            50% { background-position: 100% 50%; } 
-            100% { background-position: 0% 50%; } 
+
+        .site-subtitle {
+            font-size: 13px;
+            color: var(--color-text-dim);
+            text-align: center;
+            margin-bottom: 28px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
         }
-        .accordion { width: 100%; max-width: 400px; margin-bottom: 12px; }
-        .accordion-header { 
-            background: rgba(10, 10, 10, 0.85); padding: 16px; border-radius: 10px; 
-            cursor: pointer; text-align: center; border: 1.5px solid rgba(255, 255, 255, 0.3);
-            font-weight: bold; font-size: 16px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.6);
-            transition: 0.3s;
+
+        @keyframes titleShift {
+            0%, 100% { background-position: 0% 50%; }
+            50%      { background-position: 100% 50%; }
         }
-        .accordion-header:hover { background: rgba(30, 30, 30, 0.95); border-color: rgba(255, 255, 255, 0.6); }
-        .accordion-content { 
-            display: none; background: rgba(15, 15, 15, 0.9); padding: 18px; 
-            border-radius: 0 0 10px 10px; border: 1.5px solid rgba(255, 255, 255, 0.2);
+
+        .accordion {
+            width: 100%;
+            max-width: var(--max-width);
+            margin-bottom: 12px;
+        }
+
+        .accordion-header {
+            background: var(--bg-glass);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            padding: 16px 20px;
+            border-radius: var(--radius-lg);
+            cursor: pointer;
+            text-align: left;
+            border: 1px solid var(--border-glass);
+            font-weight: 600;
+            font-size: 15px;
+            color: var(--color-white);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: var(--transition);
+            user-select: none;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .accordion-header::after {
+            content: '›';
+            position: absolute;
+            right: 20px;
+            font-size: 20px;
+            color: var(--color-text-dim);
+            transition: transform var(--transition);
+            transform: rotate(90deg);
+        }
+
+        .accordion-header.open::after {
+            transform: rotate(270deg);
+        }
+
+        .accordion-header:hover {
+            background: var(--bg-glass-hover);
+            border-color: var(--border-hover);
+            transform: translateY(-1px);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .accordion-content {
+            display: none;
+            background: var(--bg-glass);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            padding: 20px;
+            border-radius: 0 0 var(--radius-lg) var(--radius-lg);
+            border: 1px solid var(--border-glass);
             border-top: none;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.6);
+            animation: slideDown 0.3s ease;
         }
+
         .accordion-content.active { display: block; }
-        .contact-links { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; margin-top: 12px; }
-        .contact-links a { color: #00d2ff; text-decoration: none; padding: 6px 14px; background: rgba(0, 0, 0, 0.7); border-radius: 15px; font-size: 13px; border: 1px solid rgba(255,255,255,0.2); font-weight: bold; }
-        .contact-links a:hover { background: rgba(0, 210, 255, 0.3); }
+
+        @keyframes slideDown {
+            from { opacity: 0; transform: translateY(-8px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin-top: 14px;
+        }
+
+        .contact-links a {
+            color: var(--color-accent);
+            text-decoration: none;
+            padding: 8px 16px;
+            background: var(--bg-glass-strong);
+            border-radius: var(--radius-pill);
+            font-size: 13px;
+            font-weight: 500;
+            border: 1px solid var(--border-glass);
+            transition: var(--transition);
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .contact-links a:hover {
+            background: var(--color-accent-glow);
+            border-color: rgba(56, 189, 248, 0.3);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 16px rgba(56, 189, 248, 0.15);
+        }
+
+        .tool-note {
+            margin: 0 0 10px;
+            font-size: 12px;
+            color: var(--color-yellow);
+            background: var(--color-yellow-glow);
+            padding: 8px 12px;
+            border-radius: var(--radius-sm);
+            border-left: 3px solid var(--color-yellow);
+            line-height: 1.6;
+        }
+
+        .tool-intro {
+            margin: 0 0 14px;
+            color: var(--color-text-muted);
+            font-size: 14px;
+        }
+
+        .tool-section {
+            margin-bottom: 16px;
+            padding-bottom: 16px;
+            border-bottom: 1px solid var(--border-glass);
+        }
+
+        .tool-section:last-child { border-bottom: none; padding-bottom: 0; }
+
+        .tool-section-title {
+            margin: 0 0 8px;
+            font-weight: 600;
+            font-size: 14px;
+            color: var(--color-white);
+        }
+
+        .tool-link {
+            font-weight: 600;
+            font-size: 13px;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 6px 14px;
+            border-radius: var(--radius-sm);
+            margin-bottom: 6px;
+            transition: var(--transition);
+        }
+
+        .tool-link::before { content: '→'; font-size: 12px; }
+
+        .tool-link--primary {
+            color: var(--color-yellow);
+            background: var(--color-yellow-glow);
+        }
+        .tool-link--primary:hover { background: rgba(250, 204, 21, 0.2); }
+
+        .tool-link--alt {
+            color: var(--color-purple);
+            background: rgba(167, 139, 250, 0.1);
+        }
+        .tool-link--alt:hover { background: rgba(167, 139, 250, 0.2); }
+
+        .tool-link--free {
+            color: var(--color-green);
+            background: rgba(74, 222, 128, 0.1);
+        }
+        .tool-link--free:hover { background: rgba(74, 222, 128, 0.2); }
+
         .modal-overlay {
             display: none;
             position: fixed;
-            top: 0; left: 0; width: 100vw; height: 100vh;
-            background: rgba(0, 0, 0, 0.75);
+            top: 0; left: 0;
+            width: 100vw; height: 100vh;
+            background: var(--bg-overlay);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
             z-index: 999;
             justify-content: center;
             align-items: center;
-            padding: 15px;
-            box-sizing: border-box;
+            padding: 16px;
+            animation: fadeIn 0.2s ease;
         }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to   { opacity: 1; }
+        }
+
         .modal-content {
-            background: rgba(20, 20, 20, 0.95);
-            border: 1.5px solid rgba(255, 255, 255, 0.3);
-            border-radius: 12px;
+            background: linear-gradient(145deg, rgba(20, 20, 30, 0.97), rgba(15, 15, 22, 0.99));
+            border: 1px solid var(--border-glass);
+            border-radius: var(--radius-xl);
             width: 100%;
-            max-width: 420px;
+            max-width: var(--max-width);
             max-height: 90vh;
             overflow-y: auto;
-            padding: 20px;
-            box-sizing: border-box;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.8);
+            padding: 28px 24px;
+            box-shadow: var(--shadow-lg), var(--shadow-glow);
             position: relative;
-            text-align: left;
+            animation: modalSlideUp 0.35s cubic-bezier(0.16, 1, 0.3, 1);
         }
+
+        @keyframes modalSlideUp {
+            from { opacity: 0; transform: translateY(24px) scale(0.97); }
+            to   { opacity: 1; transform: translateY(0) scale(1); }
+        }
+
+        .modal-content::-webkit-scrollbar { width: 6px; }
+        .modal-content::-webkit-scrollbar-track { background: transparent; }
+        .modal-content::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.1); border-radius: 3px; }
+
+        .modal-title {
+            color: var(--color-white);
+            font-size: 18px;
+            font-weight: 700;
+            margin: 0 0 20px;
+            text-align: center;
+            padding-bottom: 16px;
+            border-bottom: 1px solid var(--border-glass);
+        }
+
+        .modal-title::before {
+            content: '';
+            display: block;
+            width: 40px;
+            height: 4px;
+            border-radius: 2px;
+            background: var(--gradient-primary);
+            margin: 0 auto 12px;
+        }
+
         .close-btn {
             position: absolute;
-            top: 12px; right: 15px;
-            background: none; border: none;
-            color: #ff6b6b; font-size: 22px; font-weight: bold;
+            top: 16px; right: 16px;
+            width: 32px; height: 32px;
+            background: var(--bg-glass-strong);
+            border: 1px solid var(--border-glass);
+            border-radius: 50%;
+            color: var(--color-text-muted);
+            font-size: 18px;
             cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+            line-height: 1;
         }
-        .form-group { margin-bottom: 15px; }
-        label { display: block; margin-bottom: 5px; font-weight: bold; color: #fff; text-shadow: 0 1px 2px rgba(0,0,0,0.8); }
-        input { 
-            width: 100%; 
-            padding: 10px; 
-            box-sizing: border-box; 
-            border: 1px solid rgba(255, 255, 255, 0.4); 
-            border-radius: 5px; 
-            background: rgba(255, 255, 255, 0.15);
-            color: #fff;
+
+        .close-btn:hover {
+            background: rgba(248, 113, 113, 0.15);
+            border-color: rgba(248, 113, 113, 0.3);
+            color: var(--color-red);
+            transform: rotate(90deg);
         }
-        input::placeholder { color: rgba(255, 255, 255, 0.6); }
-        button.btn-main { 
-            width: 100%; 
-            padding: 10px; 
-            background: #007bff; 
-            color: white; 
-            border: none; 
-            border-radius: 5px; 
-            font-size: 16px; 
-            cursor: pointer; 
+
+        .form-group { margin-bottom: 16px; }
+
+        label {
+            display: block;
+            margin-bottom: 6px;
+            font-weight: 500;
+            font-size: 13px;
+            color: var(--color-text-muted);
+            letter-spacing: 0.02em;
         }
-        button.btn-main:hover { background: #0056b3; }
-        #payment-box { 
-            margin-top: 20px; 
-            text-align: center; 
-            display: none; 
-            border-top: 2px dashed rgba(255, 255, 255, 0.3); 
-            padding-top: 15px; 
+
+        input, select {
+            width: 100%;
+            padding: 12px 14px;
+            border: 1px solid var(--border-input);
+            border-radius: var(--radius-md);
+            background: var(--bg-input);
+            color: var(--color-white);
+            font-family: var(--font);
+            font-size: 14px;
+            transition: var(--transition);
+            outline: none;
         }
-        #qr-image { 
-            width: 180px; 
-            height: 180px; 
-            margin-top: 10px; 
-            border-radius: 5px; 
-            border: 1px solid rgba(255, 255, 255, 0.2); 
+
+        input:focus, select:focus {
+            border-color: var(--border-input-focus);
+            background: var(--bg-input-focus);
+            box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.12);
         }
-        .highlight { color: #ff6b6b; font-weight: bold; }
-        .warning-text {
-            margin-top: 10px;
-            font-size: 12px;
-            color: #ffeb3b;
-            font-style: italic;
+
+        input::placeholder { color: var(--color-text-dim); }
+        input[readonly] {
+            background: var(--bg-glass-strong);
+            font-weight: 600;
+            color: var(--color-accent);
+            cursor: default;
+        }
+
+        select {
+            cursor: pointer;
+            appearance: none;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2338bdf8' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+            background-repeat: no-repeat;
+            background-position: right 14px center;
+            background-size: 16px;
+            padding-right: 42px !important;
+        }
+
+        select:hover {
+            border-color: rgba(56, 189, 248, 0.5);
+        }
+
+        select option {
+            background: #141424;
+            color: #ffffff;
+            padding: 10px;
+        }
+
+        select option.option--special { background: #4a1515; }
+
+        .btn-main {
+            width: 100%;
+            padding: 13px;
+            background: var(--gradient-btn);
+            background-size: 200% 100%;
+            color: white;
+            border: none;
+            border-radius: var(--radius-md);
+            font-family: var(--font);
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            box-shadow: var(--shadow-btn);
+            letter-spacing: 0.02em;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-main:hover {
+            background: var(--gradient-btn-hover);
+            transform: translateY(-1px);
+            box-shadow: 0 6px 28px rgba(99, 102, 241, 0.45);
+        }
+
+        .btn-main:active {
+            transform: translateY(0);
+            box-shadow: 0 2px 12px rgba(99, 102, 241, 0.3);
+        }
+
+        .payment-box {
+            margin-top: 20px;
             text-align: center;
+            display: none;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-glass);
+            animation: slideDown 0.3s ease;
+        }
+
+        .payment-box__title {
+            margin: 8px 0;
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--color-white);
+        }
+
+        .payment-box__bank-info {
+            margin: 6px 0;
+            font-size: 12px;
+            color: var(--color-text-muted);
+        }
+
+        .payment-box__bank-info b {
+            color: var(--color-accent);
+        }
+
+        .payment-box__transfer-label {
+            margin: 10px 0 4px;
+            font-size: 12px;
+            color: var(--color-text-dim);
+        }
+
+        .payment-box__order-code {
+            font-size: 16px;
+            font-weight: 700;
+            font-family: 'SF Mono', 'Fira Code', monospace;
+            background: var(--bg-code);
+            padding: 8px 16px;
+            border-radius: var(--radius-sm);
+            margin: 4px 0;
+            display: inline-block;
+            letter-spacing: 1px;
+            border: 1px solid var(--border-glass);
+        }
+
+        .payment-box__amount { margin: 10px 0; font-size: 14px; color: var(--color-text-muted); }
+
+        .payment-box__note {
+            font-size: 12px;
+            color: var(--color-yellow);
+            margin-bottom: 10px;
+            padding: 6px 12px;
+            background: var(--color-yellow-glow);
+            border-radius: var(--radius-sm);
+            display: inline-block;
+        }
+
+        .payment-box__footer {
+            font-size: 11px;
+            color: var(--color-text-dim);
+            margin-top: 10px;
+        }
+
+        .qr-wrapper {
+            position: relative;
+            display: inline-block;
+            margin-top: 16px;
+            padding: 4px;
+            border-radius: var(--radius-md);
+            background: conic-gradient(
+                from var(--qr-angle, 0deg),
+                #6366f1, #8b5cf6, #ec4899, #f43f5e,
+                #f97316, #facc15, #4ade80, #22d3ee,
+                #6366f1
+            );
+            animation: qrBorderSpin 3s linear infinite;
+            box-shadow:
+                0 0 15px rgba(99, 102, 241, 0.4),
+                0 0 30px rgba(139, 92, 246, 0.2),
+                0 0 60px rgba(236, 72, 153, 0.1);
+            cursor: pointer;
+            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease;
+            transform-origin: center center;
+            user-select: none;
+        }
+
+        .qr-wrapper:hover {
+            transform: scale(1.04);
+        }
+
+        @keyframes qrZoomPulse {
+            0%   { transform: scale(0.6); opacity: 0; filter: brightness(2) drop-shadow(0 0 35px #38bdf8); }
+            45%  { transform: scale(1.22); opacity: 1; filter: brightness(1.35) drop-shadow(0 0 45px #8b5cf6); }
+            75%  { transform: scale(0.97); filter: brightness(1.1); }
+            100% { transform: scale(1); opacity: 1; filter: brightness(1); }
+        }
+
+        .qr-wrapper.qr-pulse-in {
+            animation: qrZoomPulse 1.4s cubic-bezier(0.2, 0.85, 0.25, 1) both, qrBorderSpin 3s linear infinite;
+        }
+
+        .qr-wrapper.is-zoomed {
+            transform: scale(1.45) !important;
+            z-index: 100;
+            box-shadow:
+                0 0 35px rgba(56, 189, 248, 0.95),
+                0 0 70px rgba(139, 92, 246, 0.8),
+                0 30px 90px rgba(0, 0, 0, 0.98) !important;
+        }
+
+        @media (max-width: 480px) {
+            .qr-wrapper.is-zoomed {
+                transform: scale(1.28) !important;
+            }
+        }
+
+        @property --qr-angle {
+            syntax: '<angle>';
+            initial-value: 0deg;
+            inherits: false;
+        }
+
+        @keyframes qrBorderSpin {
+            to { --qr-angle: 360deg; }
+        }
+
+        @supports not (background: conic-gradient(from 0deg, red, blue)) {
+            .qr-wrapper {
+                border: 2px solid;
+                border-image: linear-gradient(135deg, #6366f1, #ec4899, #facc15, #4ade80) 1;
+                animation: qrGlowFallback 3s ease infinite;
+            }
+            @keyframes qrGlowFallback {
+                0%, 100% { box-shadow: 0 0 20px rgba(99, 102, 241, 0.5); }
+                33%      { box-shadow: 0 0 20px rgba(236, 72, 153, 0.5); }
+                66%      { box-shadow: 0 0 20px rgba(74, 222, 128, 0.5); }
+            }
+        }
+
+        .qr-wrapper::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: var(--radius-md);
+            background: conic-gradient(
+                from var(--qr-angle, 0deg),
+                #6366f1, #8b5cf6, #ec4899, #f43f5e,
+                #f97316, #facc15, #4ade80, #22d3ee,
+                #6366f1
+            );
+            filter: blur(12px);
+            opacity: 0.6;
+            z-index: -1;
+            animation: qrBorderSpin 3s linear infinite;
+        }
+
+        .qr-inner {
+            position: relative;
+            background: #0d0d14;
+            border-radius: calc(var(--radius-md) - 2px);
+            padding: 3px;
+            overflow: hidden;
+        }
+
+        .qr-inner::after {
+            content: '';
+            position: absolute;
+            left: 0; right: 0;
+            height: 3px;
+            background: linear-gradient(90deg,
+                transparent,
+                rgba(56, 189, 248, 0.8),
+                rgba(139, 92, 246, 0.9),
+                rgba(56, 189, 248, 0.8),
+                transparent
+            );
+            box-shadow: 0 0 12px rgba(56, 189, 248, 0.6), 0 0 24px rgba(139, 92, 246, 0.3);
+            z-index: 2;
+            animation: qrScanLine 2.5s ease-in-out infinite;
+            pointer-events: none;
+        }
+
+        @keyframes qrScanLine {
+            0%   { top: 0; opacity: 0; }
+            10%  { opacity: 1; }
+            90%  { opacity: 1; }
+            100% { top: calc(100% - 3px); opacity: 0; }
+        }
+
+        .qr-corners {
+            position: absolute;
+            inset: -6px;
+            z-index: 3;
+            pointer-events: none;
+        }
+
+        .qr-corners span {
+            position: absolute;
+            width: 16px;
+            height: 16px;
+            border-color: var(--color-accent);
+            border-style: solid;
+            border-width: 0;
+            opacity: 0.9;
+            filter: drop-shadow(0 0 4px rgba(56, 189, 248, 0.6));
+        }
+
+        .qr-corners span:nth-child(1) { top: 0; left: 0; border-top-width: 2px; border-left-width: 2px; border-radius: 3px 0 0 0; }
+        .qr-corners span:nth-child(2) { top: 0; right: 0; border-top-width: 2px; border-right-width: 2px; border-radius: 0 3px 0 0; }
+        .qr-corners span:nth-child(3) { bottom: 0; left: 0; border-bottom-width: 2px; border-left-width: 2px; border-radius: 0 0 0 3px; }
+        .qr-corners span:nth-child(4) { bottom: 0; right: 0; border-bottom-width: 2px; border-right-width: 2px; border-radius: 0 0 3px 0; }
+
+        .qr-image {
+            display: block;
+            width: 200px;
+            height: 200px;
+            border-radius: calc(var(--radius-md) - 4px);
+            position: relative;
+            z-index: 1;
+            filter: sepia(1) saturate(5) hue-rotate(0deg) brightness(0.95);
+            animation: qrColorCycle 6s linear infinite;
+        }
+
+        @keyframes qrColorCycle {
+            0%   { filter: sepia(1) saturate(5) hue-rotate(0deg)   brightness(0.95); }
+            100% { filter: sepia(1) saturate(5) hue-rotate(360deg) brightness(0.95); }
+        }
+
+        .qr-status {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            margin-top: 10px;
+            font-size: 11px;
+            color: var(--color-green);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+
+        .qr-status-dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--color-green);
+            animation: qrPulse 1.5s ease-in-out infinite;
+        }
+
+        @keyframes qrPulse {
+            0%, 100% { opacity: 1; box-shadow: 0 0 0 0 rgba(74, 222, 128, 0.6); }
+            50%      { opacity: 0.5; box-shadow: 0 0 0 6px rgba(74, 222, 128, 0); }
+        }
+
+        .highlight { color: var(--color-red); font-weight: 700; }
+
+        .warning-text {
+            margin-top: 16px;
+            font-size: 12px;
+            color: var(--color-text-dim);
+            text-align: center;
+            padding: 10px 14px;
+            background: var(--bg-glass);
+            border-radius: var(--radius-sm);
+            border: 1px solid var(--border-glass);
+            line-height: 1.6;
+        }
+
+        .warning-text::before { content: '⏳ '; }
+
+        .ad-container {
+            width: 100%;
+            max-width: var(--max-width);
+            min-height: 100px;
+            margin: 16px auto;
+        }
+
+        .ad-container--tall { min-height: 150px; }
+
+        .cyber-alert-content {
+            background: linear-gradient(135deg, rgba(16, 16, 28, 0.98), rgba(8, 8, 16, 0.99));
+            border: 1px solid rgba(56, 189, 248, 0.4);
+            border-radius: var(--radius-lg);
+            width: 100%;
+            max-width: 440px;
+            padding: 28px 24px 22px;
+            text-align: center;
+            position: relative;
+            box-shadow: 0 0 40px rgba(56, 189, 248, 0.25), 0 20px 50px rgba(0, 0, 0, 0.8);
+            animation: cyberAlertPop 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            overflow: hidden;
+        }
+
+        @keyframes cyberAlertPop {
+            0%   { transform: scale(0.85); opacity: 0; filter: brightness(2); }
+            100% { transform: scale(1); opacity: 1; filter: brightness(1); }
+        }
+
+        .cyber-alert-scanline {
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.03), rgba(0, 255, 0, 0.01), rgba(0, 0, 255, 0.03));
+            background-size: 100% 3px, 6px 100%;
+            pointer-events: none;
+            z-index: 1;
+            opacity: 0.6;
+        }
+
+        .cyber-alert-icon-wrap {
+            width: 68px;
+            height: 68px;
+            margin: 0 auto 16px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(56, 189, 248, 0.2) 0%, rgba(139, 92, 246, 0.05) 70%);
+            border: 1.5px solid rgba(56, 189, 248, 0.6);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+            position: relative;
+            box-shadow: 0 0 25px rgba(56, 189, 248, 0.4);
+            animation: cyberPulseIcon 2s infinite ease-in-out;
+        }
+
+        @keyframes cyberPulseIcon {
+            0%, 100% { box-shadow: 0 0 20px rgba(56, 189, 248, 0.4); border-color: rgba(56, 189, 248, 0.6); }
+            50%      { box-shadow: 0 0 35px rgba(139, 92, 246, 0.7); border-color: rgba(139, 92, 246, 0.8); }
+        }
+
+        .cyber-alert-sub {
+            font-size: 10px;
+            letter-spacing: 2px;
+            color: var(--color-accent);
+            text-transform: uppercase;
+            font-weight: 700;
+            margin-bottom: 6px;
+        }
+
+        .cyber-alert-title {
+            font-size: 18px;
+            font-weight: 800;
+            letter-spacing: 0.5px;
+            color: #ffffff;
+            margin-bottom: 12px;
+            text-shadow: 0 0 12px rgba(56, 189, 248, 0.4);
+        }
+
+        .cyber-alert-body {
+            font-size: 14px;
+            line-height: 1.6;
+            color: #e4e4e7;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: var(--radius-md);
+            padding: 14px 16px;
+            margin-bottom: 20px;
+            word-break: break-word;
+            position: relative;
+            z-index: 2;
+        }
+
+        .cyber-alert-btn {
+            width: 100%;
+            padding: 13px;
+            background: linear-gradient(135deg, #0284c7, #6366f1, #a855f7);
+            color: #ffffff;
+            font-weight: 700;
+            font-size: 14px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            border: none;
+            border-radius: var(--radius-md);
+            cursor: pointer;
+            box-shadow: 0 0 20px rgba(14, 165, 233, 0.4);
+            transition: var(--transition);
+            position: relative;
+            z-index: 2;
+        }
+
+        .cyber-alert-btn:hover {
+            box-shadow: 0 0 30px rgba(99, 102, 241, 0.7);
+            transform: translateY(-2px);
+            filter: brightness(1.1);
+        }
+
+        .cyber-viewer-content {
+            background: linear-gradient(145deg, rgba(14, 14, 22, 0.98), rgba(9, 9, 15, 0.99));
+            border: 1px solid rgba(139, 92, 246, 0.35);
+            border-radius: var(--radius-xl);
+            width: 92vw;
+            max-width: 1050px;
+            height: 85vh;
+            max-height: 850px;
+            display: flex;
+            flex-direction: column;
+            padding: 0;
+            box-shadow: 0 0 60px rgba(139, 92, 246, 0.3), 0 25px 60px rgba(0, 0, 0, 0.85);
+            overflow: hidden;
+            position: relative;
+            transition: width 0.3s ease, height 0.3s ease, max-width 0.3s ease, border-radius 0.3s ease;
+        }
+
+        .cyber-viewer-content.is-video {
+            max-width: 960px;
+            width: 92vw;
+            height: auto;
+            max-height: 94vh;
+        }
+
+        .cyber-viewer-content.is-video .cyber-viewer-body {
+            aspect-ratio: 16 / 9;
+            height: auto;
+            width: 100%;
+            flex: none;
+            max-height: calc(94vh - 54px);
+        }
+
+        #cyber-viewer-modal.is-fullscreen {
+            padding: 0 !important;
+        }
+
+        .cyber-viewer-content.is-fullscreen {
+            width: 100vw !important;
+            max-width: 100vw !important;
+            height: 100vh !important;
+            max-height: 100vh !important;
+            border-radius: 0 !important;
+            border: none !important;
+        }
+
+        .cyber-viewer-content.is-fullscreen.is-video {
+            max-width: 100vw !important;
+            width: 100vw !important;
+            height: 100vh !important;
+            max-height: 100vh !important;
+        }
+
+        .cyber-viewer-content.is-fullscreen .cyber-viewer-body {
+            height: calc(100vh - 52px) !important;
+            max-height: none !important;
+            aspect-ratio: auto !important;
+            flex: 1 !important;
+        }
+
+        .cyber-viewer-content.is-fullscreen .cyber-viewer-frame {
+            width: 100% !important;
+            height: 100% !important;
+        }
+
+        .cyber-viewer-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 12px 18px;
+            background: rgba(255, 255, 255, 0.04);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            gap: 10px;
+        }
+
+        .cyber-viewer-info {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            overflow: hidden;
+            flex: 1;
+        }
+
+        .cyber-viewer-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #22c55e;
+            box-shadow: 0 0 10px #22c55e;
+            animation: qrPulse 1.5s infinite;
+            flex-shrink: 0;
+        }
+
+        .cyber-viewer-title {
+            font-size: 13.5px;
+            font-weight: 700;
+            color: #ffffff;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .cyber-viewer-actions {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            flex-shrink: 0;
+        }
+
+        .cyber-viewer-btn {
+            background: rgba(56, 189, 248, 0.12);
+            border: 1px solid rgba(56, 189, 248, 0.3);
+            color: var(--color-accent);
+            padding: 6px 12px;
+            border-radius: var(--radius-sm);
+            font-size: 12px;
+            font-weight: 600;
+            text-decoration: none;
+            cursor: pointer;
+            transition: var(--transition);
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            white-space: nowrap;
+        }
+
+        .cyber-viewer-btn:hover {
+            background: rgba(56, 189, 248, 0.25);
+            border-color: rgba(56, 189, 248, 0.6);
+            color: #ffffff;
+        }
+
+        .cyber-viewer-btn--yt {
+            background: rgba(239, 68, 68, 0.15);
+            border-color: rgba(239, 68, 68, 0.4);
+            color: #f87171;
+        }
+
+        .cyber-viewer-btn--yt:hover {
+            background: rgba(239, 68, 68, 0.3);
+            color: #ffffff;
+        }
+
+        .cyber-viewer-close {
+            background: rgba(239, 68, 68, 0.15);
+            border: 1px solid rgba(239, 68, 68, 0.3);
+            color: var(--color-red);
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 16px;
+            transition: var(--transition);
+            flex-shrink: 0;
+        }
+
+        .cyber-viewer-close:hover {
+            background: rgba(239, 68, 68, 0.3);
+            transform: rotate(90deg);
+        }
+
+        .cyber-viewer-body {
+            flex: 1;
+            width: 100%;
+            position: relative;
+            background: #000000;
+            overflow: hidden;
+        }
+
+        .cyber-viewer-frame {
+            width: 100%;
+            height: 100%;
+            border: none;
+            background: #000000;
+            display: block;
+        }
+
+        .cyber-viewer-notice {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 8px;
+            padding: 8px 14px;
+            background: rgba(250, 204, 21, 0.08);
+            border-bottom: 1px solid rgba(250, 204, 21, 0.2);
+            font-size: 12px;
+            color: var(--color-yellow);
+        }
+
+        .cyber-video-fallback {
+            position: absolute;
+            inset: 0;
+            background: #090912;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            z-index: 5;
+        }
+
+        .cyber-video-thumb {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.35;
+            filter: blur(3px);
+            transform: scale(1.06);
+        }
+
+        .cyber-video-overlay {
+            position: relative;
+            z-index: 6;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+            max-width: 92%;
+        }
+
+        .cyber-video-playbtn {
+            width: 72px;
+            height: 72px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #ef4444, #dc2626);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 0 30px rgba(239, 68, 68, 0.6), 0 0 60px rgba(239, 68, 68, 0.3);
+            cursor: pointer;
+            text-decoration: none;
+            transition: var(--transition);
+            margin-bottom: 16px;
+            border: 2px solid rgba(255, 255, 255, 0.4);
+            animation: qrPulse 2s infinite ease-in-out;
+        }
+
+        .cyber-video-playbtn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 45px rgba(239, 68, 68, 0.9);
+        }
+
+        .cyber-video-playbtn svg {
+            margin-left: 4px;
+        }
+
+        .cyber-video-card-title {
+            font-size: 16px;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 8px;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.8);
+        }
+
+        .cyber-video-card-desc {
+            font-size: 13px;
+            color: var(--color-text-muted);
+            margin-bottom: 18px;
+            max-width: 420px;
+            line-height: 1.5;
+        }
+
+        .cyber-video-card-btn {
+            background: linear-gradient(135deg, #ef4444, #b91c1c);
+            color: #ffffff;
+            padding: 10px 22px;
+            border-radius: var(--radius-md);
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            text-decoration: none;
+            box-shadow: 0 4px 18px rgba(239, 68, 68, 0.4);
+            transition: var(--transition);
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .cyber-video-card-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 24px rgba(239, 68, 68, 0.7);
+            filter: brightness(1.1);
+        }
+
+        @media (max-width: 768px) {
+            body { padding: 16px 10px; }
+            .cyber-viewer-content {
+                width: 96vw;
+                height: 84vh;
+                border-radius: var(--radius-lg);
+            }
+            .cyber-viewer-content.is-video {
+                width: 98vw;
+                height: auto;
+            }
+            .cyber-viewer-header {
+                padding: 10px 12px;
+            }
+            .cyber-viewer-title {
+                font-size: 12.5px;
+                max-width: 180px;
+            }
+            .cyber-viewer-btn {
+                padding: 5px 9px;
+                font-size: 11px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .site-title { font-size: 36px; }
+            .site-subtitle { font-size: 11px; letter-spacing: 2px; }
+            .modal-content {
+                padding: 20px 14px;
+                width: 96vw;
+                border-radius: var(--radius-lg);
+            }
+            .accordion-header { padding: 13px 15px; font-size: 14px; }
+            .cyber-alert-content {
+                padding: 20px 14px;
+                width: 95vw;
+            }
+            .cyber-viewer-title {
+                max-width: 130px;
+            }
+            .contact-links a {
+                padding: 6px 12px;
+                font-size: 12px;
+            }
+            .qr-image {
+                width: 180px;
+                height: 180px;
+            }
         }
     </style>
 </head>
@@ -154,24 +1210,21 @@
 <video class="bg-video" autoplay muted loop playsinline>
     <source src="https://shop-miniworld.pages.dev/ui.mp4" type="video/mp4">
 </video>
-<div style="width: 100%; max-width: 400px; min-height: 100px; margin: 15px auto; display: block;">
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9403069400678523"
-         crossorigin="anonymous"></script>
+<div class="ad-container">
     <ins class="adsbygoogle"
          style="display:block"
          data-ad-client="ca-pub-9403069400678523"
          data-ad-slot="5863521529"
          data-ad-format="auto"
          data-full-width-responsive="true"></ins>
-    <script>
-         (adsbygoogle = window.adsbygoogle || []).push({});
-    </script>
+    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
 </div>
-<div class="flashing-title">vcminh</div>
+<div class="site-title">vcminh</div>
+<div class="site-subtitle">Mini World Tools</div>
 <div class="accordion">
-    <div class="accordion-header" onclick="toggleAccordion('info')">👤 Thông tin Admin</div>
+    <div class="accordion-header" onclick="toggleAccordion('info', this)">👤 Thông tin Admin</div>
     <div id="info" class="accordion-content">
-        <p style="margin: 0 0 10px 0;">Liên Hệ Admin:</p>
+        <p class="tool-intro">Liên Hệ Admin:</p>
         <div class="contact-links">
             <a href="https://zalo.me/0399754608" target="_blank">📱 Zalo</a>
             <a href="https://facebook.com/vcminh.vn" target="_blank">🌐 Facebook</a>
@@ -182,578 +1235,847 @@
     </div>
 </div>
 <div class="accordion">
-    <div class="accordion-header" onclick="toggleAccordion('tool')">🛠 Công Cụ v1</div>
+    <div class="accordion-header" onclick="toggleAccordion('tool', this)">🛠 Công Cụ v1</div>
     <div id="tool" class="accordion-content">
-        <p style="margin: 0 0 10px 0; font-size: 13px; color: #ffeb3b;">Lưu ý: làm theo hướng dẫn theo chức năng , không đúng sẽ không hoạt động!</p>
-        <p style="margin: 0 0 10px 0;">Truy cập công cụ tại đây:</p>
-        <p style="margin: 0 0 5px 0; font-weight: bold;">Tăng Tương Tác Người Theo Dõi</p>
-        <a href="javascript:void(0);" onclick="openModal('follow')" style="color: #ffeb3b; font-weight: bold; text-decoration: underline; display: block;">Server 1 (Trang Chính)</a>
-        <p style="margin: 0 0 10px 0;"></p>
-		<p style="margin: 0 0 5px 0; font-weight: bold;">Thông Tin Người Chơi</p>
-        <a href="https://profile-acc.shop-miniworld-vcm.workers.dev/" target="_blank" style="color: #ffeb3b; font-weight: bold; text-decoration: underline; display: block; margin-bottom: 10px;">Sever 1 (Trang chính)</a>
-		<p style="margin: 0 0 5px 0; font-weight: bold;">Nâng Cấp Thành Tựu</p>
-        <a href="javascript:void(0);" onclick="openMedalModal()" style="color: #ffeb3b; font-weight: bold; text-decoration: underline; display: block; margin-bottom: 10px;">Sever 1 (Trang chính)</a>
-		<!--
-		<a href="https://medal.buffminiworld.workers.dev/" target="_blank" style="color: #ffeb3b; font-weight: bold; text-decoration: underline; display: block; margin-bottom: 10px;">Sever Admin</a>
-		-->
-		<p style="margin: 0 0 5px 0; font-weight: bold;">Tăng Cấp Tối Đa Nhiệm Vụ Tháng</p>
-        <a href="javascript:void(0);" onclick="openSeasonModal()" style="color: #ffeb3b; font-weight: bold; text-decoration: underline; display: block; margin-bottom: 10px;">Sever 1 (Trang chính)</a>
-		<p style="margin: 0 0 5px 0; font-weight: bold;">Lấy Lại Mật Khẩu(500.000vnđ),Ghở Gmail(700.000vnđ) Yêu Cầu(UID,GMAIL)</p>
-		<a href="javascript:void(0);" onclick="toggleAccordion('info');toggleAccordion('tool')" style="color: #ffeb3b; font-weight: bold; text-decoration: underline; display: block; margin-bottom: 10px;">Liên Hệ Admin</a>
-		
-		<p style="margin: 0 0 5px 0; font-weight: bold;">Mở Phòng Đám Mây</p>
-		<!--
-        <a href="javascript:void(0);" onclick="openCloudModal()" style="color: #ffeb3b; font-weight: bold; text-decoration: underline; display: block; margin-bottom: 10px;">Sever 1 (Trang chính)</a>
-		-->
-		<a href="https://cloud-map.shop-miniworld-vcm.workers.dev/" target="_blank" style="color: #00d2ff; font-weight: bold; text-decoration: underline; display: block; margin-bottom: 10px;">Sever Free</a>
-		<!--
-		<p style="margin: 0 0 5px 0; font-weight: bold;">Mời Người Chơi Đi Tắm Biển</p>
-        <a href="javascript:void(0);" onclick="openBanModal()" style="color: #ffeb3b; font-weight: bold; text-decoration: underline; display: block; margin-bottom: 10px;">Sever 1 (Trang chính)</a>
-		-->
+        <p class="tool-note">Lưu ý: làm theo hướng dẫn theo chức năng , không đúng sẽ không hoạt động!</p>
+        <p class="tool-intro">Truy cập công cụ tại đây:</p>
+
+        <div class="tool-section">
+            <p class="tool-section-title">Tăng Tương Tác Người Theo Dõi</p>
+            <a href="javascript:void(0);" onclick="openModal('follow')" class="tool-link tool-link--primary">Server 1 (Trang Chính)</a>
+        </div>
+
+        <div class="tool-section">
+            <p class="tool-section-title">Thông Tin Người Chơi</p>
+            <a href="https://profile-acc.shop-miniworld-vcm.workers.dev/" onclick="openInAppViewer(this.href, 'Thông Tin Người Chơi (Sever 1)'); return false;" class="tool-link tool-link--primary">Sever 1 (Trang chính)</a>
+        </div>
+
+        <div class="tool-section">
+            <p class="tool-section-title">Nâng Cấp Thành Tựu</p>
+            <a href="javascript:void(0);" onclick="openMedalModal()" class="tool-link tool-link--primary">Sever 1 (Trang chính)</a>
+        </div>
+
+        <!--
+        <a href="https://medal.buffminiworld.workers.dev/" target="_blank" class="tool-link tool-link--primary">Sever Admin</a>
+        -->
+
+        <div class="tool-section">
+            <p class="tool-section-title">Tăng Cấp Tối Đa Nhiệm Vụ Tháng</p>
+            <a href="javascript:void(0);" onclick="openSeasonModal()" class="tool-link tool-link--primary">Sever 1 (Trang chính)</a>
+        </div>
+
+        <div class="tool-section">
+            <p class="tool-section-title">Lấy Lại Mật Khẩu(500.000vnđ),Ghở Gmail(700.000vnđ) Yêu Cầu(UID,GMAIL)</p>
+            <a href="javascript:void(0);" onclick="toggleAccordion('info');toggleAccordion('tool')" class="tool-link tool-link--primary">Liên Hệ Admin</a>
+        </div>
+
+        <div class="tool-section">
+            <p class="tool-section-title">Mở Phòng Đám Mây</p>
+            <!--
+            <a href="javascript:void(0);" onclick="openCloudModal()" class="tool-link tool-link--primary">Sever 1 (Trang chính)</a>
+            -->
+            <a href="https://cloud-map.shop-miniworld-vcm.workers.dev/" onclick="openInAppViewer(this.href, 'Mở Phòng Đám Mây (Sever Free)'); return false;" class="tool-link tool-link--free">Sever Free</a>
+        </div>
+
+        <!--
+        <div class="tool-section">
+            <p class="tool-section-title">Mời Người Chơi Đi Tắm Biển</p>
+            <a href="javascript:void(0);" onclick="openBanModal()" class="tool-link tool-link--primary">Sever 1 (Trang chính)</a>
+        </div>
+        -->
     </div>
 </div>
 <div class="accordion">
-    <div class="accordion-header" onclick="toggleAccordion('toolv2')">🛠 Công Cụ v2</div>
+    <div class="accordion-header" onclick="toggleAccordion('toolv2', this)">🛠 Công Cụ v2</div>
     <div id="toolv2" class="accordion-content">
-        <p style="margin: 0 0 10px 0; font-size: 13px; color: #ffeb3b;">Lưu ý: làm theo hướng dẫn theo chức năng , không đúng sẽ không hoạt động!</p>
-        <p style="margin: 0 0 10px 0;">Truy cập công cụ tại đây:</p>
-		<p style="margin: 0 0 5px 0; font-weight: bold;">Nhận Đậu</p>
-		<p style="margin: 0 0 10px 0; font-size: 13px; color: #ffeb3b;">Các Bạn Phải Cài Đúng Giá Cho 2 Mô Hình Giá 50 Đậu Nhé</p>
-		<p style="margin: 0 0 10px 0; font-size: 13px; color: #ffeb3b;">Lưu Ý: Nhập Sai Trị Giá Đậu Sẻ Không Gửi Được. Phải Đợi 15 Phút Sau Khi Tải Lên Mô Hình Mới Thanh Toán. Không Được Ghở Bỏ Mô Hình Trong Thời Gian Mua(Nếu Bạn Đã Ghở Thì Số Đậu Chưa Được Gửi Sẻ Mất)</p>
-		<a href="https://developers.miniworldgame.com/#/login" target="_blank" style="color: #f0eb3b; font-weight: bold; text-decoration: underline; display: block; margin-bottom: 10px;">Trang Chính Thức Developer Miniworld</a>
-		<a href="https://youtu.be/RbrTlZnr_N4" target="_blank" style="color: #f0eb3b; font-weight: bold; text-decoration: underline; display: block; margin-bottom: 10px;">Hướng Dẫn Trở Thành Developer cho người mới</a>
-		<a href="https://youtu.be/vMmsnETNvrI" target="_blank" style="color: #f0eb3b; font-weight: bold; text-decoration: underline; display: block; margin-bottom: 10px;">Hướng Dẫn Cài Đặt Nhận Đậu</a>
-		<a href="javascript:void(0);" onclick="openbeanModal()" style="color: #ffeb3b; font-weight: bold; text-decoration: underline; display: block; margin-bottom: 10px;">Nhận Đậu</a>
-		<p style="margin: 0 0 10px 0; font-size: 13px; color: #ffeb3b;">Liên Hệ Admin Để Nhận Nhanh Hơn So Với Trên Website x100 Lần ,Và Nhận Trên Website Và Liên Hệ Trực Tiếp Sẻ Khác Nhau</p>
-		<a href="javascript:void(0);" onclick="toggleAccordion('info');toggleAccordion('toolv2')" style="color: #ffeb3b; font-weight: bold; text-decoration: underline; display: block; margin-bottom: 10px;">Liên Hệ Admin</a>
-		<!--
-		<p style="margin: 0 0 5px 0; font-weight: bold;">Nhận Doanh Thu</p>
-		<p style="margin: 0 0 10px 0; font-size: 13px; color: #ffeb3b;">Các Bạn Phải Cài Đúng Giá Cho 1 Mô Hình Giá 40 Điểm Quảng Cáo Nhé</p>
-		<p style="margin: 0 0 10px 0; font-size: 13px; color: #ffeb3b;">Lưu Ý: Nhập Sai Trị Giá Sẻ Không Gửi Được. Phải Đợi 15 Phút Sau Khi Tải Lên Mô Hình Mới Thanh Toán. Không Được Ghở Bỏ Mô Hình Trong Thời Gian Mua(Nếu Bạn Đã Ghở Thì Số Doanh Thu Chưa Được Gửi Sẻ Mất)</p>
-		<a href="https://developers.miniworldgame.com/#/login" target="_blank" style="color: #f0eb3b; font-weight: bold; text-decoration: underline; display: block; margin-bottom: 10px;">Trang Chính Thức Developer Miniworld</a>
-		<a href="https://youtu.be/RbrTlZnr_N4" target="_blank" style="color: #f0eb3b; font-weight: bold; text-decoration: underline; display: block; margin-bottom: 10px;">Hướng Dẫn Trở Thành Developer cho người mới</a>
-		<a href="https://youtu.be/fJB4rM028po" target="_blank" style="color: #f0eb3b; font-weight: bold; text-decoration: underline; display: block; margin-bottom: 10px;">Hướng Dẫn Cài Đặt Nhận Doanh Thu</a>
-		<a href="javascript:void(0);" onclick="opencoinModal()" style="color: #ffeb3b; font-weight: bold; text-decoration: underline; display: block; margin-bottom: 10px;">Nhận Doanh Thu</a>
-		-->
+        <p class="tool-note">Lưu ý: làm theo hướng dẫn theo chức năng , không đúng sẽ không hoạt động!</p>
+        <p class="tool-intro">Truy cập công cụ tại đây:</p>
+
+        <div class="tool-section">
+            <p class="tool-section-title">Nhận Đậu</p>
+            <p class="tool-note">Các Bạn Phải Cài Đúng Giá Cho 2 Mô Hình Giá 50 Đậu Nhé</p>
+            <p class="tool-note">Lưu Ý: Nhập Sai Trị Giá Đậu Sẻ Không Gửi Được. Phải Đợi 15 Phút Sau Khi Tải Lên Mô Hình Mới Thanh Toán. Không Được Ghở Bỏ Mô Hình Trong Thời Gian Mua(Nếu Bạn Đã Ghở Thì Số Đậu Chưa Được Gửi Sẻ Mất)</p>
+            <a href="https://developers.miniworldgame.com/#/login" onclick="openInAppViewer(this.href, 'Trang Chính Thức Developer Miniworld'); return false;" class="tool-link tool-link--alt">Trang Chính Thức Developer Miniworld</a>
+            <a href="https://youtu.be/RbrTlZnr_N4" onclick="openInAppViewer(this.href, 'Hướng Dẫn Trở Thành Developer cho người mới'); return false;" class="tool-link tool-link--alt">Hướng Dẫn Trở Thành Developer cho người mới</a>
+            <a href="https://youtu.be/vMmsnETNvrI" onclick="openInAppViewer(this.href, 'Hướng Dẫn Cài Đặt Nhận Đậu'); return false;" class="tool-link tool-link--alt">Hướng Dẫn Cài Đặt Nhận Đậu</a>
+            <a href="javascript:void(0);" onclick="openbeanModal()" class="tool-link tool-link--primary">Nhận Đậu</a>
+            <p class="tool-note">Liên Hệ Admin Để Nhận Nhanh Hơn So Với Trên Website x100 Lần ,Và Nhận Trên Website Và Liên Hệ Trực Tiếp Sẻ Khác Nhau</p>
+            <a href="javascript:void(0);" onclick="toggleAccordion('info');toggleAccordion('toolv2')" class="tool-link tool-link--primary">Liên Hệ Admin</a>
+        </div>
+
+        <!--
+        <div class="tool-section">
+            <p class="tool-section-title">Nhận Doanh Thu</p>
+            <p class="tool-note">Các Bạn Phải Cài Đúng Giá Cho 1 Mô Hình Giá 40 Điểm Quảng Cáo Nhé</p>
+            <p class="tool-note">Lưu Ý: Nhập Sai Trị Giá Sẻ Không Gửi Được. Phải Đợi 15 Phút Sau Khi Tải Lên Mô Hình Mới Thanh Toán. Không Được Ghở Bỏ Mô Hình Trong Thời Gian Mua(Nếu Bạn Đã Ghở Thì Số Doanh Thu Chưa Được Gửi Sẻ Mất)</p>
+            <a href="https://developers.miniworldgame.com/#/login" onclick="openInAppViewer(this.href, 'Trang Chính Thức Developer Miniworld'); return false;" class="tool-link tool-link--alt">Trang Chính Thức Developer Miniworld</a>
+            <a href="https://youtu.be/RbrTlZnr_N4" onclick="openInAppViewer(this.href, 'Hướng Dẫn Trở Thành Developer cho người mới'); return false;" class="tool-link tool-link--alt">Hướng Dẫn Trở Thành Developer cho người mới</a>
+            <a href="https://youtu.be/fJB4rM028po" onclick="openInAppViewer(this.href, 'Hướng Dẫn Cài Đặt Nhận Doanh Thu'); return false;" class="tool-link tool-link--alt">Hướng Dẫn Cài Đặt Nhận Doanh Thu</a>
+            <a href="javascript:void(0);" onclick="opencoinModal()" class="tool-link tool-link--primary">Nhận Doanh Thu</a>
+        </div>
+        -->
     </div>
 </div>
-<div style="width: 100%; max-width: 400px; min-height: 150px; margin: 15px auto; display: block;">
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9403069400678523"
-         crossorigin="anonymous"></script>
+<div class="ad-container ad-container--tall">
     <ins class="adsbygoogle"
          style="display:block"
          data-ad-format="autorelaxed"
          data-ad-client="ca-pub-9403069400678523"
          data-ad-slot="1956066102"></ins>
-    <script>
-         (adsbygoogle = window.adsbygoogle || []).push({});
-    </script>
+    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
 </div>
+
+<!-- ==================== MODALS ==================== -->
+
+<!-- Modal: Tăng Tương Tác Người Theo Dõi -->
 <div id="server2-modal" class="modal-overlay">
     <div class="modal-content">
         <button class="close-btn" onclick="closeAllModal()">&times;</button>
-        <h4 style="color: #ffeb3b; margin: 0 0 15px 0; text-align: center;">Tăng Tương Tác Người Theo Dõi - Server 2</h4>
+        <h4 class="modal-title">Tăng Tương Tác Người Theo Dõi</h4>
+
         <div class="form-group">
-            <label>Nhập UID:</label>
-            <input type="text" id="uid" placeholder="Nhập UID..." oninput="validateuid(this)">
+            <label>Nhập UID</label>
+            <input type="text" id="uid" placeholder="Nhập UID của bạn..." oninput="validateuid(this)">
         </div>
         <div class="form-group">
-            <label>Số lượng Follow:</label>
+            <label>Số lượng Follow</label>
             <input type="number" id="amount" placeholder="Ví dụ: 100" oninput="validateuid(this);calculatePrice()">
         </div>
         <div class="form-group">
-            <label>Thành tiền:</label>
-            <input type="text" id="price-text" readonly value="0vnđ" style="background: rgba(255, 255, 255, 0.1); font-weight: bold;">
+            <label>Thành tiền</label>
+            <input type="text" id="price-text" readonly value="0vnđ">
         </div>
+
         <button class="btn-main" onclick="createPayment()">Tạo QR Thanh Toán</button>
-        <div id="payment-box">
-            <p style="font-size: 12px; color: #ffeb3b; margin-bottom: 8px;">Mua Lớn Hơn 1000 Follow Để Được Tặng Thêm 50-120%</p>
-            <h3 style="margin: 5px 0; font-size: 16px;">Quét mã để thanh toán</h3>
-            <p style="margin: 4px 0; font-size: 12px;">Tài Khoản: <b>19999998765432</b> - Ngân Hàng: <b>MBBank</b></p>
-            <p style="margin: 6px 0 2px 0; font-size: 12px;">Nội dung chuyển khoản bắt buộc:</p>
-            <p class="highlight" id="content-text" style="font-size: 15px; background: rgba(0,0,0,0.4); padding: 5px; border-radius: 4px; margin: 0;"></p>
-            <p style="margin: 6px 0;">Số tiền: <span class="highlight" id="amount-text"></span></p>
-            <img id="qr-image" src="" alt="Mã QR Thanh Toán">
-            <p style="font-size: 11px; color: #ccc; margin-top: 6px;">Hệ Thống Sẽ Tự Động Kích Hoạt Theo Lịch Trình Cách 3 Phút</p>
+
+        <div id="payment-box" class="payment-box">
+            <p class="payment-box__note">Mua Lớn Hơn 1000 Follow Để Được Tặng Thêm 50-120%</p>
+            <h3 class="payment-box__title">Quét mã để thanh toán</h3>
+            <p class="payment-box__bank-info">Tài Khoản: <b>19999998765432</b> — Ngân Hàng: <b>MBBank</b></p>
+            <p class="payment-box__transfer-label">Nội dung chuyển khoản bắt buộc:</p>
+            <p class="highlight payment-box__order-code" id="content-text"></p>
+            <p class="payment-box__amount">Số tiền: <span class="highlight" id="amount-text"></span></p>
+            <div class="qr-wrapper">
+                <div class="qr-inner">
+                    <img id="qr-image" class="qr-image" src="" alt="Mã QR Thanh Toán">
+                </div>
+                <div class="qr-corners"><span></span><span></span><span></span><span></span></div>
+            </div>
+            <div class="qr-status"><span class="qr-status-dot"></span> Sẵn sàng quét</div>
+            <p class="payment-box__footer">Hệ Thống Sẽ Tự Động Kích Hoạt Theo Lịch Trình Cách 3 Phút</p>
         </div>
-        <div class="warning-text">⏳ Đang chờ hệ thống... Nếu quá 1 ngày không tăng follow hãy liên hệ admin!</div>
+
+        <div class="warning-text">Đang chờ hệ thống... Nếu quá 1 ngày không tăng follow hãy liên hệ admin!</div>
     </div>
 </div>
+
+<!-- Modal: Nâng Cấp Thành Tựu -->
 <div id="server2-medal-modal" class="modal-overlay">
     <div class="modal-content">
         <button class="close-btn" onclick="closeAllModal()">&times;</button>
-        <h4 style="color: #ffeb3b; margin: 0 0 15px 0; text-align: center;">Nâng Cấp Thành Tựu</h4>
+        <h4 class="modal-title">Nâng Cấp Thành Tựu</h4>
+
         <div class="form-group">
-            <label>Nhập UID :</label>
-            <input type="text" id="medal-uid" placeholder="Nhập UID..." oninput="validateuid(this)">
+            <label>Nhập UID</label>
+            <input type="text" id="medal-uid" placeholder="Nhập UID của bạn..." oninput="validateuid(this)">
         </div>
         <div class="form-group">
-            <label>Mã Ghi Chú Đơn Hàng (Chỉ chữ và số):</label>
+            <label>Mã Ghi Chú Đơn Hàng (Chỉ chữ và số)</label>
             <input type="text" id="medal-orcode" placeholder="Không chứa ký tự đặc biệt..." oninput="validateAuthword(this)">
         </div>
         <div class="form-group">
-            <label>Chọn Thành Tích:</label>
-            <select id="medal-select" onchange="calculateMedalPrice()" style="width: 100%; padding: 10px; box-sizing: border-box; border: 1px solid rgba(255, 255, 255, 0.4); border-radius: 5px; background: rgba(255, 255, 255, 0.15); color: #fff;">
-                <option value="1001" style="background: #121212; color: #fff;">Thợ Săn Boss</option>
-                <option value="1002" style="background: #121212; color: #fff;">Thợ Săn Kho Báu</option>
-                <option value="1003" style="background: #121212; color: #fff;">Bậc Thầy Sinh Tồn</option>
-                <option value="1004" style="background: #121212; color: #fff;">Siêu Chiến Binh</option>
-                <option value="1005" style="background: #121212; color: #fff;">Kẻ May Mắn</option>
-                <option value="1006" style="background: #121212; color: #fff;">Bậc Thầy Kiến Trúc</option>
-                <option value="1008" style="background: #121212; color: #fff;">Người Bạn Tốt</option>
-                <option value="1010" style="background: #121212; color: #fff;">Được Yêu Thích</option>
-                <option value="1011" style="background: #121212; color: #fff;">Nhà Làm Vườn</option>
-                <option value="1012" style="background: #121212; color: #fff;">Thánh Bắt Sâu</option>
-                <option value="1014" style="background: #121212; color: #fff;">Nông Dân Ưu Tú</option>
-                <option value="1015" style="background: #121212; color: #fff;">Bàn Tay Vàng</option>
-                <option value="1016" style="background: #121212; color: #fff;">Nhà Sưu Tập</option>
-                <option value="1017" style="background: #121212; color: #fff;">Siêu Nhân</option>
-                <option value="1018" style="background: #121212; color: #fff;">Thánh Hóa Trang</option>
-                <option value="1019" style="background: #121212; color: #fff;">Bậc Thầy Thuần Hóa</option>
-                <option value="1020" style="background: #121212; color: #fff;">Fashionista</option>
-				<option value="1013" style="background: #821212; color: #fff;">Bậc Thầy Thu Thập</option>
+            <label>Chọn Thành Tích</label>
+            <select id="medal-select" onchange="calculateMedalPrice()">
+                <option value="1001">Thợ Săn Boss</option>
+                <option value="1002">Thợ Săn Kho Báu</option>
+                <option value="1003">Bậc Thầy Sinh Tồn</option>
+                <option value="1004">Siêu Chiến Binh</option>
+                <option value="1005">Kẻ May Mắn</option>
+                <option value="1006">Bậc Thầy Kiến Trúc</option>
+                <option value="1008">Người Bạn Tốt</option>
+                <option value="1010">Được Yêu Thích</option>
+                <option value="1011">Nhà Làm Vườn</option>
+                <option value="1012">Thánh Bắt Sâu</option>
+                <option value="1014">Nông Dân Ưu Tú</option>
+                <option value="1015">Bàn Tay Vàng</option>
+                <option value="1016">Nhà Sưu Tập</option>
+                <option value="1017">Siêu Nhân</option>
+                <option value="1018">Thánh Hóa Trang</option>
+                <option value="1019">Bậc Thầy Thuần Hóa</option>
+                <option value="1020">Fashionista</option>
+                <option value="1013" class="option--special">Bậc Thầy Thu Thập</option>
             </select>
         </div>
         <div class="form-group">
-            <label>Thành tiền:</label>
-            <input type="text" id="medal-price-text" readonly value="0vnđ" style="background: rgba(255, 255, 255, 0.1); font-weight: bold;">
+            <label>Thành tiền</label>
+            <input type="text" id="medal-price-text" readonly value="0vnđ">
         </div>
+
         <button class="btn-main" onclick="createMedalPayment()">Tạo QR Thanh Toán</button>
-        <div id="medal-payment-box" style="margin-top: 20px; text-align: center; display: none; border-top: 2px dashed rgba(255, 255, 255, 0.3); padding-top: 15px;">
-            <h3 style="margin: 5px 0; font-size: 16px;">Quét mã để thanh toán</h3>
-            <p style="margin: 4px 0; font-size: 12px;">Tài Khoản: <b>19999998765432</b> - Ngân Hàng: <b>MBBank</b></p>
-            <p style="margin: 6px 0 2px 0; font-size: 12px;">Nội dung chuyển khoản bắt buộc:</p>
-            <p class="highlight" id="medal-content-text" style="font-size: 15px; background: rgba(0,0,0,0.4); padding: 5px; border-radius: 4px; margin: 0;"></p>
-            <p style="margin: 6px 0;">Số tiền: <span class="highlight" id="medal-amount-text"></span></p>
-            <img id="medal-qr-image" src="" alt="Mã QR Thanh Toán" style="width: 180px; height: 180px; margin-top: 10px; border-radius: 5px; border: 1px solid rgba(255, 255, 255, 0.2);">
+
+        <div id="medal-payment-box" class="payment-box">
+            <h3 class="payment-box__title">Quét mã để thanh toán</h3>
+            <p class="payment-box__bank-info">Tài Khoản: <b>19999998765432</b> — Ngân Hàng: <b>MBBank</b></p>
+            <p class="payment-box__transfer-label">Nội dung chuyển khoản bắt buộc:</p>
+            <p class="highlight payment-box__order-code" id="medal-content-text"></p>
+            <p class="payment-box__amount">Số tiền: <span class="highlight" id="medal-amount-text"></span></p>
+            <div class="qr-wrapper">
+                <div class="qr-inner">
+                    <img id="medal-qr-image" class="qr-image" src="" alt="Mã QR Thanh Toán">
+                </div>
+                <div class="qr-corners"><span></span><span></span><span></span><span></span></div>
+            </div>
+            <div class="qr-status"><span class="qr-status-dot"></span> Sẵn sàng quét</div>
         </div>
-        <div class="warning-text">⏳ Đang chờ hệ thống... Nếu quá 15 phút thành tích không tăng hãy liên hệ admin!</div>
+
+        <div class="warning-text">Đang chờ hệ thống... Nếu quá 15 phút thành tích không tăng hãy liên hệ admin!</div>
     </div>
 </div>
+
+<!-- Modal: Mở Phòng Đám Mây -->
 <div id="server-cloud-modal" class="modal-overlay">
     <div class="modal-content">
         <button class="close-btn" onclick="closeAllModal()">&times;</button>
-        <h4 style="color: #ffeb3b; margin: 0 0 15px 0; text-align: center;">Mở Phòng Đám Mây</h4>
+        <h4 class="modal-title">Mở Phòng Đám Mây</h4>
+
         <div class="form-group">
-            <label>Nhập WID Map :</label>
+            <label>Nhập WID Map</label>
             <input type="text" id="cloud-wid" placeholder="Nhớ Nhập Đúng WID Map Khi Tra Ở Profile Account" oninput="validateuid(this)">
         </div>
-		<div class="form-group">
-            <label>Nhập Số Ngày :</label>
-            <input type="text" id="cloud-day" placeholder="Ví dụ:100" oninput="validateuid(this);calculateCloudPrice()">
+        <div class="form-group">
+            <label>Nhập Số Ngày</label>
+            <input type="text" id="cloud-day" placeholder="Ví dụ: 100" oninput="validateuid(this);calculateCloudPrice()">
         </div>
         <div class="form-group">
-            <label>Thành tiền:</label>
-            <input type="text" id="cloud-price-text" readonly value="0vnđ" style="background: rgba(255, 255, 255, 0.1); font-weight: bold;">
+            <label>Thành tiền</label>
+            <input type="text" id="cloud-price-text" readonly value="0vnđ">
         </div>
+
         <button class="btn-main" onclick="createCloudPayment()">Tạo QR Thanh Toán</button>
-        <div id="cloud-payment-box" style="margin-top: 20px; text-align: center; display: none; border-top: 2px dashed rgba(255, 255, 255, 0.3); padding-top: 15px;">
-            <h3 style="margin: 5px 0; font-size: 16px;">Quét mã để thanh toán</h3>
-            <p style="margin: 4px 0; font-size: 12px;">Tài Khoản: <b>19999998765432</b> - Ngân Hàng: <b>MBBank</b></p>
-            <p style="margin: 6px 0 2px 0; font-size: 12px;">Nội dung chuyển khoản bắt buộc:</p>
-            <p class="highlight" id="cloud-content-text" style="font-size: 15px; background: rgba(0,0,0,0.4); padding: 5px; border-radius: 4px; margin: 0;"></p>
-            <p style="margin: 6px 0;">Số tiền: <span class="highlight" id="cloud-amount-text"></span></p>
-            <img id="cloud-qr-image" src="" alt="Mã QR Thanh Toán" style="width: 180px; height: 180px; margin-top: 10px; border-radius: 5px; border: 1px solid rgba(255, 255, 255, 0.2);">
+
+        <div id="cloud-payment-box" class="payment-box">
+            <h3 class="payment-box__title">Quét mã để thanh toán</h3>
+            <p class="payment-box__bank-info">Tài Khoản: <b>19999998765432</b> — Ngân Hàng: <b>MBBank</b></p>
+            <p class="payment-box__transfer-label">Nội dung chuyển khoản bắt buộc:</p>
+            <p class="highlight payment-box__order-code" id="cloud-content-text"></p>
+            <p class="payment-box__amount">Số tiền: <span class="highlight" id="cloud-amount-text"></span></p>
+            <div class="qr-wrapper">
+                <div class="qr-inner">
+                    <img id="cloud-qr-image" class="qr-image" src="" alt="Mã QR Thanh Toán">
+                </div>
+                <div class="qr-corners"><span></span><span></span><span></span><span></span></div>
+            </div>
+            <div class="qr-status"><span class="qr-status-dot"></span> Sẵn sàng quét</div>
         </div>
-        <div class="warning-text">⏳ Hệ Thống Sẻ Tự Động Mở Phòng Cloud Theo Thời Gian Cài Đặt!</div>
+
+        <div class="warning-text">Hệ Thống Sẻ Tự Động Mở Phòng Cloud Theo Thời Gian Cài Đặt!</div>
     </div>
 </div>
+
+<!-- Modal: Mời Người Chơi Đi Tắm Biển -->
 <div id="server-ban-modal" class="modal-overlay">
     <div class="modal-content">
         <button class="close-btn" onclick="closeAllModal()">&times;</button>
-        <h4 style="color: #ffeb3b; margin: 0 0 15px 0; text-align: center;">Mời Người Chơi Đi Tắm Biển</h4>
+        <h4 class="modal-title">Mời Người Chơi Đi Tắm Biển</h4>
+
         <div class="form-group">
-            <label>Nhập UID:</label>
-            <input type="text" id="ban-uid" placeholder="Nhập UID" oninput="validateuid(this)">
-        </div>
-		<div class="form-group">
-            <label>Nhập Số Ngày :</label>
-            <input type="text" id="ban-day" placeholder="Ví dụ:100" oninput="validateuid(this);calculateBanPrice()">
+            <label>Nhập UID</label>
+            <input type="text" id="ban-uid" placeholder="Nhập UID..." oninput="validateuid(this)">
         </div>
         <div class="form-group">
-            <label>Thành tiền:</label>
-            <input type="text" id="ban-price-text" readonly value="0vnđ" style="background: rgba(255, 255, 255, 0.1); font-weight: bold;">
+            <label>Nhập Số Ngày</label>
+            <input type="text" id="ban-day" placeholder="Ví dụ: 100" oninput="validateuid(this);calculateBanPrice()">
         </div>
+        <div class="form-group">
+            <label>Thành tiền</label>
+            <input type="text" id="ban-price-text" readonly value="0vnđ">
+        </div>
+
         <button class="btn-main" onclick="createBanPayment()">Tạo QR Thanh Toán</button>
-        <div id="ban-payment-box" style="margin-top: 20px; text-align: center; display: none; border-top: 2px dashed rgba(255, 255, 255, 0.3); padding-top: 15px;">
-            <h3 style="margin: 5px 0; font-size: 16px;">Quét mã để thanh toán</h3>
-            <p style="margin: 4px 0; font-size: 12px;">Tài Khoản: <b>19999998765432</b> - Ngân Hàng: <b>MBBank</b></p>
-            <p style="margin: 6px 0 2px 0; font-size: 12px;">Nội dung chuyển khoản bắt buộc:</p>
-            <p class="highlight" id="ban-content-text" style="font-size: 15px; background: rgba(0,0,0,0.4); padding: 5px; border-radius: 4px; margin: 0;"></p>
-            <p style="margin: 6px 0;">Số tiền: <span class="highlight" id="ban-amount-text"></span></p>
-            <img id="ban-qr-image" src="" alt="Mã QR Thanh Toán" style="width: 180px; height: 180px; margin-top: 10px; border-radius: 5px; border: 1px solid rgba(255, 255, 255, 0.2);">
+
+        <div id="ban-payment-box" class="payment-box">
+            <h3 class="payment-box__title">Quét mã để thanh toán</h3>
+            <p class="payment-box__bank-info">Tài Khoản: <b>19999998765432</b> — Ngân Hàng: <b>MBBank</b></p>
+            <p class="payment-box__transfer-label">Nội dung chuyển khoản bắt buộc:</p>
+            <p class="highlight payment-box__order-code" id="ban-content-text"></p>
+            <p class="payment-box__amount">Số tiền: <span class="highlight" id="ban-amount-text"></span></p>
+            <div class="qr-wrapper">
+                <div class="qr-inner">
+                    <img id="ban-qr-image" class="qr-image" src="" alt="Mã QR Thanh Toán">
+                </div>
+                <div class="qr-corners"><span></span><span></span><span></span><span></span></div>
+            </div>
+            <div class="qr-status"><span class="qr-status-dot"></span> Sẵn sàng quét</div>
         </div>
-        <div class="warning-text">⏳ Hệ Thống Sẻ Tự Động Mời Người Chơi Đi Tắm Biển Theo Thời Gian Cài Đặt!</div>
+
+        <div class="warning-text">Hệ Thống Sẻ Tự Động Mời Người Chơi Đi Tắm Biển Theo Thời Gian Cài Đặt!</div>
     </div>
 </div>
+
+<!-- Modal: Tăng Cấp Tối Đa Nhiệm Vụ Tháng -->
 <div id="server-season-modal" class="modal-overlay">
     <div class="modal-content">
         <button class="close-btn" onclick="closeAllModal()">&times;</button>
-        <h4 style="color: #ffeb3b; margin: 0 0 15px 0; text-align: center;">Tăng Cấp Tối Đa Nhiệm Vụ Tháng</h4>
+        <h4 class="modal-title">Tăng Cấp Tối Đa Nhiệm Vụ Tháng</h4>
+
         <div class="form-group">
-            <label>Nhập UID :</label>
-            <input type="text" id="season-uid" placeholder="Nhập UID..." oninput="validateuid(this)">
+            <label>Nhập UID</label>
+            <input type="text" id="season-uid" placeholder="Nhập UID của bạn..." oninput="validateuid(this)">
         </div>
         <div class="form-group">
-            <label>Mã Ghi Chú Đơn Hàng (Chỉ chữ và số):</label>
+            <label>Mã Ghi Chú Đơn Hàng (Chỉ chữ và số)</label>
             <input type="text" id="season-orcode" placeholder="Không chứa ký tự đặc biệt..." oninput="validateAuthword(this)">
         </div>
-		<div class="warning-text">Lưu Ý: Nên Sử Dụng Khi Toàn Bộ Nhiệm Vụ Đã Mở!</div>
+
+        <div class="warning-text" style="margin-bottom:16px;">Lưu Ý: Nên Sử Dụng Khi Toàn Bộ Nhiệm Vụ Đã Mở!</div>
+
         <div class="form-group">
-            <label>Thành tiền:</label>
-            <input type="text" id="season-price-text" readonly value="30.000vnđ" style="background: rgba(255, 255, 255, 0.1); font-weight: bold;">
+            <label>Thành tiền</label>
+            <input type="text" id="season-price-text" readonly value="30.000vnđ">
         </div>
+
         <button class="btn-main" onclick="createSeasonPayment()">Tạo QR Thanh Toán</button>
-        <div id="season-payment-box" style="margin-top: 20px; text-align: center; display: none; border-top: 2px dashed rgba(255, 255, 255, 0.3); padding-top: 15px;">
-		    <p style="margin: 0 0 10px 0; font-size: 13px; color: #ffeb3b;">Lưu ý: Nên Sử Dụng Nó Khi Đã Mở Nhiệm Vụ Cuối Cùng.</p>
-            <h3 style="margin: 5px 0; font-size: 16px;">Quét mã để thanh toán</h3>
-            <p style="margin: 4px 0; font-size: 12px;">Tài Khoản: <b>19999998765432</b> - Ngân Hàng: <b>MBBank</b></p>
-            <p style="margin: 6px 0 2px 0; font-size: 12px;">Nội dung chuyển khoản bắt buộc:</p>
-            <p class="highlight" id="season-content-text" style="font-size: 15px; background: rgba(0,0,0,0.4); padding: 5px; border-radius: 4px; margin: 0;"></p>
-            <p style="margin: 6px 0;">Số tiền: <span class="highlight" id="season-amount-text"></span></p>
-            <img id="season-qr-image" src="" alt="Mã QR Thanh Toán" style="width: 180px; height: 180px; margin-top: 10px; border-radius: 5px; border: 1px solid rgba(255, 255, 255, 0.2);">
+
+        <div id="season-payment-box" class="payment-box">
+            <p class="payment-box__note">Lưu ý: Nên Sử Dụng Nó Khi Đã Mở Nhiệm Vụ Cuối Cùng.</p>
+            <h3 class="payment-box__title">Quét mã để thanh toán</h3>
+            <p class="payment-box__bank-info">Tài Khoản: <b>19999998765432</b> — Ngân Hàng: <b>MBBank</b></p>
+            <p class="payment-box__transfer-label">Nội dung chuyển khoản bắt buộc:</p>
+            <p class="highlight payment-box__order-code" id="season-content-text"></p>
+            <p class="payment-box__amount">Số tiền: <span class="highlight" id="season-amount-text"></span></p>
+            <div class="qr-wrapper">
+                <div class="qr-inner">
+                    <img id="season-qr-image" class="qr-image" src="" alt="Mã QR Thanh Toán">
+                </div>
+                <div class="qr-corners"><span></span><span></span><span></span><span></span></div>
+            </div>
+            <div class="qr-status"><span class="qr-status-dot"></span> Sẵn sàng quét</div>
         </div>
-        <div class="warning-text">⏳ Đang chờ hệ thống... Nếu quá 15 phút thành tích không tăng hãy liên hệ admin!</div>
+
+        <div class="warning-text">Đang chờ hệ thống... Nếu quá 15 phút thành tích không tăng hãy liên hệ admin!</div>
     </div>
 </div>
+
+<!-- Modal: Nhận Đậu -->
 <div id="bean-modal" class="modal-overlay">
-    <div class="modal-content" style="max-height: 90vh; overflow-y: auto;">
+    <div class="modal-content">
         <button class="close-btn" onclick="closeAllModal()">&times;</button>
-        <h4 style="color: #ffeb3b; margin: 0 0 15px 0; text-align: center;">Nhận Đậu</h4>
+        <h4 class="modal-title">Nhận Đậu</h4>
+
         <div class="form-group">
-            <label>Nhập UID:</label>
-            <input type="text" id="bean-uid" placeholder="Nhập UID..." oninput="validateuid(this)">
+            <label>Nhập UID</label>
+            <input type="text" id="bean-uid" placeholder="Nhập UID của bạn..." oninput="validateuid(this)">
         </div>
         <div class="form-group">
-            <label>Số lượng Đậu:</label>
-            <input type="number" id="bean-amount" placeholder="Ví dụ: 100.000" oninput="validateuid(this);calculatebeanPrice()" onblur="formatMultipleOf100(this);calculatebeanPrice()">
+            <label>Số lượng Đậu</label>
+            <input type="number" id="bean-amount" placeholder="Ví dụ: 100.000"
+                   oninput="validateuid(this);calculatebeanPrice()"
+                   onblur="formatMultipleOf100(this);calculatebeanPrice()">
         </div>
         <div class="form-group">
-            <label>Thành tiền:</label>
-            <input type="text" id="bean-price-text" readonly value="0vnđ" style="background: rgba(255, 255, 255, 0.1); font-weight: bold;">
+            <label>Thành tiền</label>
+            <input type="text" id="bean-price-text" readonly value="0vnđ">
         </div>
+
         <button class="btn-main" onclick="createbeanPayment()">Tạo QR Thanh Toán</button>
-        <div id="bean-payment-box" style="margin-top: 20px; text-align: center; display: none; border-top: 2px dashed rgba(255, 255, 255, 0.3); padding-top: 15px;">
-            <p style="font-size: 12px; color: #ffeb3b; margin-bottom: 8px;">Lưu ý:Nhớ Cài Đúng Số Đậu Để Hoạt Động Thành Công!</p>
-            <h3 style="margin: 5px 0; font-size: 16px;">Quét mã để thanh toán</h3>
-            <p style="margin: 4px 0; font-size: 12px;">Tài Khoản: <b>19999998765432</b> - Ngân Hàng: <b>MBBank</b></p>
-            <p style="margin: 6px 0 2px 0; font-size: 12px;">Nội dung chuyển khoản bắt buộc:</p>
-            <p class="highlight" id="bean-content-text" style="font-size: 15px; background: rgba(0,0,0,0.4); padding: 5px; border-radius: 4px; margin: 0; display: inline-block;"></p>
-            <p style="margin: 6px 0;">Số tiền: <span class="highlight" id="bean-amount-text"></span></p>
-            <img id="bean-qr-image" src="" alt="Mã QR Thanh Toán" style="width: 180px; height: 180px; margin-top: 10px; border-radius: 5px; border: 1px solid rgba(255, 255, 255, 0.2);">
-            <p style="font-size: 11px; color: #ccc; margin-top: 6px;">Hệ Thống Sẽ Tự Động Kích Hoạt Theo Lịch Trình Cách 3 Phút</p>
+
+        <div id="bean-payment-box" class="payment-box">
+            <p class="payment-box__note">Lưu ý: Nhớ Cài Đúng Số Đậu Để Hoạt Động Thành Công!</p>
+            <h3 class="payment-box__title">Quét mã để thanh toán</h3>
+            <p class="payment-box__bank-info">Tài Khoản: <b>19999998765432</b> — Ngân Hàng: <b>MBBank</b></p>
+            <p class="payment-box__transfer-label">Nội dung chuyển khoản bắt buộc:</p>
+            <p class="highlight payment-box__order-code" id="bean-content-text" style="display:inline-block;"></p>
+            <p class="payment-box__amount">Số tiền: <span class="highlight" id="bean-amount-text"></span></p>
+            <div class="qr-wrapper">
+                <div class="qr-inner">
+                    <img id="bean-qr-image" class="qr-image" src="" alt="Mã QR Thanh Toán">
+                </div>
+                <div class="qr-corners"><span></span><span></span><span></span><span></span></div>
+            </div>
+            <div class="qr-status"><span class="qr-status-dot"></span> Sẵn sàng quét</div>
+            <p class="payment-box__footer">Hệ Thống Sẽ Tự Động Kích Hoạt Theo Lịch Trình Cách 3 Phút</p>
         </div>
-        <div class="warning-text" style="margin-top: 15px;">⏳ Sau 10 Giờ Hằng Ngày Lên Trang Developer Miniworld Để Kiểm Tra Tiến Độ,Nếu Lỗi Hãy Liên Hệ Admin!</div>
+
+        <div class="warning-text" style="margin-top:15px;">Sau 10 Giờ Hằng Ngày Lên Trang Developer Miniworld Để Kiểm Tra Tiến Độ, Nếu Lỗi Hãy Liên Hệ Admin!</div>
     </div>
 </div>
+
+<!-- Modal: Nhận Doanh Thu -->
 <div id="coin-modal" class="modal-overlay">
-    <div class="modal-content" style="max-height: 90vh; overflow-y: auto;">
+    <div class="modal-content">
         <button class="close-btn" onclick="closeAllModal()">&times;</button>
-        <h4 style="color: #ffeb3b; margin: 0 0 15px 0; text-align: center;">Nhận Doanh Thu</h4>
+        <h4 class="modal-title">Nhận Doanh Thu</h4>
+
         <div class="form-group">
-            <label>Nhập UID:</label>
-            <input type="text" id="coin-uid" placeholder="Nhập UID..." oninput="validateuid(this)">
+            <label>Nhập UID</label>
+            <input type="text" id="coin-uid" placeholder="Nhập UID của bạn..." oninput="validateuid(this)">
         </div>
         <div class="form-group">
-            <label>Số lượng Doanh Thu(Đơn Vị $):</label>
-            <input type="number" id="coin-amount" placeholder="Ví dụ: 1" oninput="validateuid(this);calculatecoinPrice()" onblur="calculatecoinPrice()">
+            <label>Số lượng Doanh Thu (Đơn Vị $)</label>
+            <input type="number" id="coin-amount" placeholder="Ví dụ: 1"
+                   oninput="validateuid(this);calculatecoinPrice()"
+                   onblur="calculatecoinPrice()">
         </div>
         <div class="form-group">
-            <label>Thành tiền:</label>
-            <input type="text" id="coin-price-text" readonly value="0vnđ" style="background: rgba(255, 255, 255, 0.1); font-weight: bold;">
+            <label>Thành tiền</label>
+            <input type="text" id="coin-price-text" readonly value="0vnđ">
         </div>
+
         <button class="btn-main" onclick="createcoinPayment()">Tạo QR Thanh Toán</button>
-        <div id="coin-payment-box" style="margin-top: 20px; text-align: center; display: none; border-top: 2px dashed rgba(255, 255, 255, 0.3); padding-top: 15px;">
-            <p style="font-size: 12px; color: #ffeb3b; margin-bottom: 8px;">Lưu ý:Nhớ Cài Đúng Số Điểm Quảng Cáo Để Hoạt Động Thành Công!</p>
-            <h3 style="margin: 5px 0; font-size: 16px;">Quét mã để thanh toán</h3>
-            <p style="margin: 4px 0; font-size: 12px;">Tài Khoản: <b>19999998765432</b> - Ngân Hàng: <b>MBBank</b></p>
-            <p style="margin: 6px 0 2px 0; font-size: 12px;">Nội dung chuyển khoản bắt buộc:</p>
-            <p class="highlight" id="coin-content-text" style="font-size: 15px; background: rgba(0,0,0,0.4); padding: 5px; border-radius: 4px; margin: 0; display: inline-block;"></p>
-            <p style="margin: 6px 0;">Số tiền: <span class="highlight" id="coin-amount-text"></span></p>
-            <img id="coin-qr-image" src="" alt="Mã QR Thanh Toán" style="width: 180px; height: 180px; margin-top: 10px; border-radius: 5px; border: 1px solid rgba(255, 255, 255, 0.2);">
-            <p style="font-size: 11px; color: #ccc; margin-top: 6px;">Hệ Thống Sẽ Tự Động Kích Hoạt Theo Lịch Trình Cách 3 Phút</p>
+
+        <div id="coin-payment-box" class="payment-box">
+            <p class="payment-box__note">Lưu ý: Nhớ Cài Đúng Số Điểm Quảng Cáo Để Hoạt Động Thành Công!</p>
+            <h3 class="payment-box__title">Quét mã để thanh toán</h3>
+            <p class="payment-box__bank-info">Tài Khoản: <b>19999998765432</b> — Ngân Hàng: <b>MBBank</b></p>
+            <p class="payment-box__transfer-label">Nội dung chuyển khoản bắt buộc:</p>
+            <p class="highlight payment-box__order-code" id="coin-content-text" style="display:inline-block;"></p>
+            <p class="payment-box__amount">Số tiền: <span class="highlight" id="coin-amount-text"></span></p>
+            <div class="qr-wrapper">
+                <div class="qr-inner">
+                    <img id="coin-qr-image" class="qr-image" src="" alt="Mã QR Thanh Toán">
+                </div>
+                <div class="qr-corners"><span></span><span></span><span></span><span></span></div>
+            </div>
+            <div class="qr-status"><span class="qr-status-dot"></span> Sẵn sàng quét</div>
+            <p class="payment-box__footer">Hệ Thống Sẽ Tự Động Kích Hoạt Theo Lịch Trình Cách 3 Phút</p>
         </div>
-        <div class="warning-text" style="margin-top: 15px;">⏳ Sau 10 Giờ Hằng Ngày Lên Trang Developer Miniworld Để Kiểm Tra Tiến Độ,Nếu Lỗi Hãy Liên Hệ Admin!</div>
+
+        <div class="warning-text" style="margin-top:15px;">Sau 10 Giờ Hằng Ngày Lên Trang Developer Miniworld Để Kiểm Tra Tiến Độ, Nếu Lỗi Hãy Liên Hệ Admin!</div>
+    </div>
+</div>
+
+<!-- ==================== HIGH-TECH CYBER ALERT MODAL ==================== -->
+<div id="cyber-alert-modal" class="modal-overlay" style="z-index: 9999;">
+    <div class="cyber-alert-content">
+        <div class="cyber-alert-scanline"></div>
+        <div class="qr-corners"><span></span><span></span><span></span><span></span></div>
+        <div class="cyber-alert-icon-wrap" id="cyber-alert-icon">📸</div>
+        <div class="cyber-alert-sub" id="cyber-alert-sub">SYSTEM PROTOCOL</div>
+        <h3 class="cyber-alert-title" id="cyber-alert-title">LƯU HÓA ĐƠN</h3>
+        <div class="cyber-alert-body" id="cyber-alert-message">Vui lòng chụp lại bill thanh toán.</div>
+        <button class="cyber-alert-btn" onclick="closeCyberAlert()">ĐÃ HIỂU &amp; TIẾP TỤC</button>
+    </div>
+</div>
+
+<!-- ==================== HIGH-TECH IN-APP VIEWER MODAL ==================== -->
+<div id="cyber-viewer-modal" class="modal-overlay" style="z-index: 9998;">
+    <div class="cyber-viewer-content">
+        <div class="qr-corners"><span></span><span></span><span></span><span></span></div>
+        <div class="cyber-viewer-header">
+            <div class="cyber-viewer-info">
+                <span class="cyber-viewer-dot"></span>
+                <span class="cyber-viewer-title" id="cyber-viewer-title">HƯỚNG DẪN / TRÌNH DUYỆT</span>
+            </div>
+            <div class="cyber-viewer-actions">
+                <button id="cyber-viewer-fullscreen-btn" class="cyber-viewer-btn" onclick="toggleViewerFullscreen()" title="Phóng to toàn màn hình">
+                    <span id="cyber-fs-icon">⛶</span> <span id="cyber-fs-text">Phóng to</span>
+                </button>
+                <a id="cyber-viewer-external" href="#" target="_blank" class="cyber-viewer-btn" title="Mở trang trong tab riêng biệt">
+                    <span>Mở tab mới</span> ↗
+                </a>
+                <button class="cyber-viewer-close" onclick="closeCyberViewer()" title="Đóng">&times;</button>
+            </div>
+        </div>
+        <div id="cyber-viewer-notice" class="cyber-viewer-notice" style="display:none;">
+            <span>ℹ️ Nếu website không hiển thị do chính sách bảo mật của trang đích, hãy bấm nút "Mở tab mới" ở góc phải.</span>
+        </div>
+        <div class="cyber-viewer-body">
+            <iframe id="cyber-viewer-frame" class="cyber-viewer-frame" src="about:blank" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+        </div>
     </div>
 </div>
 <script>
-    function toggleAccordion(id) {
-        const content = document.getElementById(id);
+    // ===== Config =====
+    const BANK_CONFIG = { stk: "19999998765432", bank: "MBBank" };
+    const MODAL_IDS = [
+        "server2-modal", "server2-medal-modal", "server-cloud-modal",
+        "server-ban-modal", "server-season-modal", "bean-modal", "coin-modal"
+    ];
+
+    // ===== High-Tech Web Audio Synthesizer =====
+    var lastBeepTime = 0;
+    function playCyberBeep(type) {
+        try {
+            var now = Date.now();
+            if (now - lastBeepTime < 180) return;
+            lastBeepTime = now;
+            var AudioCtx = window.AudioContext || window.webkitAudioContext;
+            if (!AudioCtx) return;
+            var ctx = new AudioCtx();
+            var osc = ctx.createOscillator();
+            var gain = ctx.createGain();
+            osc.connect(gain);
+            gain.connect(ctx.destination);
+            if (type === 'qr' || type === 'alert') {
+                osc.type = 'sine';
+                osc.frequency.setValueAtTime(523.25, ctx.currentTime);
+                osc.frequency.exponentialRampToValueAtTime(880.00, ctx.currentTime + 0.12);
+                gain.gain.setValueAtTime(0.15, ctx.currentTime);
+                gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.28);
+                osc.start();
+                osc.stop(ctx.currentTime + 0.28);
+            } else if (type === 'zoom') {
+                osc.type = 'sine';
+                osc.frequency.setValueAtTime(440.00, ctx.currentTime);
+                osc.frequency.exponentialRampToValueAtTime(1174.66, ctx.currentTime + 0.14);
+                gain.gain.setValueAtTime(0.14, ctx.currentTime);
+                gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.22);
+                osc.start();
+                osc.stop(ctx.currentTime + 0.22);
+            } else if (type === 'open') {
+                osc.type = 'sine';
+                osc.frequency.setValueAtTime(392.00, ctx.currentTime);
+                osc.frequency.exponentialRampToValueAtTime(659.25, ctx.currentTime + 0.12);
+                gain.gain.setValueAtTime(0.12, ctx.currentTime);
+                gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.22);
+                osc.start();
+                osc.stop(ctx.currentTime + 0.22);
+            } else {
+                osc.type = 'sine';
+                osc.frequency.setValueAtTime(659.25, ctx.currentTime);
+                osc.frequency.exponentialRampToValueAtTime(987.77, ctx.currentTime + 0.08);
+                gain.gain.setValueAtTime(0.12, ctx.currentTime);
+                gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.14);
+                osc.start();
+                osc.stop(ctx.currentTime + 0.14);
+            }
+        } catch (e) {}
+    }
+
+    // ===== High-Tech In-App Viewer & Fullscreen Toggle =====
+    function toggleViewerFullscreen() {
+        var modal = $('cyber-viewer-modal');
+        var content = modal ? modal.querySelector('.cyber-viewer-content') : null;
+        var btn = $('cyber-viewer-fullscreen-btn');
+        var icon = $('cyber-fs-icon');
+        var text = $('cyber-fs-text');
+        if (!modal || !content) return;
+        var isFs = content.classList.toggle('is-fullscreen');
+        modal.classList.toggle('is-fullscreen', isFs);
+        if (isFs) {
+            if (icon) icon.innerText = '🗗';
+            if (text) text.innerText = 'Thu nhỏ';
+            if (btn) btn.title = 'Thu nhỏ về giữa màn hình';
+        } else {
+            if (icon) icon.innerText = '⛶';
+            if (text) text.innerText = 'Phóng to';
+            if (btn) btn.title = 'Phóng to toàn màn hình';
+        }
+    }
+
+    function openInAppViewer(url, title) {
+        playCyberBeep('open');
+        var modal = $('cyber-viewer-modal');
+        var frame = $('cyber-viewer-frame');
+        var titleEl = $('cyber-viewer-title');
+        var extBtn = $('cyber-viewer-external');
+        var noticeEl = $('cyber-viewer-notice');
+        var contentEl = modal.querySelector('.cyber-viewer-content');
+        titleEl.innerText = title || "Giao diện Hướng dẫn & Công cụ";
+        extBtn.href = url;
+        modal.classList.remove('is-fullscreen');
+        contentEl.classList.remove('is-fullscreen');
+        var fsIcon = $('cyber-fs-icon');
+        var fsText = $('cyber-fs-text');
+        if (fsIcon) fsIcon.innerText = '⛶';
+        if (fsText) fsText.innerText = 'Phóng to';
+        var embedUrl = url;
+        var ytMatch = url.match(/(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=|watch\?.+&v=))([\w-]{11})/);
+        if (ytMatch && ytMatch[1]) {
+            contentEl.classList.add('is-video');
+            extBtn.innerHTML = '<span>Xem trên YouTube</span> ▶';
+            extBtn.classList.add('cyber-viewer-btn--yt');
+            noticeEl.style.display = "none";
+            var videoId = ytMatch[1];
+            var origin = (window.location.origin && window.location.origin.startsWith('http')) ? ('&origin=' + encodeURIComponent(window.location.origin)) : '';
+            embedUrl = "https://www.youtube.com/embed/" + videoId + "?autoplay=1&playsinline=1&rel=0&enablejsapi=1" + origin;
+        } else {
+            contentEl.classList.remove('is-video');
+            extBtn.innerHTML = '<span>Mở tab mới</span> ↗';
+            extBtn.classList.remove('cyber-viewer-btn--yt');
+            noticeEl.style.display = "flex";
+        }
+        frame.src = embedUrl;
+        frame.style.display = "block";
+        modal.style.display = "flex";
+    }
+    function closeCyberViewer() {
+        var modal = $('cyber-viewer-modal');
+        if (modal) {
+            modal.style.display = "none";
+            modal.classList.remove('is-fullscreen');
+        }
+        var frame = $('cyber-viewer-frame');
+        if (frame) frame.src = "about:blank";
+        var contentEl = modal ? modal.querySelector('.cyber-viewer-content') : null;
+        if (contentEl) {
+            contentEl.classList.remove('is-video');
+            contentEl.classList.remove('is-fullscreen');
+        }
+        var icon = $('cyber-fs-icon');
+        var text = $('cyber-fs-text');
+        if (icon) icon.innerText = '⛶';
+        if (text) text.innerText = 'Phóng to';
+    }
+
+    // ===== High-Tech Cyber Alert Modal =====
+    function cyberAlert(message, customTitle, customIcon) {
+        playCyberBeep('alert');
+        var modal = $('cyber-alert-modal');
+        var msgEl = $('cyber-alert-message');
+        var titleEl = $('cyber-alert-title');
+        var iconEl = $('cyber-alert-icon');
+        var subEl = $('cyber-alert-sub');
+        var lower = (message || '').toLowerCase();
+        var isBill = lower.includes('bill') || lower.includes('chuyển khoản');
+        var isWarning = lower.includes('lưu ý') || lower.includes('hướng dẫn');
+        var isError = lower.includes('không hợp lệ') || lower.includes('lỗi') || lower.includes('lổi');
+        var title = customTitle || (isBill ? "LƯU HÓA ĐƠN GIAO DỊCH" : (isError ? "CẢNH BÁO DỮ LIỆU" : (isWarning ? "LƯU Ý QUAN TRỌNG" : "THÔNG BÁO HỆ THỐNG")));
+        var icon = customIcon || (isBill ? "📸" : (isError ? "⚠️" : (isWarning ? "⚡" : "🔔")));
+        var sub = isBill ? "BẢO VỆ GIAO DỊCH" : (isError ? "DỮ LIỆU KHÔNG HỢP LỆ" : "SECURITY PROTOCOL");
+        titleEl.innerText = title;
+        iconEl.innerText = icon;
+        subEl.innerText = sub;
+        var formatted = message
+            .replace(/(Chụp Lại Bill Chuyển Khoản|Chụp Lại Bill)/g, '<b style="color:var(--color-yellow);text-shadow:0 0 10px rgba(250,204,21,0.5);">$1</b>')
+            .replace(/(Sau 1 Ngày|Sau 15 Phút)/g, '<b style="color:var(--color-accent);">$1</b>')
+            .replace(/(Liên Hệ ADM|liên hệ admin)/gi, '<b style="color:var(--color-green);">$1</b>');
+        msgEl.innerHTML = formatted;
+        modal.style.display = "flex";
+    }
+    function closeCyberAlert() {
+        var modal = $('cyber-alert-modal');
+        if (modal) modal.style.display = "none";
+    }
+    window.alert = function(msg) {
+        cyberAlert(msg);
+    };
+    function $(id) { return document.getElementById(id); }
+    function buildQrUrl(amount, orderCode) {
+        return `https://qr.sepay.vn/img?acc=${BANK_CONFIG.stk}&bank=${BANK_CONFIG.bank}&amount=${amount}&des=${orderCode}`;
+    }
+
+    function showPaymentBox(prefix, orderCode, price) {
+        var boxId = prefix ? prefix + "-payment-box" : "payment-box";
+        var codeId = prefix ? prefix + "-content-text" : "content-text";
+        var amountId = prefix ? prefix + "-amount-text" : "amount-text";
+        var qrId = prefix ? prefix + "-qr-image" : "qr-image";
+        $(boxId).style.display = "block";
+        $(codeId).innerText = orderCode;
+        $(amountId).innerText = price.toLocaleString() + "đ";
+        $(qrId).src = buildQrUrl(price, orderCode);
+        var qrImg = $(qrId);
+        var randomStart = Math.floor(Math.random() * 360);
+        var randomDuration = (4 + Math.random() * 4).toFixed(1);
+        qrImg.style.filter = 'sepia(1) saturate(5) hue-rotate(' + randomStart + 'deg) brightness(0.95)';
+        qrImg.style.animationDuration = randomDuration + 's';
+        var wrapper = qrImg.closest('.qr-wrapper');
+        if (wrapper) {
+            var glowDuration = (2 + Math.random() * 3).toFixed(1);
+            wrapper.style.animationDuration = glowDuration + 's';
+            wrapper.classList.remove('is-zoomed');
+            wrapper.classList.remove('qr-pulse-in');
+            void wrapper.offsetWidth;
+            wrapper.classList.add('qr-pulse-in');
+            setTimeout(function() {
+                if (wrapper) wrapper.classList.remove('qr-pulse-in');
+            }, 1400);
+            if (!wrapper.dataset.hasZoomHandler) {
+                wrapper.dataset.hasZoomHandler = "true";
+                wrapper.title = "Bấm vào mã QR để phóng to / thu nhỏ";
+                wrapper.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    var isNowZoomed = wrapper.classList.toggle('is-zoomed');
+                    playCyberBeep(isNowZoomed ? 'zoom' : 'click');
+                });
+            }
+        }
+    }
+
+    function parseAndValidateUid(uidStr) {
+        var raw = parseInt(uidStr) || 0;
+        if (raw <= 0 || raw > 1000000000) {
+            alert("UID không hợp lệ! UID phải lớn hơn 0 và nhỏ hơn hoặc bằng 1.000.000.000.");
+            return 0;
+        }
+        return raw;
+    }
+
+    function padUid(raw) { return raw + 1000000000; }
+    function validateAuthword(input) { input.value = input.value.replace(/[^a-zA-Z0-9]/g, ''); }
+    function validateuid(input) { input.value = input.value.replace(/[^0-9]/g, ''); }
+    function formatMultipleOf100(input) {
+        var val = parseInt(input.value, 10);
+        if (isNaN(val) || val <= 0) { input.value = ''; }
+        else { input.value = Math.round(val / 100) * 100; }
+    }
+    function toggleAccordion(id, headerEl) {
+        var content = $(id);
+        if (!content) return;
         content.classList.toggle('active');
+        if (!headerEl) {
+            var parent = content.closest('.accordion');
+            headerEl = parent ? parent.querySelector('.accordion-header') : null;
+        }
+        if (headerEl) headerEl.classList.toggle('open', content.classList.contains('active'));
     }
-	//
-	function closeAllModal() {
-        document.getElementById("server2-modal").style.display = "none";
-		document.getElementById("server2-medal-modal").style.display = "none";
-		document.getElementById("server-cloud-modal").style.display = "none";
-		document.getElementById("server-ban-modal").style.display = "none";
-		document.getElementById("server-season-modal").style.display = "none";
-		document.getElementById("bean-modal").style.display = "none";
-		document.getElementById("coin-modal").style.display = "none";
+    function closeAllModal() {
+        MODAL_IDS.forEach(function(id) {
+            var el = $(id);
+            if (el) {
+                el.style.display = "none";
+                var zoomedQr = el.querySelector('.qr-wrapper.is-zoomed');
+                if (zoomedQr) zoomedQr.classList.remove('is-zoomed');
+            }
+        });
     }
-	/// open ui
     function openModal() {
-        document.getElementById("server2-modal").style.display = "flex";
-		document.getElementById("payment-box").style.display = "none";
-		calculateMedalPrice();
+        $("server2-modal").style.display = "flex";
+        $("payment-box").style.display = "none";
+        calculateMedalPrice();
     }
-	function openMedalModal() {
-        document.getElementById("server2-medal-modal").style.display = "flex";
-        document.getElementById("medal-payment-box").style.display = "none";
+    function openMedalModal() {
+        $("server2-medal-modal").style.display = "flex";
+        $("medal-payment-box").style.display = "none";
         calculateMedalPrice();
     }
     function openCloudModal() {
-        document.getElementById("server-cloud-modal").style.display = "flex";
-        document.getElementById("cloud-payment-box").style.display = "none";
+        $("server-cloud-modal").style.display = "flex";
+        $("cloud-payment-box").style.display = "none";
         calculateCloudPrice();
     }
-	function openBanModal() {
-        document.getElementById("server-ban-modal").style.display = "flex";
-        document.getElementById("ban-payment-box").style.display = "none";
+    function openBanModal() {
+        $("server-ban-modal").style.display = "flex";
+        $("ban-payment-box").style.display = "none";
         calculateMedalPrice();
     }
-	function openSeasonModal() {
-        document.getElementById("server-season-modal").style.display = "flex";
-        document.getElementById("season-payment-box").style.display = "none";
+    function openSeasonModal() {
+        $("server-season-modal").style.display = "flex";
+        $("season-payment-box").style.display = "none";
     }
-	function openbeanModal() {
-        document.getElementById("bean-modal").style.display = "flex";
-		document.getElementById("bean-payment-box").style.display = "none";
-		alert("Vui lòng Làm Đúng Hướng Dẫn Để Nhận Được Đậu(Đúng Giá,Bán Mô Hình)!");
+    function openbeanModal() {
+        $("bean-modal").style.display = "flex";
+        $("bean-payment-box").style.display = "none";
+        alert("Vui lòng Làm Đúng Hướng Dẫn Để Nhận Được Đậu(Đúng Giá,Bán Mô Hình)!");
     }
-	function opencoinModal() {
-        document.getElementById("coin-modal").style.display = "flex";
-		document.getElementById("coin-payment-box").style.display = "none";
-		alert("Vui lòng Làm Đúng Hướng Dẫn Để Nhận Được Doanh Thu(Đúng Giá,Bán Mô Hình)!");
+    function opencoinModal() {
+        $("coin-modal").style.display = "flex";
+        $("coin-payment-box").style.display = "none";
+        alert("Vui lòng Làm Đúng Hướng Dẫn Để Nhận Được Doanh Thu(Đúng Giá,Bán Mô Hình)!");
     }
-	/// config
-    const BANK_CONFIG = {
-        stk: "19999998765432",
-        bank: "MBBank"
-    };
-	function validateAuthword(input) {
-        input.value = input.value.replace(/[^a-zA-Z0-9]/g, '');
-    }
-	function validateuid(input) {
-        input.value = input.value.replace(/[^0-9]/g, '');
-    }
-	function formatMultipleOf100(input) {// chuẩn hoá bội số 100
-		let val = parseInt(input.value, 10);
-		if (isNaN(val) || val <= 0) {
-			input.value = '';
-		} else {
-			input.value = Math.round(val / 100) * 100;
-			// Math.floor(val / 100) * 100 (làm tròn xuống)
-			// Math.ceil(val / 100) * 100 (làm tròn lên)
-		}
-	}
+
+    // ===== Price Calculation =====
     function calculatePrice() {
-        const qty = document.getElementById("amount").value;
-        const price = qty * 130;
-        document.getElementById("price-text").value = price.toLocaleString() + "vnđ";
+        $("price-text").value = ($("amount").value * 130).toLocaleString() + "vnđ";
     }
-	function calculateCloudPrice() {
-        const qty = document.getElementById("cloud-day").value;
-        const price = qty * 2000;
-        document.getElementById("cloud-price-text").value = price.toLocaleString() + "vnđ";
+    function calculateCloudPrice() {
+        $("cloud-price-text").value = ($("cloud-day").value * 2000).toLocaleString() + "vnđ";
     }
     function calculateMedalPrice() {
-        const selectedId = parseInt(document.getElementById("medal-select").value) || 1001;
-        const price = selectedId * 3;
-        document.getElementById("medal-price-text").value = price.toLocaleString() + "vnđ";
+        var selectedId = parseInt($("medal-select").value) || 1001;
+        $("medal-price-text").value = (selectedId * 3).toLocaleString() + "vnđ";
     }
-	function calculateBanPrice() {
-        const qty = document.getElementById("ban-day").value;
-        const price = qty * 3500;
-        document.getElementById("ban-price-text").value = price.toLocaleString() + "vnđ";
+    function calculateBanPrice() {
+        $("ban-price-text").value = ($("ban-day").value * 3500).toLocaleString() + "vnđ";
     }
-	function calculatebeanPrice() {
-        const qty = document.getElementById("bean-amount").value;
-        const price = qty / 4;
-        document.getElementById("bean-price-text").value = price.toLocaleString() + "vnđ";
+    function calculatebeanPrice() {
+        $("bean-price-text").value = ($("bean-amount").value / 4).toLocaleString() + "vnđ";
     }
-	function calculatecoinPrice() {
-        const qty = document.getElementById("coin-amount").value;
-        const price = qty * 14000;
-        document.getElementById("coin-price-text").value = price.toLocaleString() + "vnđ";
+    function calculatecoinPrice() {
+        $("coin-price-text").value = ($("coin-amount").value * 14000).toLocaleString() + "vnđ";
     }
-	///payment
+
+    // ===== Payment Creation =====
     function createPayment() {
-        const uidInput = document.getElementById("uid").value.trim();
-        const qty = document.getElementById("amount").value.trim();
-        if (!uidInput || !qty || qty <= 0) {
-            alert("Vui lòng nhập đầy đủ UID và số lượng hợp lệ!");
-            return;
-        }
-        const rawUid = parseInt(uidInput) || 0;
-        if (rawUid <= 0 || rawUid > 1000000000) {
-            alert("UID không hợp lệ! UID phải lớn hơn 0 và nhỏ hơn hoặc bằng 1.000.000.000.");
-            return;
-        }
-        const price = qty * 130;
-        const paddedUid = rawUid + 1000000000;
-        const orderCode = `FL${paddedUid}`;
-        document.getElementById("payment-box").style.display = "block";
-        document.getElementById("content-text").innerText = orderCode;
-        document.getElementById("amount-text").innerText = price.toLocaleString() + "đ";
-        const qrUrl = `https://qr.sepay.vn/img?acc=${BANK_CONFIG.stk}&bank=${BANK_CONFIG.bank}&amount=${price}&des=${orderCode}`;
-        document.getElementById("qr-image").src = qrUrl;
+        var uid = $("uid").value.trim();
+        var qty = $("amount").value.trim();
+        if (!uid || !qty || qty <= 0) { alert("Vui lòng nhập đầy đủ UID và số lượng hợp lệ!"); return; }
+        var raw = parseAndValidateUid(uid);
+        if (!raw) return;
+        showPaymentBox("", "FL" + padUid(raw), qty * 130);
         alert("Vui lòng Chụp Lại Bill Chuyển Khoản Nếu Sau 1 Ngày Follow Không Tăng Thì Liên Hệ ADM!");
     }
     function createMedalPayment() {
-        const uidInput = document.getElementById("medal-uid").value.trim();
-        const authInput = document.getElementById("medal-orcode").value.trim();
-        const selectedId = document.getElementById("medal-select").value;
-        if (!uidInput || !authInput) {
-            alert("Vui lòng nhập đầy đủ UID và Mã Ghi Chú Đơn Hàng!");
-            return;
-        }
-        const rawUid = parseInt(uidInput) || 0;
-        if (rawUid <= 0 || rawUid > 1000000000) {
-            alert("UID không hợp lệ! UID phải lớn hơn 0 và nhỏ hơn hoặc bằng 1.000.000.000.");
-            return;
-        }
-        const price = parseInt(selectedId) * 3;
-		const paddedUid = rawUid + 1000000000;
-        const orderCode = `HH${paddedUid}PS${authInput}`;
-        document.getElementById("medal-payment-box").style.display = "block";
-        document.getElementById("medal-content-text").innerText = orderCode;
-        document.getElementById("medal-amount-text").innerText = price.toLocaleString() + "đ";
-        document.getElementById("medal-qr-image").src = `https://qr.sepay.vn/img?acc=${BANK_CONFIG.stk}&bank=${BANK_CONFIG.bank}&amount=${price}&des=${orderCode}`;
+        var uid = $("medal-uid").value.trim();
+        var auth = $("medal-orcode").value.trim();
+        if (!uid || !auth) { alert("Vui lòng nhập đầy đủ UID và Mã Ghi Chú Đơn Hàng!"); return; }
+        var raw = parseAndValidateUid(uid);
+        if (!raw) return;
+        showPaymentBox("medal", "HH" + padUid(raw) + "PS" + auth, parseInt($("medal-select").value) * 3);
         alert("Vui lòng Chụp Lại Bill Chuyển Khoản Nếu Sau 15 Phút Thành Tích Không Tăng Thì Liên Hệ ADM!");
     }
-	function createCloudPayment() {
-        const widInput = document.getElementById("cloud-wid").value.trim();
-        const dayInput = document.getElementById("cloud-day").value.trim();
-        if (!widInput || !dayInput) {
-            alert("Vui lòng nhập đầy đủ ƯID và Số Ngày!");
-            return;
-        }
-        const price = parseInt(dayInput) * 2000;
-        const orderCode = `CL${widInput}`;
-        document.getElementById("cloud-payment-box").style.display = "block";
-        document.getElementById("cloud-content-text").innerText = orderCode;
-        document.getElementById("cloud-amount-text").innerText = price.toLocaleString() + "đ";
-        document.getElementById("cloud-qr-image").src = `https://qr.sepay.vn/img?acc=${BANK_CONFIG.stk}&bank=${BANK_CONFIG.bank}&amount=${price}&des=${orderCode}`;
+    function createCloudPayment() {
+        var wid = $("cloud-wid").value.trim();
+        var day = $("cloud-day").value.trim();
+        if (!wid || !day) { alert("Vui lòng nhập đầy đủ ƯID và Số Ngày!"); return; }
+        showPaymentBox("cloud", "CL" + wid, parseInt(day) * 2000);
         alert("Vui lòng Chụp Lại Bill Chuyển Khoản Nếu Xảy Ra Lổi Thì Liên Hệ ADM!");
     }
-	function createBanPayment() {
-        const uidInput = document.getElementById("ban-uid").value.trim();
-        const dayInput = document.getElementById("ban-day").value.trim();
-        if (!uidInput || !dayInput) {
-            alert("Vui lòng nhập đầy đủ ƯID và Số Ngày!");
-            return;
-        }
-		const rawUid = parseInt(uidInput) || 0;
-        if (rawUid <= 0 || rawUid > 1000000000) {
-            alert("UID không hợp lệ! UID phải lớn hơn 0 và nhỏ hơn hoặc bằng 1.000.000.000.");
-            return;
-        }
-		const paddedUid = rawUid + 1000000000;
-        const price = parseInt(dayInput) * 3500;
-        const orderCode = `BAN${paddedUid}`;
-        document.getElementById("ban-payment-box").style.display = "block";
-        document.getElementById("ban-content-text").innerText = orderCode;
-        document.getElementById("ban-amount-text").innerText = price.toLocaleString() + "đ";
-        document.getElementById("ban-qr-image").src = `https://qr.sepay.vn/img?acc=${BANK_CONFIG.stk}&bank=${BANK_CONFIG.bank}&amount=${price}&des=${orderCode}`;
+    function createBanPayment() {
+        var uid = $("ban-uid").value.trim();
+        var day = $("ban-day").value.trim();
+        if (!uid || !day) { alert("Vui lòng nhập đầy đủ ƯID và Số Ngày!"); return; }
+        var raw = parseAndValidateUid(uid);
+        if (!raw) return;
+        showPaymentBox("ban", "BAN" + padUid(raw), parseInt(day) * 3500);
         alert("Vui lòng Chụp Lại Bill Chuyển Khoản Nếu Xảy Ra Lổi Thì Liên Hệ ADM!");
     }
-	function createSeasonPayment() {
-        const uidInput = document.getElementById("season-uid").value.trim();
-        const authInput = document.getElementById("season-orcode").value.trim();
-        if (!uidInput || !authInput) {
-            alert("Vui lòng nhập đầy đủ UID và Mã Ghi Chú Đơn Hàng!");
-            return;
-        }
-        const rawUid = parseInt(uidInput) || 0;
-        if (rawUid <= 0 || rawUid > 1000000000) {
-            alert("UID không hợp lệ! UID phải lớn hơn 0 và nhỏ hơn hoặc bằng 1.000.000.000.");
-            return;
-        }
-        const price = 30000;
-		const paddedUid = rawUid + 1000000000;
-        const orderCode = `SS${paddedUid}PS${authInput}`;
-        document.getElementById("season-payment-box").style.display = "block";
-        document.getElementById("season-content-text").innerText = orderCode;
-        document.getElementById("season-amount-text").innerText = price.toLocaleString() + "đ";
-        document.getElementById("season-qr-image").src = `https://qr.sepay.vn/img?acc=${BANK_CONFIG.stk}&bank=${BANK_CONFIG.bank}&amount=${price}&des=${orderCode}`;
+    function createSeasonPayment() {
+        var uid = $("season-uid").value.trim();
+        var auth = $("season-orcode").value.trim();
+        if (!uid || !auth) { alert("Vui lòng nhập đầy đủ UID và Mã Ghi Chú Đơn Hàng!"); return; }
+        var raw = parseAndValidateUid(uid);
+        if (!raw) return;
+        showPaymentBox("season", "SS" + padUid(raw) + "PS" + auth, 30000);
         alert("Vui lòng Chụp Lại Bill Chuyển Khoản Nếu Sau 15 Phút Thành Tích Không Tăng Thì Liên Hệ ADM!");
     }
-	function createbeanPayment() {
-        const uidInput = document.getElementById("bean-uid").value.trim();
-        const qty = document.getElementById("bean-amount").value.trim();
-        if (!uidInput || !qty || qty <= 0) {
-            alert("Vui lòng nhập đầy đủ UID và số lượng hợp lệ!");
-            return;
-        }
-        const rawUid = parseInt(uidInput) || 0;
-        if (rawUid <= 0 || rawUid > 1000000000) {
-            alert("UID không hợp lệ! UID phải lớn hơn 0 và nhỏ hơn hoặc bằng 1.000.000.000.");
-            return;
-        }
-        const price = qty / 4;
-        const paddedUid = rawUid + 1000000000;
-        const orderCode = `BEAN${paddedUid}`;
-        document.getElementById("bean-payment-box").style.display = "block";
-        document.getElementById("bean-content-text").innerText = orderCode;
-        document.getElementById("bean-amount-text").innerText = price.toLocaleString() + "đ";
-        const qrUrl = `https://qr.sepay.vn/img?acc=${BANK_CONFIG.stk}&bank=${BANK_CONFIG.bank}&amount=${price}&des=${orderCode}`;
-        document.getElementById("bean-qr-image").src = qrUrl;
+    function createbeanPayment() {
+        var uid = $("bean-uid").value.trim();
+        var qty = $("bean-amount").value.trim();
+        if (!uid || !qty || qty <= 0) { alert("Vui lòng nhập đầy đủ UID và số lượng hợp lệ!"); return; }
+        var raw = parseAndValidateUid(uid);
+        if (!raw) return;
+        showPaymentBox("bean", "BEAN" + padUid(raw), qty / 4);
         alert("Vui lòng Chụp Lại Bill Chuyển Khoản Nếu Sau 1 Ngày Doanh Thu Không Tăng Thì Liên Hệ ADM!");
     }
-	function createcoinPayment() {
-        const uidInput = document.getElementById("coin-uid").value.trim();
-        const qty = document.getElementById("coin-amount").value.trim();
-        if (!uidInput || !qty || qty <= 0) {
-            alert("Vui lòng nhập đầy đủ UID và số lượng hợp lệ!");
-            return;
-        }
-        const rawUid = parseInt(uidInput) || 0;
-        if (rawUid <= 0 || rawUid > 1000000000) {
-            alert("UID không hợp lệ! UID phải lớn hơn 0 và nhỏ hơn hoặc bằng 1.000.000.000.");
-            return;
-        }
-        const price = qty * 14000;
-        const paddedUid = rawUid + 1000000000;
-        const orderCode = `COIN${paddedUid}`;
-        document.getElementById("coin-payment-box").style.display = "block";
-        document.getElementById("coin-content-text").innerText = orderCode;
-        document.getElementById("coin-amount-text").innerText = price.toLocaleString() + "đ";
-        const qrUrl = `https://qr.sepay.vn/img?acc=${BANK_CONFIG.stk}&bank=${BANK_CONFIG.bank}&amount=${price}&des=${orderCode}`;
-        document.getElementById("coin-qr-image").src = qrUrl;
+    function createcoinPayment() {
+        var uid = $("coin-uid").value.trim();
+        var qty = $("coin-amount").value.trim();
+        if (!uid || !qty || qty <= 0) { alert("Vui lòng nhập đầy đủ UID và số lượng hợp lệ!"); return; }
+        var raw = parseAndValidateUid(uid);
+        if (!raw) return;
+        showPaymentBox("coin", "COIN" + padUid(raw), qty * 14000);
         alert("Vui lòng Chụp Lại Bill Chuyển Khoản Nếu Sau 1 Ngày Doanh Thu Không Tăng Thì Liên Hệ ADM!");
     }
     window.onclick = function(event) {
-        const modalFollow = document.getElementById("server2-modal");
-        const modalMedal = document.getElementById("server2-medal-modal");
-		const modalCloud = document.getElementById("server-cloud-modal");
-		const modalBan = document.getElementById("server-ban-modal");
-		const modalSeason = document.getElementById("server-season-modal");
-		const modalBean = document.getElementById("bean-modal");
-		const modalCoin = document.getElementById("coin-modal");
-        if (event.target === modalFollow) {
-            modalFollow.style.display = "none";
+        MODAL_IDS.forEach(function(id) {
+            if (event.target === $(id)) $(id).style.display = "none";
+        });
+        if (event.target === $('cyber-viewer-modal')) closeCyberViewer();
+        if (event.target === $('cyber-alert-modal')) closeCyberAlert();
+        if (!event.target.closest('.qr-wrapper')) {
+            document.querySelectorAll('.qr-wrapper.is-zoomed').forEach(function(qr) {
+                qr.classList.remove('is-zoomed');
+            });
         }
-        if (event.target === modalMedal) {
-            modalMedal.style.display = "none";
+    };
+    window.addEventListener('keydown', function(event) {
+        if (event.key === 'Escape' || event.key === 'Esc') {
+            closeAllModal();
+            closeCyberViewer();
+            closeCyberAlert();
+            document.querySelectorAll('.qr-wrapper.is-zoomed').forEach(function(qr) {
+                qr.classList.remove('is-zoomed');
+            });
         }
-		if (event.target === modalCloud) {
-            modalCloud.style.display = "none";
+    });
+    document.addEventListener('click', function(event) {
+        var btn = event.target.closest('button, .accordion-header, .tool-link, .contact-links a, select');
+        if (btn && !btn.classList.contains('btn-main')) {
+            playCyberBeep('click');
         }
-		if (event.target === modalBan) {
-            modalBan.style.display = "none";
-        }
-		if (event.target === modalSeason) {
-            modalSeason.style.display = "none";
-        }
-		if (event.target === modalBean) {
-            modalBean.style.display = "none";
-        }
-		if (event.target === modalCoin) {
-            modalCoin.style.display = "none";
-        }
-    }
+    });
 </script>
-<script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "6e360cddedf8489b8370a40560f5f314"}'></script>
+<script type="module" src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "6e360cddedf8489b8370a40560f5f314"}'></script>
 </body>
 </html>
