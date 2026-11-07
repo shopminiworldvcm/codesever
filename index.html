@@ -28,7 +28,6 @@
     <style>
         :root {
             --font: 'Inter', system-ui, -apple-system, sans-serif;
-
             --bg-body: #0a0a0f;
             --bg-glass: rgba(255, 255, 255, 0.04);
             --bg-glass-hover: rgba(255, 255, 255, 0.08);
@@ -37,7 +36,6 @@
             --bg-input-focus: rgba(255, 255, 255, 0.12);
             --bg-overlay: rgba(0, 0, 0, 0.7);
             --bg-code: rgba(0, 0, 0, 0.35);
-
             --color-white: #ffffff;
             --color-text: #e4e4e7;
             --color-text-muted: #a1a1aa;
@@ -49,43 +47,35 @@
             --color-red: #f87171;
             --color-green: #4ade80;
             --color-purple: #a78bfa;
-
             --gradient-primary: linear-gradient(135deg, #6366f1, #8b5cf6, #a855f7);
             --gradient-accent: linear-gradient(135deg, #0ea5e9, #38bdf8);
             --gradient-warm: linear-gradient(135deg, #f59e0b, #facc15);
             --gradient-btn: linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #a855f7 100%);
             --gradient-btn-hover: linear-gradient(135deg, #4f46e5 0%, #7c3aed 50%, #9333ea 100%);
-
             --border-glass: rgba(255, 255, 255, 0.08);
             --border-hover: rgba(255, 255, 255, 0.18);
             --border-input: rgba(255, 255, 255, 0.12);
             --border-input-focus: rgba(139, 92, 246, 0.5);
             --border-dashed: rgba(255, 255, 255, 0.12);
-
             --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.3);
             --shadow-md: 0 8px 32px rgba(0, 0, 0, 0.4);
             --shadow-lg: 0 16px 48px rgba(0, 0, 0, 0.5);
             --shadow-glow: 0 0 40px rgba(139, 92, 246, 0.15);
             --shadow-btn: 0 4px 20px rgba(99, 102, 241, 0.35);
-
             --radius-sm: 8px;
             --radius-md: 12px;
             --radius-lg: 16px;
             --radius-xl: 20px;
             --radius-pill: 50px;
-
             --max-width: 440px;
             --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
-
         *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
         html {
             overflow-x: hidden;
-            scrollbar-width: none; /* Firefox: an thanh cuon */
-            -ms-overflow-style: none; /* IE, Edge: an thanh cuon */
+            scrollbar-width: none;
+            -ms-overflow-style: none;
         }
-
         body {
             font-family: var(--font);
             min-height: 100vh;
@@ -101,11 +91,9 @@
             -webkit-font-smoothing: antialiased;
             overflow-x: hidden;
             overflow-y: auto;
-            scrollbar-width: none; /* Firefox: an thanh cuon */
-            -ms-overflow-style: none; /* IE, Edge */
+            scrollbar-width: none;
+            -ms-overflow-style: none;
         }
-
-        /* Container trung tam (Can giua toan bo giao dien ca PC lan Mobile) */
         .app-container {
             width: 100%;
             max-width: var(--max-width);
@@ -117,8 +105,6 @@
             position: relative;
             z-index: 1;
         }
-
-        /* An hoan toan thanh cuon (scrollbar) trinh duyet ben canh phai tren PC & Mobile */
         html::-webkit-scrollbar,
         body::-webkit-scrollbar,
         .modal-overlay::-webkit-scrollbar {
@@ -127,7 +113,6 @@
             height: 0 !important;
             background: transparent !important;
         }
-
         .bg-video {
             position: fixed;
             top: 0; left: 0;
@@ -136,7 +121,6 @@
             z-index: -2;
             opacity: 0.35;
         }
-
         body::before {
             content: '';
             position: fixed;
@@ -146,7 +130,6 @@
             z-index: -1;
             pointer-events: none;
         }
-
         .site-title {
             font-size: 46px;
             font-weight: 800;
@@ -161,7 +144,6 @@
             animation: titleShift 8s ease infinite;
             filter: drop-shadow(0 2px 12px rgba(139, 92, 246, 0.3));
         }
-
         .site-subtitle {
             font-size: 13px;
             color: var(--color-text-dim);
@@ -170,18 +152,15 @@
             letter-spacing: 3px;
             text-transform: uppercase;
         }
-
         @keyframes titleShift {
             0%, 100% { background-position: 0% 50%; }
             50%      { background-position: 100% 50%; }
         }
-
         .accordion {
             width: 100%;
             max-width: var(--max-width);
             margin-bottom: 10px;
         }
-
         .accordion-header {
             background: var(--bg-glass);
             backdrop-filter: blur(16px);
@@ -202,7 +181,6 @@
             position: relative;
             overflow: hidden;
         }
-
         .accordion-header::after {
             content: '›';
             position: absolute;
@@ -212,18 +190,15 @@
             transition: transform var(--transition);
             transform: rotate(90deg);
         }
-
         .accordion-header.open::after {
             transform: rotate(270deg);
         }
-
         .accordion-header:hover {
             background: var(--bg-glass-hover);
             border-color: var(--border-hover);
             transform: translateY(-1px);
             box-shadow: var(--shadow-sm);
         }
-
         .accordion-content {
             display: none;
             background: var(--bg-glass);
@@ -235,14 +210,11 @@
             border-top: none;
             animation: slideDown 0.3s ease;
         }
-
         .accordion-content.active { display: block; }
-
         @keyframes slideDown {
             from { opacity: 0; transform: translateY(-8px); }
             to   { opacity: 1; transform: translateY(0); }
         }
-
         .contact-links {
             display: flex;
             justify-content: center;
@@ -250,7 +222,6 @@
             flex-wrap: wrap;
             margin-top: 14px;
         }
-
         .contact-links a {
             color: var(--color-accent);
             text-decoration: none;
@@ -265,14 +236,12 @@
             align-items: center;
             gap: 4px;
         }
-
         .contact-links a:hover {
             background: var(--color-accent-glow);
             border-color: rgba(56, 189, 248, 0.3);
             transform: translateY(-2px);
             box-shadow: 0 4px 16px rgba(56, 189, 248, 0.15);
         }
-
         .tool-note {
             margin: 0 0 10px;
             font-size: 12px;
@@ -283,28 +252,23 @@
             border-left: 3px solid var(--color-yellow);
             line-height: 1.6;
         }
-
         .tool-intro {
             margin: 0 0 14px;
             color: var(--color-text-muted);
             font-size: 14px;
         }
-
         .tool-section {
             margin-bottom: 16px;
             padding-bottom: 16px;
             border-bottom: 1px solid var(--border-glass);
         }
-
         .tool-section:last-child { border-bottom: none; padding-bottom: 0; }
-
         .tool-section-title {
             margin: 0 0 8px;
             font-weight: 600;
             font-size: 14px;
             color: var(--color-white);
         }
-
         .tool-link {
             font-weight: 600;
             font-size: 13px;
@@ -317,27 +281,22 @@
             margin-bottom: 6px;
             transition: var(--transition);
         }
-
         .tool-link::before { content: '→'; font-size: 12px; }
-
         .tool-link--primary {
             color: var(--color-yellow);
             background: var(--color-yellow-glow);
         }
         .tool-link--primary:hover { background: rgba(250, 204, 21, 0.2); }
-
         .tool-link--alt {
             color: var(--color-purple);
             background: rgba(167, 139, 250, 0.1);
         }
         .tool-link--alt:hover { background: rgba(167, 139, 250, 0.2); }
-
         .tool-link--free {
             color: var(--color-green);
             background: rgba(74, 222, 128, 0.1);
         }
         .tool-link--free:hover { background: rgba(74, 222, 128, 0.2); }
-
         .modal-overlay {
             display: none;
             position: fixed;
@@ -355,12 +314,10 @@
             scrollbar-width: none;
             -ms-overflow-style: none;
         }
-
         @keyframes fadeIn {
             from { opacity: 0; }
             to   { opacity: 1; }
         }
-
         .modal-content {
             background: linear-gradient(145deg, rgba(20, 20, 30, 0.97), rgba(15, 15, 22, 0.99));
             border: 1px solid var(--border-glass);
@@ -376,16 +333,13 @@
             scrollbar-width: thin;
             scrollbar-color: rgba(139, 92, 246, 0.4) transparent;
         }
-
         @keyframes modalSlideUp {
             from { opacity: 0; transform: translateY(24px) scale(0.97); }
             to   { opacity: 1; transform: translateY(0) scale(1); }
         }
-
         .modal-content::-webkit-scrollbar { width: 5px; }
         .modal-content::-webkit-scrollbar-track { background: transparent; }
         .modal-content::-webkit-scrollbar-thumb { background: rgba(139, 92, 246, 0.35); border-radius: 4px; }
-
         .modal-title {
             color: var(--color-white);
             font-size: 18px;
@@ -395,7 +349,6 @@
             padding-bottom: 16px;
             border-bottom: 1px solid var(--border-glass);
         }
-
         .modal-title::before {
             content: '';
             display: block;
@@ -405,7 +358,6 @@
             background: var(--gradient-primary);
             margin: 0 auto 12px;
         }
-
         .close-btn {
             position: absolute;
             top: 16px; right: 16px;
@@ -422,16 +374,13 @@
             transition: var(--transition);
             line-height: 1;
         }
-
         .close-btn:hover {
             background: rgba(248, 113, 113, 0.15);
             border-color: rgba(248, 113, 113, 0.3);
             color: var(--color-red);
             transform: rotate(90deg);
         }
-
         .form-group { margin-bottom: 16px; }
-
         label {
             display: block;
             margin-bottom: 6px;
@@ -440,7 +389,6 @@
             color: var(--color-text-muted);
             letter-spacing: 0.02em;
         }
-
         input, select {
             width: 100%;
             padding: 12px 14px;
@@ -453,13 +401,11 @@
             transition: var(--transition);
             outline: none;
         }
-
         input:focus, select:focus {
             border-color: var(--border-input-focus);
             background: var(--bg-input-focus);
             box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.12);
         }
-
         input::placeholder { color: var(--color-text-dim); }
         input[readonly] {
             background: var(--bg-glass-strong);
@@ -467,7 +413,6 @@
             color: var(--color-accent);
             cursor: default;
         }
-
         select {
             cursor: pointer;
             appearance: none;
@@ -479,19 +424,15 @@
             background-size: 16px;
             padding-right: 42px !important;
         }
-
         select:hover {
             border-color: rgba(56, 189, 248, 0.5);
         }
-
         select option {
             background: #141424;
             color: #ffffff;
             padding: 10px;
         }
-
         select option.option--special { background: #4a1515; }
-
         .btn-main {
             width: 100%;
             padding: 13px;
@@ -510,18 +451,15 @@
             position: relative;
             overflow: hidden;
         }
-
         .btn-main:hover {
             background: var(--gradient-btn-hover);
             transform: translateY(-1px);
             box-shadow: 0 6px 28px rgba(99, 102, 241, 0.45);
         }
-
         .btn-main:active {
             transform: translateY(0);
             box-shadow: 0 2px 12px rgba(99, 102, 241, 0.3);
         }
-
         .payment-box {
             margin-top: 20px;
             text-align: center;
@@ -530,30 +468,25 @@
             border-top: 1px solid var(--border-glass);
             animation: slideDown 0.3s ease;
         }
-
         .payment-box__title {
             margin: 8px 0;
             font-size: 15px;
             font-weight: 600;
             color: var(--color-white);
         }
-
         .payment-box__bank-info {
             margin: 6px 0;
             font-size: 12px;
             color: var(--color-text-muted);
         }
-
         .payment-box__bank-info b {
             color: var(--color-accent);
         }
-
         .payment-box__transfer-label {
             margin: 10px 0 4px;
             font-size: 12px;
             color: var(--color-text-dim);
         }
-
         .payment-box__order-code {
             font-size: 16px;
             font-weight: 700;
@@ -566,9 +499,7 @@
             letter-spacing: 1px;
             border: 1px solid var(--border-glass);
         }
-
         .payment-box__amount { margin: 10px 0; font-size: 14px; color: var(--color-text-muted); }
-
         .payment-box__note {
             font-size: 12px;
             color: var(--color-yellow);
@@ -578,13 +509,11 @@
             border-radius: var(--radius-sm);
             display: inline-block;
         }
-
         .payment-box__footer {
             font-size: 11px;
             color: var(--color-text-dim);
             margin-top: 10px;
         }
-
         .qr-wrapper {
             position: relative;
             display: inline-block;
@@ -607,22 +536,18 @@
             transform-origin: center center;
             user-select: none;
         }
-
         .qr-wrapper:hover {
             transform: scale(1.04);
         }
-
         @keyframes qrZoomPulse {
             0%   { transform: scale(0.6); opacity: 0; filter: brightness(2) drop-shadow(0 0 35px #38bdf8); }
             45%  { transform: scale(1.22); opacity: 1; filter: brightness(1.35) drop-shadow(0 0 45px #8b5cf6); }
             75%  { transform: scale(0.97); filter: brightness(1.1); }
             100% { transform: scale(1); opacity: 1; filter: brightness(1); }
         }
-
         .qr-wrapper.qr-pulse-in {
             animation: qrZoomPulse 1.4s cubic-bezier(0.2, 0.85, 0.25, 1) both, qrBorderSpin 3s linear infinite;
         }
-
         .qr-wrapper.is-zoomed {
             transform: scale(1.45) !important;
             z-index: 100;
@@ -631,23 +556,19 @@
                 0 0 70px rgba(139, 92, 246, 0.8),
                 0 30px 90px rgba(0, 0, 0, 0.98) !important;
         }
-
         @media (max-width: 480px) {
             .qr-wrapper.is-zoomed {
                 transform: scale(1.28) !important;
             }
         }
-
         @property --qr-angle {
             syntax: '<angle>';
             initial-value: 0deg;
             inherits: false;
         }
-
         @keyframes qrBorderSpin {
             to { --qr-angle: 360deg; }
         }
-
         @supports not (background: conic-gradient(from 0deg, red, blue)) {
             .qr-wrapper {
                 border: 2px solid;
@@ -660,7 +581,6 @@
                 66%      { box-shadow: 0 0 20px rgba(74, 222, 128, 0.5); }
             }
         }
-
         .qr-wrapper::before {
             content: '';
             position: absolute;
@@ -677,7 +597,6 @@
             z-index: -1;
             animation: qrBorderSpin 3s linear infinite;
         }
-
         .qr-inner {
             position: relative;
             background: #0d0d14;
@@ -685,7 +604,6 @@
             padding: 3px;
             overflow: hidden;
         }
-
         .qr-inner::after {
             content: '';
             position: absolute;
@@ -703,21 +621,18 @@
             animation: qrScanLine 2.5s ease-in-out infinite;
             pointer-events: none;
         }
-
         @keyframes qrScanLine {
             0%   { top: 0; opacity: 0; }
             10%  { opacity: 1; }
             90%  { opacity: 1; }
             100% { top: calc(100% - 3px); opacity: 0; }
         }
-
         .qr-corners {
             position: absolute;
             inset: -6px;
             z-index: 3;
             pointer-events: none;
         }
-
         .qr-corners span {
             position: absolute;
             width: 16px;
@@ -728,12 +643,10 @@
             opacity: 0.9;
             filter: drop-shadow(0 0 4px rgba(56, 189, 248, 0.6));
         }
-
         .qr-corners span:nth-child(1) { top: 0; left: 0; border-top-width: 2px; border-left-width: 2px; border-radius: 3px 0 0 0; }
         .qr-corners span:nth-child(2) { top: 0; right: 0; border-top-width: 2px; border-right-width: 2px; border-radius: 0 3px 0 0; }
         .qr-corners span:nth-child(3) { bottom: 0; left: 0; border-bottom-width: 2px; border-left-width: 2px; border-radius: 0 0 0 3px; }
         .qr-corners span:nth-child(4) { bottom: 0; right: 0; border-bottom-width: 2px; border-right-width: 2px; border-radius: 0 0 3px 0; }
-
         .qr-image {
             display: block;
             width: 200px;
@@ -744,12 +657,10 @@
             filter: sepia(1) saturate(5) hue-rotate(0deg) brightness(0.95);
             animation: qrColorCycle 6s linear infinite;
         }
-
         @keyframes qrColorCycle {
             0%   { filter: sepia(1) saturate(5) hue-rotate(0deg)   brightness(0.95); }
             100% { filter: sepia(1) saturate(5) hue-rotate(360deg) brightness(0.95); }
         }
-
         .qr-status {
             display: flex;
             align-items: center;
@@ -762,7 +673,6 @@
             text-transform: uppercase;
             font-weight: 600;
         }
-
         .qr-status-dot {
             width: 6px;
             height: 6px;
@@ -770,14 +680,11 @@
             background: var(--color-green);
             animation: qrPulse 1.5s ease-in-out infinite;
         }
-
         @keyframes qrPulse {
             0%, 100% { opacity: 1; box-shadow: 0 0 0 0 rgba(74, 222, 128, 0.6); }
             50%      { opacity: 0.5; box-shadow: 0 0 0 6px rgba(74, 222, 128, 0); }
         }
-
         .highlight { color: var(--color-red); font-weight: 700; }
-
         .warning-text {
             margin-top: 16px;
             font-size: 12px;
@@ -789,18 +696,14 @@
             border: 1px solid var(--border-glass);
             line-height: 1.6;
         }
-
         .warning-text::before { content: '⏳ '; }
-
         .ad-container {
             width: 100%;
             max-width: var(--max-width);
             margin: 6px auto;
             text-align: center;
         }
-
         .ad-container--tall { margin: 12px auto; }
-
         .cyber-alert-content {
             background: linear-gradient(135deg, rgba(16, 16, 28, 0.98), rgba(8, 8, 16, 0.99));
             border: 1px solid rgba(56, 189, 248, 0.4);
@@ -814,12 +717,10 @@
             animation: cyberAlertPop 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             overflow: hidden;
         }
-
         @keyframes cyberAlertPop {
             0%   { transform: scale(0.85); opacity: 0; filter: brightness(2); }
             100% { transform: scale(1); opacity: 1; filter: brightness(1); }
         }
-
         .cyber-alert-scanline {
             position: absolute;
             top: 0; left: 0; right: 0; bottom: 0;
@@ -829,7 +730,6 @@
             z-index: 1;
             opacity: 0.6;
         }
-
         .cyber-alert-icon-wrap {
             width: 68px;
             height: 68px;
@@ -845,12 +745,10 @@
             box-shadow: 0 0 25px rgba(56, 189, 248, 0.4);
             animation: cyberPulseIcon 2s infinite ease-in-out;
         }
-
         @keyframes cyberPulseIcon {
             0%, 100% { box-shadow: 0 0 20px rgba(56, 189, 248, 0.4); border-color: rgba(56, 189, 248, 0.6); }
             50%      { box-shadow: 0 0 35px rgba(139, 92, 246, 0.7); border-color: rgba(139, 92, 246, 0.8); }
         }
-
         .cyber-alert-sub {
             font-size: 10px;
             letter-spacing: 2px;
@@ -859,7 +757,6 @@
             font-weight: 700;
             margin-bottom: 6px;
         }
-
         .cyber-alert-title {
             font-size: 18px;
             font-weight: 800;
@@ -868,7 +765,6 @@
             margin-bottom: 12px;
             text-shadow: 0 0 12px rgba(56, 189, 248, 0.4);
         }
-
         .cyber-alert-body {
             font-size: 14px;
             line-height: 1.6;
@@ -882,7 +778,6 @@
             position: relative;
             z-index: 2;
         }
-
         .cyber-alert-btn {
             width: 100%;
             padding: 13px;
@@ -900,13 +795,11 @@
             position: relative;
             z-index: 2;
         }
-
         .cyber-alert-btn:hover {
             box-shadow: 0 0 30px rgba(99, 102, 241, 0.7);
             transform: translateY(-2px);
             filter: brightness(1.1);
         }
-
         .cyber-viewer-content {
             background: linear-gradient(145deg, rgba(14, 14, 22, 0.98), rgba(9, 9, 15, 0.99));
             border: 1px solid rgba(139, 92, 246, 0.35);
@@ -923,14 +816,12 @@
             position: relative;
             transition: width 0.3s ease, height 0.3s ease, max-width 0.3s ease, border-radius 0.3s ease;
         }
-
         .cyber-viewer-content.is-video {
             max-width: 960px;
             width: 92vw;
             height: auto;
             max-height: 94vh;
         }
-
         .cyber-viewer-content.is-video .cyber-viewer-body {
             aspect-ratio: 16 / 9;
             height: auto;
@@ -938,11 +829,9 @@
             flex: none;
             max-height: calc(94vh - 54px);
         }
-
         #cyber-viewer-modal.is-fullscreen {
             padding: 0 !important;
         }
-
         .cyber-viewer-content.is-fullscreen {
             width: 100vw !important;
             max-width: 100vw !important;
@@ -951,26 +840,22 @@
             border-radius: 0 !important;
             border: none !important;
         }
-
         .cyber-viewer-content.is-fullscreen.is-video {
             max-width: 100vw !important;
             width: 100vw !important;
             height: 100vh !important;
             max-height: 100vh !important;
         }
-
         .cyber-viewer-content.is-fullscreen .cyber-viewer-body {
             height: calc(100vh - 52px) !important;
             max-height: none !important;
             aspect-ratio: auto !important;
             flex: 1 !important;
         }
-
         .cyber-viewer-content.is-fullscreen .cyber-viewer-frame {
             width: 100% !important;
             height: 100% !important;
         }
-
         .cyber-viewer-header {
             display: flex;
             align-items: center;
@@ -980,7 +865,6 @@
             border-bottom: 1px solid rgba(255, 255, 255, 0.08);
             gap: 10px;
         }
-
         .cyber-viewer-info {
             display: flex;
             align-items: center;
@@ -988,7 +872,6 @@
             overflow: hidden;
             flex: 1;
         }
-
         .cyber-viewer-dot {
             width: 8px;
             height: 8px;
@@ -998,7 +881,6 @@
             animation: qrPulse 1.5s infinite;
             flex-shrink: 0;
         }
-
         .cyber-viewer-title {
             font-size: 13.5px;
             font-weight: 700;
@@ -1007,14 +889,12 @@
             overflow: hidden;
             text-overflow: ellipsis;
         }
-
         .cyber-viewer-actions {
             display: flex;
             align-items: center;
             gap: 8px;
             flex-shrink: 0;
         }
-
         .cyber-viewer-btn {
             background: rgba(56, 189, 248, 0.12);
             border: 1px solid rgba(56, 189, 248, 0.3);
@@ -1031,24 +911,20 @@
             gap: 4px;
             white-space: nowrap;
         }
-
         .cyber-viewer-btn:hover {
             background: rgba(56, 189, 248, 0.25);
             border-color: rgba(56, 189, 248, 0.6);
             color: #ffffff;
         }
-
         .cyber-viewer-btn--yt {
             background: rgba(239, 68, 68, 0.15);
             border-color: rgba(239, 68, 68, 0.4);
             color: #f87171;
         }
-
         .cyber-viewer-btn--yt:hover {
             background: rgba(239, 68, 68, 0.3);
             color: #ffffff;
         }
-
         .cyber-viewer-close {
             background: rgba(239, 68, 68, 0.15);
             border: 1px solid rgba(239, 68, 68, 0.3);
@@ -1064,12 +940,10 @@
             transition: var(--transition);
             flex-shrink: 0;
         }
-
         .cyber-viewer-close:hover {
             background: rgba(239, 68, 68, 0.3);
             transform: rotate(90deg);
         }
-
         .cyber-viewer-body {
             flex: 1;
             width: 100%;
@@ -1077,7 +951,6 @@
             background: #000000;
             overflow: hidden;
         }
-
         .cyber-viewer-frame {
             width: 100%;
             height: 100%;
@@ -1085,7 +958,6 @@
             background: #000000;
             display: block;
         }
-
         .cyber-viewer-notice {
             display: flex;
             align-items: center;
@@ -1097,7 +969,6 @@
             font-size: 12px;
             color: var(--color-yellow);
         }
-
         .cyber-video-fallback {
             position: absolute;
             inset: 0;
@@ -1108,7 +979,6 @@
             overflow: hidden;
             z-index: 5;
         }
-
         .cyber-video-thumb {
             position: absolute;
             width: 100%;
@@ -1118,7 +988,6 @@
             filter: blur(3px);
             transform: scale(1.06);
         }
-
         .cyber-video-overlay {
             position: relative;
             z-index: 6;
@@ -1129,7 +998,6 @@
             padding: 20px;
             max-width: 92%;
         }
-
         .cyber-video-playbtn {
             width: 72px;
             height: 72px;
@@ -1146,16 +1014,13 @@
             border: 2px solid rgba(255, 255, 255, 0.4);
             animation: qrPulse 2s infinite ease-in-out;
         }
-
         .cyber-video-playbtn:hover {
             transform: scale(1.1);
             box-shadow: 0 0 45px rgba(239, 68, 68, 0.9);
         }
-
         .cyber-video-playbtn svg {
             margin-left: 4px;
         }
-
         .cyber-video-card-title {
             font-size: 16px;
             font-weight: 700;
@@ -1163,7 +1028,6 @@
             margin-bottom: 8px;
             text-shadow: 0 2px 10px rgba(0, 0, 0, 0.8);
         }
-
         .cyber-video-card-desc {
             font-size: 13px;
             color: var(--color-text-muted);
@@ -1171,7 +1035,6 @@
             max-width: 420px;
             line-height: 1.5;
         }
-
         .cyber-video-card-btn {
             background: linear-gradient(135deg, #ef4444, #b91c1c);
             color: #ffffff;
@@ -1187,13 +1050,11 @@
             align-items: center;
             gap: 6px;
         }
-
         .cyber-video-card-btn:hover {
             transform: translateY(-2px);
             box-shadow: 0 6px 24px rgba(239, 68, 68, 0.7);
             filter: brightness(1.1);
         }
-
         @media (max-width: 768px) {
             body { padding: 16px 10px; }
             .cyber-viewer-content {
@@ -1217,7 +1078,6 @@
                 font-size: 11px;
             }
         }
-
         @media (max-width: 480px) {
             .site-title { font-size: 36px; }
             .site-subtitle { font-size: 11px; letter-spacing: 2px; }
@@ -1242,6 +1102,277 @@
                 width: 180px;
                 height: 180px;
             }
+        }
+        .cyber-chart-modal-content {
+            background: linear-gradient(145deg, rgba(16, 16, 26, 0.98), rgba(10, 10, 18, 0.99));
+            border: 1px solid rgba(245, 158, 11, 0.35);
+            border-radius: var(--radius-xl);
+            width: 95vw;
+            max-width: 820px;
+            max-height: 92vh;
+            overflow-y: auto;
+            padding: 24px;
+            box-shadow: 0 0 50px rgba(245, 158, 11, 0.25), 0 25px 60px rgba(0, 0, 0, 0.85);
+            position: relative;
+            animation: modalSlideUp 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+            scrollbar-width: thin;
+            scrollbar-color: rgba(245, 158, 11, 0.4) transparent;
+        }
+        .cyber-chart-modal-content::-webkit-scrollbar { width: 5px; }
+        .cyber-chart-modal-content::-webkit-scrollbar-thumb { background: rgba(245, 158, 11, 0.35); border-radius: 4px; }
+        .chart-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 16px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            gap: 12px;
+        }
+        .chart-header-info {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+        .chart-header-title {
+            font-size: 17px;
+            font-weight: 800;
+            color: #ffffff;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            letter-spacing: -0.3px;
+        }
+        .chart-header-title span.badge-live {
+            background: rgba(34, 197, 94, 0.15);
+            border: 1px solid rgba(34, 197, 94, 0.4);
+            color: #4ade80;
+            font-size: 10.5px;
+            font-weight: 700;
+            padding: 2px 8px;
+            border-radius: 20px;
+            letter-spacing: 0.5px;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+        }
+        .chart-header-title span.badge-live::before {
+            content: '';
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: #22c55e;
+            box-shadow: 0 0 8px #22c55e;
+            animation: qrPulse 1.2s infinite;
+        }
+        .chart-header-desc {
+            font-size: 12px;
+            color: var(--color-text-dim);
+        }
+        .chart-time-tabs {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(0, 0, 0, 0.35);
+            padding: 5px;
+            border-radius: var(--radius-md);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            margin-bottom: 16px;
+            overflow-x: auto;
+            scrollbar-width: none;
+        }
+        .chart-time-tabs::-webkit-scrollbar { display: none; }
+        .chart-tab-btn {
+            background: transparent;
+            border: 1px solid transparent;
+            color: var(--color-text-muted);
+            font-family: var(--font);
+            font-size: 12.5px;
+            font-weight: 600;
+            padding: 7px 14px;
+            border-radius: var(--radius-sm);
+            cursor: pointer;
+            transition: var(--transition);
+            white-space: nowrap;
+            flex: 1;
+            text-align: center;
+        }
+        .chart-tab-btn:hover {
+            color: #ffffff;
+            background: rgba(255, 255, 255, 0.06);
+        }
+        .chart-tab-btn.active {
+            background: linear-gradient(135deg, #f59e0b, #d97706);
+            color: #000000;
+            font-weight: 800;
+            box-shadow: 0 0 16px rgba(245, 158, 11, 0.5);
+            border-color: rgba(250, 204, 21, 0.6);
+        }
+        .chart-svg-wrap {
+            position: relative;
+            background: rgba(0, 0, 0, 0.45);
+            border-radius: var(--radius-md);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            padding: 12px 10px 8px;
+            margin-bottom: 18px;
+            overflow: hidden;
+        }
+        .chart-svg {
+            width: 100%;
+            height: auto;
+            display: block;
+            overflow: visible;
+        }
+        .chart-point-dot {
+            cursor: pointer;
+            transition: r 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .chart-point-dot:hover {
+            r: 7 !important;
+            stroke-width: 3 !important;
+            filter: drop-shadow(0 0 8px rgba(245, 158, 11, 0.8));
+        }
+        @keyframes livePulseAnim {
+            0% { r: 5; opacity: 0.85; stroke-width: 2; }
+            50% { r: 12; opacity: 0.35; stroke-width: 1.5; }
+            100% { r: 18; opacity: 0; stroke-width: 0.5; }
+        }
+        .chart-live-pulse {
+            animation: livePulseAnim 1.6s ease-out infinite;
+            pointer-events: none;
+        }
+        .active-live-dot {
+            filter: drop-shadow(0 0 10px rgba(245, 158, 11, 0.95));
+        }
+        .chart-tooltip {
+            position: absolute;
+            display: none;
+            pointer-events: none;
+            background: rgba(18, 18, 28, 0.95);
+            border: 1px solid rgba(245, 158, 11, 0.6);
+            border-radius: 8px;
+            padding: 8px 12px;
+            font-size: 12px;
+            color: #ffffff;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.8), 0 0 12px rgba(245, 158, 11, 0.3);
+            z-index: 10;
+            transform: translate(-50%, -120%);
+            white-space: nowrap;
+        }
+        .chart-tooltip-time {
+            color: var(--color-text-dim);
+            font-size: 11px;
+            margin-bottom: 3px;
+        }
+        .chart-tooltip-value {
+            color: #facc15;
+            font-weight: 700;
+            font-size: 14px;
+        }
+        .chart-tooltip-bonus {
+            color: #4ade80;
+            font-size: 11px;
+            margin-top: 2px;
+        }
+        .bean-stats-card {
+            background: linear-gradient(135deg, rgba(245, 158, 11, 0.08), rgba(217, 119, 6, 0.03));
+            border: 1px solid rgba(245, 158, 11, 0.3);
+            border-radius: var(--radius-lg);
+            padding: 16px 18px;
+            position: relative;
+            overflow: hidden;
+        }
+        .bean-stats-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; height: 2px;
+            background: linear-gradient(90deg, transparent, #f59e0b, #fbbf24, transparent);
+        }
+        .bean-stats-card-title {
+            font-size: 11.5px;
+            font-weight: 700;
+            color: #facc15;
+            letter-spacing: 1.2px;
+            text-transform: uppercase;
+            margin-bottom: 6px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .bean-total-counter-wrap {
+            display: flex;
+            align-items: baseline;
+            gap: 10px;
+            margin-bottom: 8px;
+            flex-wrap: wrap;
+        }
+        .bean-total-display {
+            font-size: 30px;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            color: #ffffff;
+            font-variant-numeric: tabular-nums;
+            text-shadow: 0 0 20px rgba(245, 158, 11, 0.4);
+        }
+        .bean-unit-badge {
+            background: rgba(245, 158, 11, 0.2);
+            color: #fbbf24;
+            padding: 3px 10px;
+            border-radius: var(--radius-pill);
+            font-weight: 800;
+            font-size: 13px;
+            border: 1px solid rgba(245, 158, 11, 0.4);
+        }
+        .bean-live-surge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 12px;
+            font-weight: 600;
+            color: #4ade80;
+            background: rgba(74, 222, 128, 0.1);
+            border: 1px solid rgba(74, 222, 128, 0.25);
+            padding: 4px 12px;
+            border-radius: var(--radius-pill);
+            margin-bottom: 12px;
+        }
+        .bean-metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 8px;
+            margin-top: 12px;
+            padding-top: 12px;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .bean-metric-item {
+            background: rgba(0, 0, 0, 0.25);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 8px 10px;
+            border-radius: var(--radius-sm);
+        }
+        .bean-metric-label {
+            font-size: 10.5px;
+            color: var(--color-text-dim);
+            margin-bottom: 3px;
+        }
+        .bean-metric-val {
+            font-size: 13px;
+            font-weight: 700;
+            color: var(--color-text);
+        }
+        .bean-metric-val.highlight {
+            color: #facc15;
+        }
+        .tool-link--chart {
+            color: #f59e0b;
+            background: rgba(245, 158, 11, 0.12);
+            border: 1px solid rgba(245, 158, 11, 0.3);
+        }
+        .tool-link--chart:hover {
+            background: rgba(245, 158, 11, 0.25);
+            border-color: rgba(245, 158, 11, 0.6);
+            box-shadow: 0 0 16px rgba(245, 158, 11, 0.3);
+            color: #ffffff;
         }
     </style>
 </head>
@@ -1339,6 +1470,7 @@
             <a href="https://youtu.be/RbrTlZnr_N4" onclick="openInAppViewer(this.href, 'Hướng Dẫn Trở Thành Developer cho người mới'); return false;" class="tool-link tool-link--alt">Hướng Dẫn Trở Thành Developer cho người mới</a>
             <a href="https://youtu.be/vMmsnETNvrI" onclick="openInAppViewer(this.href, 'Hướng Dẫn Cài Đặt Nhận Đậu'); return false;" class="tool-link tool-link--alt">Hướng Dẫn Cài Đặt Nhận Đậu</a>
             <a href="javascript:void(0);" onclick="openbeanModal()" class="tool-link tool-link--primary">Nhận Đậu</a>
+            <a href="javascript:void(0);" onclick="openBeanChartModal()" class="tool-link tool-link--chart">📈 Biểu Đồ Tăng Trưởng Đậu (Live Realtime)</a>
             <p class="tool-note">Liên Hệ Admin Để Nhận Nhanh Hơn So Với Trên Website x100 Lần ,Và Nhận Trên Website Và Liên Hệ Trực Tiếp Sẻ Khác Nhau</p>
             <a href="javascript:void(0);" onclick="toggleAccordion('info');toggleAccordion('toolv2')" class="tool-link tool-link--primary">Liên Hệ Admin</a>
         </div>
@@ -1365,15 +1497,10 @@
     <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
 </div>
 </main>
-
-<!-- ==================== MODALS ==================== -->
-
-<!-- Modal: Tăng Tương Tác Người Theo Dõi -->
 <div id="server2-modal" class="modal-overlay">
     <div class="modal-content">
         <button class="close-btn" onclick="closeAllModal()">&times;</button>
         <h4 class="modal-title">Tăng Tương Tác Người Theo Dõi</h4>
-
         <div class="form-group">
             <label>Nhập UID</label>
             <input type="text" id="uid" placeholder="Nhập UID của bạn..." oninput="validateuid(this)">
@@ -1386,9 +1513,7 @@
             <label>Thành tiền</label>
             <input type="text" id="price-text" readonly value="0vnđ">
         </div>
-
         <button class="btn-main" onclick="createPayment()">Tạo QR Thanh Toán</button>
-
         <div id="payment-box" class="payment-box">
             <p class="payment-box__note">Mua Lớn Hơn 1000 Follow Để Được Tặng Thêm 50-120%</p>
             <h3 class="payment-box__title">Quét mã để thanh toán</h3>
@@ -1405,17 +1530,13 @@
             <div class="qr-status"><span class="qr-status-dot"></span> Sẵn sàng quét</div>
             <p class="payment-box__footer">Hệ Thống Sẽ Tự Động Kích Hoạt Theo Lịch Trình Cách 3 Phút</p>
         </div>
-
         <div class="warning-text">Đang chờ hệ thống... Nếu quá 1 ngày không tăng follow hãy liên hệ admin!</div>
     </div>
 </div>
-
-<!-- Modal: Nâng Cấp Thành Tựu -->
 <div id="server2-medal-modal" class="modal-overlay">
     <div class="modal-content">
         <button class="close-btn" onclick="closeAllModal()">&times;</button>
         <h4 class="modal-title">Nâng Cấp Thành Tựu</h4>
-
         <div class="form-group">
             <label>Nhập UID</label>
             <input type="text" id="medal-uid" placeholder="Nhập UID của bạn..." oninput="validateuid(this)">
@@ -1451,9 +1572,7 @@
             <label>Thành tiền</label>
             <input type="text" id="medal-price-text" readonly value="0vnđ">
         </div>
-
         <button class="btn-main" onclick="createMedalPayment()">Tạo QR Thanh Toán</button>
-
         <div id="medal-payment-box" class="payment-box">
             <h3 class="payment-box__title">Quét mã để thanh toán</h3>
             <p class="payment-box__bank-info">Tài Khoản: <b>19999998765432</b> — Ngân Hàng: <b>MBBank</b></p>
@@ -1468,17 +1587,13 @@
             </div>
             <div class="qr-status"><span class="qr-status-dot"></span> Sẵn sàng quét</div>
         </div>
-
         <div class="warning-text">Đang chờ hệ thống... Nếu quá 15 phút thành tích không tăng hãy liên hệ admin!</div>
     </div>
 </div>
-
-<!-- Modal: Mở Phòng Đám Mây -->
 <div id="server-cloud-modal" class="modal-overlay">
     <div class="modal-content">
         <button class="close-btn" onclick="closeAllModal()">&times;</button>
         <h4 class="modal-title">Mở Phòng Đám Mây</h4>
-
         <div class="form-group">
             <label>Nhập WID Map</label>
             <input type="text" id="cloud-wid" placeholder="Nhớ Nhập Đúng WID Map Khi Tra Ở Profile Account" oninput="validateuid(this)">
@@ -1491,9 +1606,7 @@
             <label>Thành tiền</label>
             <input type="text" id="cloud-price-text" readonly value="0vnđ">
         </div>
-
         <button class="btn-main" onclick="createCloudPayment()">Tạo QR Thanh Toán</button>
-
         <div id="cloud-payment-box" class="payment-box">
             <h3 class="payment-box__title">Quét mã để thanh toán</h3>
             <p class="payment-box__bank-info">Tài Khoản: <b>19999998765432</b> — Ngân Hàng: <b>MBBank</b></p>
@@ -1508,17 +1621,13 @@
             </div>
             <div class="qr-status"><span class="qr-status-dot"></span> Sẵn sàng quét</div>
         </div>
-
         <div class="warning-text">Hệ Thống Sẻ Tự Động Mở Phòng Cloud Theo Thời Gian Cài Đặt!</div>
     </div>
 </div>
-
-<!-- Modal: Mời Người Chơi Đi Tắm Biển -->
 <div id="server-ban-modal" class="modal-overlay">
     <div class="modal-content">
         <button class="close-btn" onclick="closeAllModal()">&times;</button>
         <h4 class="modal-title">Mời Người Chơi Đi Tắm Biển</h4>
-
         <div class="form-group">
             <label>Nhập UID</label>
             <input type="text" id="ban-uid" placeholder="Nhập UID..." oninput="validateuid(this)">
@@ -1531,9 +1640,7 @@
             <label>Thành tiền</label>
             <input type="text" id="ban-price-text" readonly value="0vnđ">
         </div>
-
         <button class="btn-main" onclick="createBanPayment()">Tạo QR Thanh Toán</button>
-
         <div id="ban-payment-box" class="payment-box">
             <h3 class="payment-box__title">Quét mã để thanh toán</h3>
             <p class="payment-box__bank-info">Tài Khoản: <b>19999998765432</b> — Ngân Hàng: <b>MBBank</b></p>
@@ -1548,17 +1655,13 @@
             </div>
             <div class="qr-status"><span class="qr-status-dot"></span> Sẵn sàng quét</div>
         </div>
-
         <div class="warning-text">Hệ Thống Sẻ Tự Động Mời Người Chơi Đi Tắm Biển Theo Thời Gian Cài Đặt!</div>
     </div>
 </div>
-
-<!-- Modal: Tăng Cấp Tối Đa Nhiệm Vụ Tháng -->
 <div id="server-season-modal" class="modal-overlay">
     <div class="modal-content">
         <button class="close-btn" onclick="closeAllModal()">&times;</button>
         <h4 class="modal-title">Tăng Cấp Tối Đa Nhiệm Vụ Tháng</h4>
-
         <div class="form-group">
             <label>Nhập UID</label>
             <input type="text" id="season-uid" placeholder="Nhập UID của bạn..." oninput="validateuid(this)">
@@ -1567,16 +1670,12 @@
             <label>Mã Ghi Chú Đơn Hàng (Chỉ chữ và số)</label>
             <input type="text" id="season-orcode" placeholder="Không chứa ký tự đặc biệt..." oninput="validateAuthword(this)">
         </div>
-
         <div class="warning-text" style="margin-bottom:16px;">Lưu Ý: Nên Sử Dụng Khi Toàn Bộ Nhiệm Vụ Đã Mở!</div>
-
         <div class="form-group">
             <label>Thành tiền</label>
             <input type="text" id="season-price-text" readonly value="30.000vnđ">
         </div>
-
         <button class="btn-main" onclick="createSeasonPayment()">Tạo QR Thanh Toán</button>
-
         <div id="season-payment-box" class="payment-box">
             <p class="payment-box__note">Lưu ý: Nên Sử Dụng Nó Khi Đã Mở Nhiệm Vụ Cuối Cùng.</p>
             <h3 class="payment-box__title">Quét mã để thanh toán</h3>
@@ -1592,16 +1691,16 @@
             </div>
             <div class="qr-status"><span class="qr-status-dot"></span> Sẵn sàng quét</div>
         </div>
-
         <div class="warning-text">Đang chờ hệ thống... Nếu quá 15 phút thành tích không tăng hãy liên hệ admin!</div>
     </div>
 </div>
-
-<!-- Modal: Nhận Đậu -->
 <div id="bean-modal" class="modal-overlay">
     <div class="modal-content">
         <button class="close-btn" onclick="closeAllModal()">&times;</button>
         <h4 class="modal-title">Nhận Đậu</h4>
+        <div style="text-align:center; margin-bottom:14px;">
+            <a href="javascript:void(0);" onclick="openBeanChartModal()" class="tool-link tool-link--chart" style="width:100%; justify-content:center;">📈 Xem Biểu Đồ Tăng Trưởng Đậu (Live Realtime)</a>
+        </div>
 
         <div class="form-group">
             <label>Nhập UID</label>
@@ -1617,9 +1716,7 @@
             <label>Thành tiền</label>
             <input type="text" id="bean-price-text" readonly value="0vnđ">
         </div>
-
         <button class="btn-main" onclick="createbeanPayment()">Tạo QR Thanh Toán</button>
-
         <div id="bean-payment-box" class="payment-box">
             <p class="payment-box__note">Lưu ý: Nhớ Cài Đúng Số Đậu Để Hoạt Động Thành Công!</p>
             <h3 class="payment-box__title">Quét mã để thanh toán</h3>
@@ -1640,13 +1737,10 @@
         <div class="warning-text" style="margin-top:15px;">Sau 10 Giờ Hằng Ngày Lên Trang Developer Miniworld Để Kiểm Tra Tiến Độ, Nếu Lỗi Hãy Liên Hệ Admin!</div>
     </div>
 </div>
-
-<!-- Modal: Nhận Doanh Thu -->
 <div id="coin-modal" class="modal-overlay">
     <div class="modal-content">
         <button class="close-btn" onclick="closeAllModal()">&times;</button>
         <h4 class="modal-title">Nhận Doanh Thu</h4>
-
         <div class="form-group">
             <label>Nhập UID</label>
             <input type="text" id="coin-uid" placeholder="Nhập UID của bạn..." oninput="validateuid(this)">
@@ -1661,9 +1755,7 @@
             <label>Thành tiền</label>
             <input type="text" id="coin-price-text" readonly value="0vnđ">
         </div>
-
         <button class="btn-main" onclick="createcoinPayment()">Tạo QR Thanh Toán</button>
-
         <div id="coin-payment-box" class="payment-box">
             <p class="payment-box__note">Lưu ý: Nhớ Cài Đúng Số Điểm Quảng Cáo Để Hoạt Động Thành Công!</p>
             <h3 class="payment-box__title">Quét mã để thanh toán</h3>
@@ -1684,8 +1776,6 @@
         <div class="warning-text" style="margin-top:15px;">Sau 10 Giờ Hằng Ngày Lên Trang Developer Miniworld Để Kiểm Tra Tiến Độ, Nếu Lỗi Hãy Liên Hệ Admin!</div>
     </div>
 </div>
-
-<!-- ==================== HIGH-TECH CYBER ALERT MODAL ==================== -->
 <div id="cyber-alert-modal" class="modal-overlay" style="z-index: 9999;">
     <div class="cyber-alert-content">
         <div class="cyber-alert-scanline"></div>
@@ -1697,8 +1787,6 @@
         <button class="cyber-alert-btn" onclick="closeCyberAlert()">ĐÃ HIỂU &amp; TIẾP TỤC</button>
     </div>
 </div>
-
-<!-- ==================== HIGH-TECH IN-APP VIEWER MODAL ==================== -->
 <div id="cyber-viewer-modal" class="modal-overlay" style="z-index: 9998;">
     <div class="cyber-viewer-content">
         <div class="qr-corners"><span></span><span></span><span></span><span></span></div>
@@ -1725,15 +1813,70 @@
         </div>
     </div>
 </div>
+<div id="bean-chart-modal" class="modal-overlay" style="z-index: 9995;">
+    <div class="cyber-chart-modal-content">
+        <button class="close-btn" onclick="closeBeanChartModal()">&times;</button>
+        
+        <div class="chart-header">
+            <div class="chart-header-info">
+                <div class="chart-header-title">
+                    <span>📈 Biến Động & Tăng Trưởng Đậu</span>
+                    <span class="badge-live">LIVE REALTIME</span>
+                </div>
+                <div class="chart-header-desc">Hệ thống phân tích tự động Mini World • Cập nhật liên tục thời gian thực</div>
+            </div>
+        </div>
+        <div class="chart-time-tabs">
+            <button type="button" class="chart-tab-btn active" onclick="setBeanTimeframe('live', this)">Live</button>
+            <button type="button" class="chart-tab-btn" onclick="setBeanTimeframe('1h', this)">1 Giờ</button>
+            <button type="button" class="chart-tab-btn" onclick="setBeanTimeframe('1d', this)">1 Ngày</button>
+            <button type="button" class="chart-tab-btn" onclick="setBeanTimeframe('1w', this)">1 Tuần</button>
+            <button type="button" class="chart-tab-btn" onclick="setBeanTimeframe('1m', this)">1 Tháng</button>
+            <button type="button" class="chart-tab-btn" onclick="setBeanTimeframe('1y', this)">1 Năm</button>
+        </div>
+        <div class="chart-svg-wrap">
+            <svg id="bean-chart-svg" class="chart-svg" viewBox="0 0 760 280" preserveAspectRatio="xMidYMid meet"></svg>
+            <div id="chart-tooltip" class="chart-tooltip"></div>
+        </div>
+        <div class="bean-stats-card">
+            <div class="bean-stats-card-title">
+                <span>🏦 TỔNG ĐẬU TÍCH LŨY (TÍNH TỪ 01/01/2026 ĐẾN NAY)</span>
+            </div>
+            <div class="bean-total-counter-wrap">
+                <div class="bean-total-display" id="bean-total-display">0</div>
+                <div class="bean-unit-badge">ĐẬU</div>
+            </div>
+            <div class="bean-live-surge">
+                <span>⚡</span> Chu kỳ vừa cộng: <b id="bean-surge-amount">+2.850 Đậu</b> • Tự động mỗi 1s
+            </div>
+            <div class="bean-metrics-grid">
+                <div class="bean-metric-item">
+                    <div class="bean-metric-label">⏱ Tổng số chu kỳ (30s)</div>
+                    <div class="bean-metric-val highlight" id="bean-cycles-display">0 lần</div>
+                </div>
+                <div class="bean-metric-item">
+                    <div class="bean-metric-label">💎 Mức tăng gốc / chu kỳ</div>
+                    <div class="bean-metric-val">1,500 Đậu</div>
+                </div>
+                <div class="bean-metric-item">
+                    <div class="bean-metric-label">⚡ Tốc độ tích lũy</div>
+                    <div class="bean-metric-val highlight">~5,550 Đậu / phút</div>
+                </div>
+                <div class="bean-metric-item">
+                    <div class="bean-metric-label">🟢 Trạng thái đồng bộ</div>
+                    <div class="bean-metric-val" style="color:#4ade80;">Trực tuyến 100%</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 <script>
     // ===== Config =====
     const BANK_CONFIG = { stk: "19999998765432", bank: "MBBank" };
     const MODAL_IDS = [
         "server2-modal", "server2-medal-modal", "server-cloud-modal",
-        "server-ban-modal", "server-season-modal", "bean-modal", "coin-modal"
+        "server-ban-modal", "server-season-modal", "bean-modal", "coin-modal", "bean-chart-modal"
     ];
-
-    // ===== High-Tech Web Audio Synthesizer =====
     var lastBeepTime = 0;
     function playCyberBeep(type) {
         try {
@@ -1782,8 +1925,325 @@
             }
         } catch (e) {}
     }
-
-    // ===== High-Tech In-App Viewer & Fullscreen Toggle =====
+    const BEAN_START_2026_MS = new Date('2026-01-01T00:00:00Z').getTime();
+    const BEAN_CYCLE_MS = 30000;
+    const BEAN_BASE_AMOUNT = 1500;
+    let currentBeanTf = 'live';
+    let beanLiveTimer = null;
+    let beanCachedPoints = [];
+    let beanActiveHoverIdx = -1;
+    function padZero(n) {
+        return n < 10 ? '0' + n : '' + n;
+    }
+    function formatTimeHHMMSS(d) {
+        return padZero(d.getHours()) + ':' + padZero(d.getMinutes()) + ':' + padZero(d.getSeconds());
+    }
+    function formatTimeHHMM(d) {
+        return padZero(d.getHours()) + ':' + padZero(d.getMinutes());
+    }
+    function formatDateDDMM(d) {
+        return padZero(d.getDate()) + '/' + padZero(d.getMonth() + 1);
+    }
+    function getCycleBonusPercent(cycleIdx) {
+        var hash = Math.sin(cycleIdx * 12.9898 + 78.233) * 43758.5453;
+        var rand = hash - Math.floor(hash);
+        return 50 + Math.round(rand * 70);
+    }
+    function calculateTotalBeansInstant(nowMs) {
+        var elapsedMs = Math.max(0, nowMs - BEAN_START_2026_MS);
+        var totalCycles = Math.floor(elapsedMs / BEAN_CYCLE_MS);
+        var baseTotal = totalCycles * 2775;
+        var prog = (elapsedMs % BEAN_CYCLE_MS) / BEAN_CYCLE_MS;
+        var curBonus = getCycleBonusPercent(totalCycles);
+        var curCycleBeans = Math.round(BEAN_BASE_AMOUNT * (1 + curBonus / 100));
+        var liveTotal = baseTotal + Math.round(curCycleBeans * prog);
+        return {
+            totalCycles: totalCycles,
+            totalBeans: liveTotal,
+            lastAdd: curCycleBeans,
+            lastBonus: curBonus
+        };
+    }
+    function openBeanChartModal() {
+        closeAllModal();
+        var modal = $('bean-chart-modal');
+        if (!modal) return;
+        modal.style.display = 'flex';
+        playCyberBeep('click');
+        currentBeanTf = 'live';
+        setBeanTimeframe('live');
+        updateBeanTotalsUI();
+        if (beanLiveTimer) clearInterval(beanLiveTimer);
+        beanLiveTimer = setInterval(function() {
+            updateBeanTotalsUI();
+            if (currentBeanTf === 'live') {
+                renderBeanChart('live', true);
+            }
+        }, 1000);
+    }
+    function closeBeanChartModal() {
+        var modal = $('bean-chart-modal');
+        if (modal) modal.style.display = 'none';
+        if (beanLiveTimer) {
+            clearInterval(beanLiveTimer);
+            beanLiveTimer = null;
+        }
+        beanActiveHoverIdx = -1;
+        var tip = $('chart-tooltip');
+        if (tip) tip.style.display = 'none';
+    }
+    function setBeanTimeframe(tf, btn) {
+        currentBeanTf = tf;
+        var allBtns = document.querySelectorAll('.chart-tab-btn');
+        allBtns.forEach(function(b) {
+            b.classList.remove('active');
+            if (btn && b === btn) {
+                b.classList.add('active');
+            } else if (!btn && b.getAttribute('onclick') && b.getAttribute('onclick').indexOf("'" + tf + "'") !== -1) {
+                b.classList.add('active');
+            }
+        });
+        playCyberBeep('click');
+        renderBeanChart(tf);
+    }
+    function updateBeanTotalsUI() {
+        var nowMs = Date.now();
+        var data = calculateTotalBeansInstant(nowMs);
+        var totalEl = $('bean-total-display');
+        var cyclesEl = $('bean-cycles-display');
+        var surgeEl = $('bean-surge-amount');
+        if (totalEl) totalEl.textContent = data.totalBeans.toLocaleString('vi-VN');
+        if (cyclesEl) cyclesEl.textContent = data.totalCycles.toLocaleString('vi-VN') + ' lần';
+        if (currentBeanTf === 'live') {
+            var curPhase = (nowMs - BEAN_START_2026_MS) / BEAN_CYCLE_MS;
+            var liveVal = Math.round(Math.max(105, Math.min(495, 300 + Math.sin(curPhase * 0.42) * 115 + Math.cos(curPhase * 0.85 + 1.2) * 65 + Math.sin(curPhase * 1.7 + 0.5) * 35)));
+            if (surgeEl) surgeEl.textContent = '+' + liveVal.toLocaleString('vi-VN') + ' Đậu';
+        } else {
+            if (surgeEl) surgeEl.textContent = '+' + data.lastAdd.toLocaleString('vi-VN') + ' Đậu';
+        }
+    }
+    function generateChartPoints(tf, nowMs) {
+        var points = [];
+        var curCycle = Math.floor((nowMs - BEAN_START_2026_MS) / BEAN_CYCLE_MS);
+        if (tf === 'live') {
+            for (var i = 29; i >= 0; i--) {
+                var t = nowMs - i * BEAN_CYCLE_MS;
+                var c = Math.floor((t - BEAN_START_2026_MS) / BEAN_CYCLE_MS);
+                var cycleProg = ((t - BEAN_START_2026_MS) % BEAN_CYCLE_MS) / BEAN_CYCLE_MS;
+                var phase = c + cycleProg;
+                var w1 = Math.sin(phase * 0.42) * 115;
+                var w2 = Math.cos(phase * 0.85 + 1.2) * 65;
+                var w3 = Math.sin(phase * 1.7 + 0.5) * 35;
+                var k = Math.floor(phase);
+                var frac = phase - k;
+                var h1 = (Math.sin(k * 13.37 + 5.1) * 43758.5453) % 1.0 - 0.5;
+                var h2 = (Math.sin((k + 1) * 13.37 + 5.1) * 43758.5453) % 1.0 - 0.5;
+                var smoothFrac = frac * frac * (3 - 2 * frac);
+                var jitter = (h1 + (h2 - h1) * smoothFrac) * 40;
+                var rawVal = 300 + w1 + w2 + w3 + jitter;
+                var val = Math.round(Math.max(105, Math.min(495, rawVal)));
+                var ptTime = new Date(t);
+                var timeStr = formatTimeHHMMSS(ptTime);
+                var isCurrent = (i === 0);
+                points.push({
+                    label: timeStr,
+                    value: val,
+                    timeText: isCurrent 
+                        ? (timeStr + ' • Đang tích lũy trực tiếp (Chu kỳ #' + c.toLocaleString('vi-VN') + ')')
+                        : (timeStr + ' • Chu kỳ #' + c.toLocaleString('vi-VN')),
+                    isCurrent: isCurrent
+                });
+            }
+        } else if (tf === '1h') {
+            for (var i = 8; i >= 0; i--) {
+                var ptTime = new Date(nowMs - i * 7.5 * 60 * 1000);
+                var timeStr = formatTimeHHMM(ptTime);
+                var tSeed = Math.floor(ptTime.getTime() / 450000);
+                var variance = 0.88 + Math.sin(tSeed * 0.85) * 0.16 + Math.cos(tSeed * 1.7) * 0.08;
+                var val = Math.round(15 * 2775 * variance);
+                points.push({
+                    label: timeStr,
+                    value: val,
+                    timeText: timeStr + ' (Khoảng 7.5 phút)'
+                });
+            }
+        } else if (tf === '1d') {
+            for (var i = 8; i >= 0; i--) {
+                var ptTime = new Date(nowMs - i * 3 * 3600 * 1000);
+                var timeStr = formatTimeHHMM(ptTime);
+                var tSeed = Math.floor(ptTime.getTime() / 10800000);
+                var variance = 0.85 + Math.sin(tSeed * 0.75) * 0.18 + Math.cos(tSeed * 1.5) * 0.09;
+                var val = Math.round(360 * 2775 * variance);
+                points.push({
+                    label: timeStr,
+                    value: val,
+                    timeText: timeStr + ' - ' + formatDateDDMM(ptTime) + ' (Khoảng 3 giờ)'
+                });
+            }
+        } else if (tf === '1w') {
+            var weekProfile = [0.15, 0.22, 0.38, 0.95, 0.45, 0.35, 0.52, 0.68, 0.82];
+            for (var i = 8; i >= 0; i--) {
+                var ptTime = new Date(nowMs - i * 24 * 3600 * 1000);
+                var dateStr = formatDateDDMM(ptTime);
+                var weight = weekProfile[8 - i];
+                var val = Math.round(weight * 5200000 + 1200000);
+                points.push({
+                    label: dateStr,
+                    value: val,
+                    timeText: 'Ngày ' + dateStr + '/' + ptTime.getFullYear()
+                });
+            }
+        } else if (tf === '1m') {
+            var monthProfile = [0.12, 0.20, 0.35, 0.92, 0.30, 0.42, 0.58, 0.74, 0.86];
+            for (var i = 8; i >= 0; i--) {
+                var ptTime = new Date(nowMs - i * 3.75 * 24 * 3600 * 1000);
+                var labelStr = formatDateDDMM(ptTime);
+                var mWeight = monthProfile[8 - i];
+                var val = Math.round(mWeight * 31500000 + 4200000);
+                points.push({
+                    label: labelStr,
+                    value: val,
+                    timeText: 'Mốc ' + labelStr + '/' + ptTime.getFullYear()
+                });
+            }
+        } else if (tf === '1y') {
+            var monthIndices = [0, 1, 2, 4, 5, 6, 8, 9, 10];
+            for (var k = 0; k < 9; k++) {
+                var mIdx = monthIndices[k];
+                var monthStr = 'T' + padZero(mIdx + 1) + '/26';
+                var variance = 0.78 + (mIdx / 10) * 0.42 + Math.sin(mIdx * 0.9) * 0.08;
+                var val = Math.round(86400 * 2775 * variance);
+                points.push({
+                    label: monthStr,
+                    value: val,
+                    timeText: 'Tháng ' + (mIdx + 1) + ' năm 2026'
+                });
+            }
+        }
+        return points;
+    }
+    function renderBeanChart(tf, isLiveTick) {
+        var svg = $('bean-chart-svg');
+        if (!svg) return;
+        var nowMs = Date.now();
+        var points = generateChartPoints(tf, nowMs);
+        beanCachedPoints = points;
+        var width = 760;
+        var height = 280;
+        var padLeft = 85;
+        var padRight = 35;
+        var padTop = 34;
+        var padBottom = 45;
+        var plotW = width - padLeft - padRight;
+        var plotH = height - padTop - padBottom;
+        var baselineY = padTop + plotH;
+        var maxVal = Math.max.apply(null, points.map(function(p) { return p.value; }));
+        if (maxVal <= 0) maxVal = 1000;
+        if (tf === 'live') {
+            maxVal = 600;
+        } else {
+            var mag = Math.pow(10, Math.floor(Math.log10(maxVal)));
+            maxVal = Math.ceil((maxVal * 1.35) / mag) * mag;
+        }
+        var minVal = 0;
+        var yTicks = [0, maxVal * 0.25, maxVal * 0.5, maxVal * 0.75, maxVal];
+        var coords = points.map(function(p, idx) {
+            var x = padLeft + (idx / (points.length - 1)) * plotW;
+            var y = padTop + plotH - ((p.value - minVal) / (maxVal - minVal)) * plotH;
+            return { x: x, y: y, data: p };
+        });
+        var curvePath = '';
+        if (coords.length > 1) {
+            curvePath = 'M ' + coords[0].x.toFixed(1) + ' ' + coords[0].y.toFixed(1);
+            for (var i = 0; i < coords.length - 1; i++) {
+                var p0 = coords[i === 0 ? 0 : i - 1];
+                var p1 = coords[i];
+                var p2 = coords[i + 1];
+                var p3 = coords[i + 2 < coords.length ? i + 2 : i + 1];
+                var cp1x = p1.x + (p2.x - p0.x) / 6;
+                var cp1y = p1.y + (p2.y - p0.y) / 6;
+                var cp2x = p2.x - (p3.x - p1.x) / 6;
+                var cp2y = p2.y - (p3.y - p1.y) / 6;
+                cp1y = Math.max(padTop + 6, Math.min(baselineY, cp1y));
+                cp2y = Math.max(padTop + 6, Math.min(baselineY, cp2y));
+                curvePath += ' C ' + cp1x.toFixed(1) + ' ' + cp1y.toFixed(1) + ', ' + cp2x.toFixed(1) + ' ' + cp2y.toFixed(1) + ', ' + p2.x.toFixed(1) + ' ' + p2.y.toFixed(1);
+            }
+        }
+        var areaPath = curvePath 
+            ? (curvePath + ' L ' + coords[coords.length - 1].x.toFixed(1) + ' ' + baselineY + ' L ' + coords[0].x.toFixed(1) + ' ' + baselineY + ' Z')
+            : '';
+        var svgHtml = [
+            '<defs>',
+            '  <linearGradient id="beanCurveGrad" x1="0" y1="0" x2="0" y2="1">',
+            '    <stop offset="0%" stop-color="#f59e0b" stop-opacity="0.32"/>',
+            '    <stop offset="85%" stop-color="#f59e0b" stop-opacity="0.03"/>',
+            '    <stop offset="100%" stop-color="#f59e0b" stop-opacity="0.0"/>',
+            '  </linearGradient>',
+            '  <filter id="beanGlow" x="-20%" y="-20%" width="140%" height="140%">',
+            '    <feGaussianBlur stdDeviation="3" result="blur"/>',
+            '    <feComposite in="SourceGraphic" in2="blur" operator="over"/>',
+            '  </filter>',
+            '</defs>'
+        ];
+        yTicks.forEach(function(tick) {
+            var yPos = padTop + plotH - ((tick - minVal) / (maxVal - minVal)) * plotH;
+            svgHtml.push('<line x1="' + padLeft + '" y1="' + yPos.toFixed(1) + '" x2="' + (padLeft + plotW) + '" y2="' + yPos.toFixed(1) + '" stroke="rgba(255,255,255,0.06)" stroke-width="1" stroke-dasharray="4 4" />');
+            svgHtml.push('<text x="' + (padLeft - 10) + '" y="' + (yPos + 4).toFixed(1) + '" text-anchor="end" fill="rgba(255,255,255,0.45)" font-size="11" font-family="sans-serif">' + Math.round(tick).toLocaleString('en-US') + '</text>');
+        });
+        svgHtml.push('<line x1="' + padLeft + '" y1="' + baselineY + '" x2="' + (padLeft + plotW) + '" y2="' + baselineY + '" stroke="#f59e0b" stroke-width="2" />');
+        if (areaPath) svgHtml.push('<path d="' + areaPath + '" fill="url(#beanCurveGrad)" />');
+        if (curvePath) svgHtml.push('<path d="' + curvePath + '" fill="none" stroke="#f59e0b" stroke-width="3" stroke-linecap="round" filter="url(#beanGlow)" />');
+        var isLive = (tf === 'live');
+        coords.forEach(function(pt, idx) {
+            var isCurrent = isLive && (idx === coords.length - 1);
+            var shouldShowLabel = !isLive || (idx % 5 === 0) || isCurrent;
+            if (shouldShowLabel) {
+                var labelColor = isCurrent ? '#f59e0b' : 'rgba(255,255,255,0.6)';
+                var labelWeight = isCurrent ? 'bold' : 'normal';
+                svgHtml.push('<text x="' + pt.x.toFixed(1) + '" y="' + (baselineY + 22) + '" text-anchor="middle" fill="' + labelColor + '" font-size="' + (isLive ? '10' : '11') + '" font-weight="' + labelWeight + '" font-family="sans-serif">' + pt.data.label + '</text>');
+            }
+            if (isCurrent) {
+                svgHtml.push('<circle cx="' + pt.x.toFixed(1) + '" cy="' + pt.y.toFixed(1) + '" r="8" fill="rgba(245, 158, 11, 0.35)" stroke="#f59e0b" stroke-width="1.5" class="chart-live-pulse" />');
+                svgHtml.push('<circle cx="' + pt.x.toFixed(1) + '" cy="' + pt.y.toFixed(1) + '" r="5.5" fill="#ffffff" stroke="#f59e0b" stroke-width="3" class="chart-point-dot active-live-dot" data-idx="' + idx + '" />');
+            } else {
+                var dotRadius = isLive ? 3.2 : 4.5;
+                var dotStroke = isLive ? 1.8 : 2.5;
+                svgHtml.push('<circle cx="' + pt.x.toFixed(1) + '" cy="' + pt.y.toFixed(1) + '" r="' + dotRadius + '" fill="#ffffff" stroke="#f59e0b" stroke-width="' + dotStroke + '" class="chart-point-dot" data-idx="' + idx + '" />');
+            }
+        });
+        svg.innerHTML = svgHtml.join('\n');
+        var tip = $('chart-tooltip');
+        var wrap = svg.parentElement;
+        var dots = svg.querySelectorAll('.chart-point-dot');
+        function updateTooltipPos(idx) {
+            var pt = coords[idx];
+            if (!pt || !tip) return;
+            tip.innerHTML = '<div class="chart-tooltip-time">' + pt.data.timeText + '</div>'
+                          + '<div class="chart-tooltip-value">+' + pt.data.value.toLocaleString('vi-VN') + ' Đậu</div>';
+            var wrapRect = wrap.getBoundingClientRect();
+            var dot = svg.querySelector('.chart-point-dot[data-idx="' + idx + '"]');
+            if (!dot) return;
+            var dotRect = dot.getBoundingClientRect();
+            var leftPos = dotRect.left - wrapRect.left + dotRect.width / 2;
+            var topPos = dotRect.top - wrapRect.top - 8;
+            tip.style.left = leftPos + 'px';
+            tip.style.top = topPos + 'px';
+            tip.style.display = 'block';
+        }
+        dots.forEach(function(dot) {
+            dot.addEventListener('mouseenter', function(e) {
+                beanActiveHoverIdx = parseInt(this.getAttribute('data-idx'));
+                updateTooltipPos(beanActiveHoverIdx);
+            });
+            dot.addEventListener('mouseleave', function() {
+                beanActiveHoverIdx = -1;
+                if (tip) tip.style.display = 'none';
+            });
+        });
+        if (beanActiveHoverIdx >= 0 && beanActiveHoverIdx < coords.length) {
+            updateTooltipPos(beanActiveHoverIdx);
+        }
+    }
     function toggleViewerFullscreen() {
         var modal = $('cyber-viewer-modal');
         var content = modal ? modal.querySelector('.cyber-viewer-content') : null;
@@ -1803,7 +2263,6 @@
             if (btn) btn.title = 'Phóng to toàn màn hình';
         }
     }
-
     function openInAppViewer(url, title) {
         playCyberBeep('open');
         var modal = $('cyber-viewer-modal');
@@ -1858,8 +2317,6 @@
         if (icon) icon.innerText = '⛶';
         if (text) text.innerText = 'Phóng to';
     }
-
-    // ===== High-Tech Cyber Alert Modal =====
     function cyberAlert(message, customTitle, customIcon) {
         playCyberBeep('alert');
         var modal = $('cyber-alert-modal');
@@ -1895,7 +2352,6 @@
     function buildQrUrl(amount, orderCode) {
         return `https://qr.sepay.vn/img?acc=${BANK_CONFIG.stk}&bank=${BANK_CONFIG.bank}&amount=${amount}&des=${orderCode}`;
     }
-
     function showPaymentBox(prefix, orderCode, price) {
         var boxId = prefix ? prefix + "-payment-box" : "payment-box";
         var codeId = prefix ? prefix + "-content-text" : "content-text";
@@ -1932,7 +2388,6 @@
             }
         }
     }
-
     function parseAndValidateUid(uidStr) {
         var raw = parseInt(uidStr) || 0;
         if (raw <= 0 || raw > 1000000000) {
@@ -1941,7 +2396,6 @@
         }
         return raw;
     }
-
     function padUid(raw) { return raw + 1000000000; }
     function validateAuthword(input) { input.value = input.value.replace(/[^a-zA-Z0-9]/g, ''); }
     function validateuid(input) { input.value = input.value.replace(/[^0-9]/g, ''); }
